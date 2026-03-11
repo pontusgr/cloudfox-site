@@ -340,7 +340,7 @@ export default function Cloudfox() {
                     "Cloudfox leds av Pontus Granborg, lösningsarkitekt med 20+ års erfarenhet av ERP, verksamhetsapplikationer och automation. Varje uppdrag leds personligen — inga junioröverlämnanden, ingen outsourcad leverans."
                   )}
                 </p>
-                <a href="https://www.linkedin.com/in/pontusgranborg/" target="_blank" rel="noreferrer"
+                <a href="https://www.linkedin.com/company/cloudfox-group/" target="_blank" rel="noreferrer"
                   style={{ display: "inline-flex", alignItems: "center", gap: 6, marginTop: 24, fontSize: 15, fontWeight: 700, color: ac }}>
                   {L("View profile on LinkedIn", "Se profil på LinkedIn")} <span>↗</span>
                 </a>
@@ -423,7 +423,7 @@ export default function Cloudfox() {
               </div>
               <div>
                 <div style={{ fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".1em", color: d, marginBottom: 12 }}>{L("Connect", "Kontakt")}</div>
-                <a href="https://www.linkedin.com/in/pontusgranborg/" target="_blank" rel="noreferrer" style={{ display: "block", fontSize: 14, color: m, marginBottom: 8 }}>LinkedIn ↗</a>
+                <a href="https://www.linkedin.com/company/cloudfox-group/" target="_blank" rel="noreferrer" style={{ display: "block", fontSize: 14, color: m, marginBottom: 8 }}>LinkedIn ↗</a>
                 <a href="mailto:info@cloudfox.se" style={{ display: "block", fontSize: 14, color: m, marginBottom: 8 }}>info@cloudfox.se</a>
                 <span style={{ display: "block", fontSize: 14, color: m }}>Stockholm, Sweden</span>
               </div>
