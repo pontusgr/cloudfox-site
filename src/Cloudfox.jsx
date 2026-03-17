@@ -255,8 +255,8 @@ export default function Cloudfox() {
           <R delay={0.08}>
             <p style={{ marginTop: 28, fontSize: "clamp(1rem, 1.5vw, 1.15rem)", lineHeight: 1.65, color: m, maxWidth: "52em" }}>
               {L(
-                "Most companies have processes that fall outside their business system — approval flows via email, deviation reports in Excel or manual purchasing processes. Previously it was too expensive to fix. Now it takes weeks.",
-                "De flesta företag har processer som faller utanför affärssystemet — godkännandeflöden via mail, avvikelserapporter i Excel eller manuella inköpsprocesser. Tidigare var det för dyrt att åtgärda. Nu räcker det med veckor."
+                "Most companies have processes that fall outside their business system — approval flows via email, deviation reports in Excel or manual purchasing processes. Previously it was too expensive to fix. AI-native development changed that. Now it takes weeks.",
+                "De flesta företag har processer som faller utanför affärssystemet — godkännandeflöden via mail, avvikelserapporter i Excel eller manuella inköpsprocesser. Tidigare var det för dyrt att åtgärda. AI-native utveckling har förändrat det. Nu räcker det med veckor."
               )}
             </p>
           </R>
