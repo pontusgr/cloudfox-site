@@ -36,86 +36,34 @@ export default function Cloudfox() {
   /* ── DATA ── */
 
   const phases = lang === "sv" ? [
-    { n: "01", title: "Analys", text: "Vi kartlägger arbetsflödet, identifierar friktion och visar exakt var mjukvara, automation eller AI skapar snabbast operativ förbättring." },
+    { n: "01", title: "Analys", text: "Vi hjälper er identifiera vad som faller utanför affärssystemet och vad det kostar er i tid och friktion varje dag." },
     { n: "02", title: "Första fungerande version", text: "Inom 2–4 veckor levereras en användbar version som valideras i verklig drift — inte i kravmöten." },
-    { n: "03", title: "Iteration och skalning", text: "Vi itererar snabbt baserat på feedback, integrerar med befintliga system och skalar utifrån mätbart affärsvärde." },
+    { n: "03", title: "Löpande förbättring och support", text: "Vi hanterar support och underhåll i 12 månader och vidareutvecklar när verksamheten kräver det." },
   ] : [
-    { n: "01", title: "Analysis", text: "We map the workflow, identify friction and show exactly where software, automation or AI creates the fastest operational improvement." },
+    { n: "01", title: "Analysis", text: "We help you identify what falls outside your business system and what it costs you in time and friction every day." },
     { n: "02", title: "First working version", text: "Within 2–4 weeks we deliver a usable version validated in real operations — not in requirement meetings." },
-    { n: "03", title: "Iteration & scale", text: "We iterate quickly based on feedback, integrate with existing systems and scale based on measurable business value." },
+    { n: "03", title: "Ongoing improvement & support", text: "We handle support and maintenance for 12 months and continue to develop as your business requires." },
   ];
 
   const pillars = lang === "sv" ? [
     { title: "Upp till 80% snabbare", text: "AI‑driven utveckling med senior arkitektur minskar leveranstiden kraftigt. Projekt som tar månader kan levereras på veckor." },
-    { title: "Bättre lösningar", text: "AI accelererar implementationen men erfarna arkitekter designar lösningen. Bättre arbetsflöden, renare arkitektur, rätt anpassning." },
-    { title: "Betala bara när du är nöjd", text: "Vi levererar i milstolpar. Nöjd vid godkänd leverans = du betalar. Inte nöjd = vi itererar tills du är det. Möjligt för att AI‑native utveckling gör iteration radikalt billigare — en strukturell fördel som traditionella konsulter inte kan matcha." },
+    { title: "Rätt lösning", text: "AI skriver koden. Vi förstår verksamheten. Det är skillnaden mellan något som fungerar i demo och något som fungerar i verkligheten." },
+    { title: "Betala bara när du är nöjd", text: "Vi levererar i milstolpar. Du godkänner varje steg. Betalar bara när du är nöjd." },
   ] : [
     { title: "Up to 80% faster", text: "AI‑native development with senior architecture dramatically compresses delivery. Months become weeks." },
-    { title: "Better solutions", text: "AI accelerates implementation but experienced architects design the solution. Better workflows, cleaner architecture, right fit." },
-    { title: "Pay only when satisfied", text: "We deliver in milestones. Satisfied at sign-off = you pay. Not satisfied = we iterate until you are. Possible because AI‑native development makes iteration radically cheaper — a structural advantage traditional consultants can't match." },
+    { title: "The right solution", text: "AI writes the code. We understand the business. That is the difference between something that works in a demo and something that works in reality." },
+    { title: "Pay only when satisfied", text: "We deliver in milestones. You approve each step. Pay only when you are satisfied." },
   ];
 
   /* Merged: "Engagements" + "What we build" → one strong section */
   const solutions = lang === "sv" ? [
-    { title: "Workflow‑automation", text: "Ersätta manuella processer i e‑post, Excel och fristående system med strukturerade digitala arbetsflöden och tydligare ägarskap.", tag: "Automation" },
-    { title: "ERP‑kompletteringar", text: "Praktiska applikationer runt ERP‑miljön för det standardsystemet inte täcker — godkännanden, rapportering, inköp, dokumenthantering.", tag: "Integration" },
-    { title: "AI‑stödda verksamhetsflöden", text: "AI för dokumenthantering, klassificering, beslutsstöd och snabbare interna processer — där det ger praktiskt värde.", tag: "AI" },
+    { title: "Manuella processer", text: "Vi ersätter manuella processer i e-post och Excel med strukturerade digitala flöden — med tydligt ägarskap och automatiska notifieringar.", tag: "Automation" },
+    { title: "Affärssystemskompletteringar", text: "Praktiska applikationer runt affärssystemet för det standardsystemet inte täcker — godkännanden, rapportering, inköp, dokumenthantering.", tag: "Integration" },
+    { title: "Rapportering och beslutsstöd", text: "Dashboards, automatiska rapporter och beslutsstöd som ger er rätt information vid rätt tidpunkt — utan manuell sammanställning.", tag: "Rapportering" },
   ] : [
-    { title: "Workflow automation", text: "Replace manual processes in email, spreadsheets and disconnected systems with structured digital workflows and clearer ownership.", tag: "Automation" },
-    { title: "ERP extensions", text: "Practical applications around the ERP for what the standard system doesn't cover — approvals, reporting, procurement, document handling.", tag: "Integration" },
-    { title: "AI‑powered workflows", text: "AI for document processing, classification, decision support and faster internal processes — where it creates practical value.", tag: "AI" },
-  ];
-
-  const cases = lang === "sv" ? [
-    {
-      industry: "Detaljhandel",
-      title: "Kampanjsystem",
-      problem: "Kampanjhantering sköttes i Excel och e-post — tidskrävande, felbenäget och svårt att följa upp.",
-      solution: "Integrerat kampanjsystem kopplat mot kassasystem och ERP med automatiska prisuppdateringar och statusspårning.",
-      weeks: "4 veckor",
-      traditional: "4–6 månader",
-    },
-    {
-      industry: "Logistik",
-      title: "Avvikelsehantering",
-      problem: "Transportskador och leveransavvikelser rapporterades via e-post och hanterades manuellt i Excel.",
-      solution: "Strukturerat ärendesystem med automatiska notifieringar, spårning per ärende och koppling mot kundregister.",
-      weeks: "3 veckor",
-      traditional: "3–5 månader",
-    },
-    {
-      industry: "Fastighet",
-      title: "Besiktningsrapporter",
-      problem: "Besiktningsmän fyllde i pappersformulär på plats — rapporter knappades sedan in manuellt på kontoret.",
-      solution: "Mobilapp för digital besiktning med automatisk rapportgenerering, signering och arkivering.",
-      weeks: "3 veckor",
-      traditional: "3–4 månader",
-    },
-  ] : [
-    {
-      industry: "Retail",
-      title: "Campaign management system",
-      problem: "Campaign management was handled in Excel and email — time-consuming, error-prone and hard to follow up.",
-      solution: "Integrated campaign system connected to POS and ERP with automatic price updates and status tracking.",
-      weeks: "4 weeks",
-      traditional: "4–6 months",
-    },
-    {
-      industry: "Logistics",
-      title: "Deviation handling",
-      problem: "Transport damage and delivery deviations were reported via email and handled manually in spreadsheets.",
-      solution: "Structured case management system with automatic notifications, per-case tracking and customer register integration.",
-      weeks: "3 weeks",
-      traditional: "3–5 months",
-    },
-    {
-      industry: "Real estate",
-      title: "Inspection reports",
-      problem: "Inspectors filled in paper forms on-site — reports were then manually re-entered at the office.",
-      solution: "Mobile app for digital inspections with automatic report generation, signing and archiving.",
-      weeks: "3 weeks",
-      traditional: "3–4 months",
-    },
+    { title: "Manual processes", text: "We replace manual processes in email and Excel with structured digital flows — with clear ownership and automatic notifications.", tag: "Automation" },
+    { title: "Business system extensions", text: "Practical applications around the business system for what it doesn't cover — approvals, reporting, procurement, document handling.", tag: "Integration" },
+    { title: "Reporting & decision support", text: "Dashboards, automatic reports and decision support that give you the right information at the right time — without manual compilation.", tag: "Reporting" },
   ];
 
   const quality = lang === "sv" ? [
@@ -131,8 +79,8 @@ export default function Cloudfox() {
     },
     {
       icon: "🏗️",
-      title: "Arkitekturellt omdöme",
-      text: "AI gör det ni ber om — inte alltid vad ni borde be om. En senior arkitekt designar och validerar strukturen i varje leverans, så att systemet är underhållbart och skalbart när verksamheten växer.",
+      title: "Rätt byggd från start",
+      text: "AI gör det ni ber om — inte alltid det ni borde be om. Vi designar och validerar strukturen så att systemet är enkelt att förvalta och bygga vidare på.",
     },
   ] : [
     {
@@ -147,95 +95,73 @@ export default function Cloudfox() {
     },
     {
       icon: "🏗️",
-      title: "Architectural judgment",
-      text: "AI does what you ask — not always what you should ask for. A senior architect designs and validates the structure of every delivery, so the system stays maintainable and scalable as your business grows.",
+      title: "Built right from the start",
+      text: "AI does what you ask — not always what you should ask for. We design and validate the structure so the system is easy to maintain and build on.",
     },
   ];
 
-  const benefits = lang === "sv" ? [
-    "Upp till 80% snabbare leverans jämfört med traditionella konsultprojekt",
-    "Högre kvalitet genom senior arkitektstyrning i varje steg",
-    "Noll risk — du betalar bara när du är nöjd med resultatet",
-    "Fungerande första version inom veckor, inte månader",
-  ] : [
-    "Up to 80% faster delivery compared to traditional consulting",
-    "Higher quality through senior architect oversight at every step",
-    "Zero risk — you only pay when you're satisfied with the result",
-    "Working first version in weeks, not months",
-  ];
-
   const deliverables = lang === "sv" ? [
-    { icon: "💻", text: "Fullständig källkod — ni äger allt" },
+    { icon: "💻", text: "Ni äger lösningen helt och hållet" },
     { icon: "📄", text: "Teknisk dokumentation och driftsinstruktioner" },
     { icon: "🧪", text: "Automatiserade tester och testmiljö" },
     { icon: "🔒", text: "Säkerhetsgranskningsrapport" },
     { icon: "🚀", text: "Driftsatt lösning i er miljö" },
-    { icon: "🤝", text: "30 dagars support efter leverans" },
+    { icon: "🤝", text: "12 månaders support efter leverans" },
     { icon: "🔧", text: "Löpande support och underhåll — vi finns kvar när ni behöver oss" },
   ] : [
-    { icon: "💻", text: "Full source code — you own everything" },
+    { icon: "💻", text: "You own the solution completely" },
     { icon: "📄", text: "Technical documentation and operating instructions" },
     { icon: "🧪", text: "Automated tests and test environment" },
     { icon: "🔒", text: "Security review report" },
     { icon: "🚀", text: "Deployed solution in your environment" },
-    { icon: "🤝", text: "30 days of post-delivery support" },
+    { icon: "🤝", text: "12 months of post-delivery support" },
     { icon: "🔧", text: "Ongoing support and maintenance — we're there when you need us" },
   ];
 
   const faq = lang === "sv" ? [
     {
-      q: "Hur fungerar \"0 kr om inte nöjd\" i praktiken?",
-      a: "Vi levererar i överenskomna milstolpar. Ni testar i er verkliga miljö och godkänner leveransen. Om ni inte är nöjda med slutresultatet betalar ni ingenting — full återbetalning, inga diskussioner. Vi tar den risken för att vi vet att vi levererar.",
-    },
-    {
-      q: "Vem äger koden efter leverans?",
-      a: "Ni. Fullständig källkod överlämnas vid godkänd leverans. Inga licensavgifter, ingen inlåsning, inga dolda beroenden mot oss.",
-    },
-    {
-      q: "Vad händer om vi vill ha ändringar efter leverans?",
-      a: "Ändringar inom 30 dagar efter leverans ingår. Därefter erbjuder vi löpande support och underhåll — antingen som ett fast månadsavtal eller vid behov. Vidareutveckling hanteras som nya uppdrag och går snabbt eftersom vi redan känner er miljö och kodbas.",
-    },
-    {
-      q: "Vilken teknik använder ni?",
-      a: "Vi utvecklar med Claude Code — Anthropics AI-verktyg för professionell mjukvaruutveckling — vilket ger oss den leveranshastighet vi lovar. Koden driftsätts i er befintliga miljö: Azure, AWS, Google Cloud eller on-premise. Vi integrerar mot de system ni redan har — ERP som Business Central och SAP, databaser, API:er och interna verktyg. Ni slipper byta plattform eller låsa er till ny infrastruktur. All kod testas med automatiserade tester som körs mot er verkliga datamiljö — inte en isolerad demo — och granskas av senior arkitekt innan leverans.",
-    },
-    {
       q: "Passar det här för oss?",
       a: "Ni passar bra om ni har en operativ process som idag körs i Excel, e-post eller separata system — och vet att den borde vara automatiserad men aldrig fått det att hända. Kanske för att det känts för dyrt, för komplext eller för tidskrävande att upphandla. Vi löser exakt det, utan ett halvårslångt konsultprojekt. Vi arbetar främst med operativa bolag i storleksordningen 50–500 anställda.",
     },
+    {
+      q: "Vilken teknik använder ni?",
+      a: "Vi utvecklar med Claude Code — Anthropics AI-verktyg för professionell mjukvaruutveckling — vilket ger oss den leveranshastighet vi lovar. Koden driftsätts i er befintliga miljö: Azure, AWS, Google Cloud eller on-premise. Vi integrerar mot de system ni redan har — affärssystem som Business Central och SAP, databaser, API:er och interna verktyg. Ni slipper byta plattform eller låsa er till ny infrastruktur. All kod testas med automatiserade tester som körs mot er verkliga datamiljö — inte en isolerad demo — och granskas av senior arkitekt innan leverans.",
+    },
+    {
+      q: "Vem äger lösningen efter leverans?",
+      a: "Ni. Lösningen överlämnas fullständigt vid godkänd leverans. Inga licensavgifter, ingen inlåsning, inga dolda beroenden mot oss.",
+    },
+    {
+      q: "Vad händer om vi vill ha ändringar efter leverans?",
+      a: "Support och underhåll ingår i 12 månader efter leverans. Vidareutveckling hanteras som nya uppdrag och går snabbt eftersom vi redan känner er miljö och lösning.",
+    },
+    {
+      q: "Hur fungerar betalmodellen i praktiken?",
+      a: "Vi levererar i överenskomna milstolpar. Ni testar i er verkliga miljö och godkänner leveransen. Om ni inte är nöjda med slutresultatet betalar ni ingenting — full återbetalning, inga diskussioner. Vi tar den risken för att vi vet att vi levererar.",
+    },
   ] : [
-    {
-      q: "How does \"0 if not satisfied\" work in practice?",
-      a: "We deliver in agreed milestones. You test in your real environment and approve the delivery. If you're not satisfied with the final result, you pay nothing — full refund, no discussion. We take that risk because we know we deliver.",
-    },
-    {
-      q: "Who owns the code after delivery?",
-      a: "You do. Full source code is handed over at approved delivery. No licence fees, no lock-in, no hidden dependencies on us.",
-    },
-    {
-      q: "What if we want changes after delivery?",
-      a: "Changes within 30 days of delivery are included. After that, we offer ongoing support and maintenance — either as a fixed monthly agreement or on demand. Further development is handled as new engagements and moves quickly since we already know your environment and codebase.",
-    },
-    {
-      q: "What technology do you use?",
-      a: "We develop using Claude Code — Anthropic's AI tool for professional software development — which gives us the delivery speed we promise. The code is deployed in your existing environment: Azure, AWS, Google Cloud or on-premise. We integrate with the systems you already have — ERPs like Business Central and SAP, databases, APIs and internal tools. No platform migration, no new infrastructure lock-in. All code is tested with automated tests running against your real data environment — not an isolated demo — and reviewed by a senior architect before delivery.",
-    },
     {
       q: "Is this right for us?",
       a: "You're a good fit if you have an operational process currently running in Excel, email or disconnected systems — and know it should be automated but it's never happened. Maybe because it felt too expensive, too complex or too slow to procure. That's exactly what we solve, without a six-month consulting project. We primarily work with operational companies in the 50–500 employee range.",
     },
+    {
+      q: "What technology do you use?",
+      a: "We develop using Claude Code — Anthropic's AI tool for professional software development — which gives us the delivery speed we promise. The code is deployed in your existing environment: Azure, AWS, Google Cloud or on-premise. We integrate with the systems you already have — business systems like Business Central and SAP, databases, APIs and internal tools. No platform migration, no new infrastructure lock-in. All code is tested with automated tests running against your real data environment — not an isolated demo — and reviewed by a senior architect before delivery.",
+    },
+    {
+      q: "Who owns the solution after delivery?",
+      a: "You do. The solution is handed over completely at approved delivery. No licence fees, no lock-in, no hidden dependencies on us.",
+    },
+    {
+      q: "What if we want changes after delivery?",
+      a: "Support and maintenance is included for 12 months after delivery. Further development is handled as new engagements and moves quickly since we already know your environment and solution.",
+    },
+    {
+      q: "How does the payment model work in practice?",
+      a: "We deliver in agreed milestones. You test in your real environment and approve the delivery. If you're not satisfied with the final result, you pay nothing — full refund, no discussion. We take that risk because we know we deliver.",
+    },
   ];
 
-  /* Social proof */
-  const proofPoints = lang === "sv" ? [
-    { val: "20+", label: "års erfarenhet av ERP och verksamhetssystem" },
-    { val: "100+", label: "levererade applikationer via traditionell utveckling och Power Platform" },
-    { val: "80%", label: "snabbare leverans med AI‑accelererad metod" },
-  ] : [
-    { val: "20+", label: "years of ERP and operations experience" },
-    { val: "100+", label: "applications delivered via traditional development and Power Platform" },
-    { val: "80%", label: "faster delivery with AI‑accelerated methods" },
-  ];
 
   useEffect(() => {
     if (document.getElementById("cf-f3")) return;
@@ -289,15 +215,6 @@ export default function Cloudfox() {
             cloudfox<span style={{ color: ac }}>.</span>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
-            <div style={{ display: "none", gap: 24, alignItems: "center" }} className="cx3-nav-links">
-              {[
-                { label: L("How we work", "Hur vi arbetar"), href: "#how" },
-                { label: L("Cases", "Kundcase"), href: "#cases" },
-                { label: L("FAQ", "FAQ"), href: "#faq" },
-              ].map(link => (
-                <a key={link.href} href={link.href} style={{ fontSize: 13, color: m, fontWeight: 500 }}>{link.label}</a>
-              ))}
-            </div>
             <div style={{ display: "flex", gap: 2 }}>
               {["sv", "en"].map(l => (
                 <button key={l} onClick={() => setLang(l)} style={{
@@ -309,7 +226,7 @@ export default function Cloudfox() {
             </div>
             <a href="#contact"
               className="cx3-btn" style={{ fontSize: 13, padding: "8px 22px", background: ac, color: "#fff" }}>
-              {L("Get started", "Kom igång")}
+              {L("Book a call", "Boka ett samtal")}
             </a>
           </div>
         </div>
@@ -327,19 +244,19 @@ export default function Cloudfox() {
 
         <div style={{ position: "relative", padding: `clamp(2.5rem, 5vw, 4rem) ${pad} clamp(3rem, 5vw, 4.5rem)` }}>
           <R>
-            <Label>{L("AI‑accelerated delivery", "AI‑accelererad leverans")}</Label>
+            <Label>{L("Beyond your business system", "Där affärssystemet slutar")}</Label>
           </R>
           <R delay={0.04}>
             <h1 style={{ fontSize: "clamp(2rem, 4.5vw, 4rem)", fontWeight: 600, letterSpacing: "-.03em", lineHeight: 1.05 }}>
-              {L("Build operational software up to 80% faster ", "Bygg verksamhets\u00ADapplikationer upp till 80% snabbare ")}
-              <span style={{ color: ac }}>{L("without risk.", "utan risk.")}</span>
+              {L("We build what your business system doesn't cover. ", "Vi bygger det affärssystemet inte täcker. ")}
+              <span style={{ color: ac }}>{L("In weeks, not months.", "På veckor, inte månader.")}</span>
             </h1>
           </R>
           <R delay={0.08}>
             <p style={{ marginTop: 28, fontSize: "clamp(1rem, 1.5vw, 1.15rem)", lineHeight: 1.65, color: m, maxWidth: "52em" }}>
               {L(
-                "We help companies replace slow consulting projects with faster delivery of internal tools, automation and operational software. You pay only when satisfied — made possible by AI‑native development that makes iteration radically cheaper.",
-                "Vi hjälper företag ersätta långsamma konsultprojekt med snabbare leverans av interna applikationer, automation och verksamhetsstöd. Du betalar bara när du är nöjd — möjligt tack vare AI‑native utveckling som gör iteration radikalt billigare."
+                "Most companies have processes that fall outside their business system — approval flows via email, deviation reports in Excel or manual purchasing processes. Previously it was too expensive to fix. Now it takes weeks.",
+                "De flesta företag har processer som faller utanför affärssystemet — godkännandeflöden via mail, avvikelserapporter i Excel eller manuella inköpsprocesser. Tidigare var det för dyrt att åtgärda. Nu räcker det med veckor."
               )}
             </p>
           </R>
@@ -347,7 +264,7 @@ export default function Cloudfox() {
             <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", gap: 12 }}>
               <a href="#contact"
                 className="cx3-btn" style={{ padding: "14px 28px", fontSize: 15, background: ac, color: "#fff" }}>
-                {L("Free workflow analysis", "Gratis workflow\u2011analys")} <span>→</span>
+                {L("Book a call", "Boka ett samtal")} <span>→</span>
               </a>
               <a href="#how" className="cx3-btn" style={{ padding: "14px 28px", fontSize: 15, background: "transparent", color: lt, border: "1px solid rgba(255,255,255,.15)" }}>
                 {L("How it works", "Så fungerar det")}
@@ -362,9 +279,9 @@ export default function Cloudfox() {
         <div style={{ borderTop: bdr, borderBottom: bdr }}>
           <div className="cx3-g3">
             {[
-              { val: "80%", label: L("Faster delivery", "Snabbare leverans") },
-              { val: "2–4", label: L("Weeks to first version", "Veckor till första version") },
-              { val: "0 kr", label: L("If you're not satisfied", "Om du inte är nöjd") },
+              { val: "2–4", label: L("Weeks to working solution", "Veckor till fungerande lösning") },
+              { val: "80%", label: L("Faster than traditional consulting", "Snabbare än traditionellt konsultprojekt") },
+              { val: "12 mån", label: L("Support & maintenance always included", "Support och underhåll ingår alltid") },
             ].map((s, i) => (
               <div key={i} style={{ padding: `clamp(24px, 3vw, 40px) ${pad}`, borderRight: i < 2 ? bdr : "none" }}>
                 <div style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 800, letterSpacing: "-.04em", color: ac, lineHeight: 1 }}>{s.val}</div>
@@ -380,7 +297,7 @@ export default function Cloudfox() {
         <div style={{ padding: `0 ${pad}`, marginBottom: 40 }}>
           <R>
             <Label>{L("How we work", "Hur vi arbetar")}</Label>
-            <H2>{L("From idea to production in three steps.", "Från idé till produktion i tre steg.")}</H2>
+            <H2>{L("From gap to working solution in three steps.", "Från gap till fungerande lösning i tre steg.")}</H2>
           </R>
         </div>
         <div style={{ borderTop: bdr, borderBottom: bdr }}>
@@ -403,7 +320,7 @@ export default function Cloudfox() {
         <div style={{ padding: `0 ${pad}`, marginBottom: 40 }}>
           <R>
             <Label>{L("Solutions", "Lösningar")}</Label>
-            <H2>{L("What we build and deliver.", "Vad vi bygger och levererar.")}</H2>
+            <H2>{L("Three types of gaps we solve.", "Tre typer av gap vi löser.")}</H2>
           </R>
         </div>
         <div style={{ borderTop: bdr, borderBottom: bdr }}>
@@ -425,7 +342,7 @@ export default function Cloudfox() {
       <section id="quality" style={{ paddingTop: `clamp(4rem, 6vw, 6rem)` }}>
         <div style={{ padding: `0 ${pad}`, marginBottom: 40 }}>
           <R>
-            <Label>{L("Code quality", "Kodkvalitet")}</Label>
+            <Label>{L("Quality & security", "Trygghet")}</Label>
             <H2>{L("Fast delivery that you can trust.", "Snabb leverans som ni kan lita på.")}</H2>
             <p style={{ marginTop: 16, fontSize: "clamp(0.95rem, 1.4vw, 1.1rem)", lineHeight: 1.65, color: m, maxWidth: "52em" }}>
               {L(
@@ -469,101 +386,19 @@ export default function Cloudfox() {
         </div>
       </section>
 
-      {/* ── WHY CLOUDFOX — benefits split ── */}
-      <section style={{ paddingTop: `clamp(4rem, 6vw, 6rem)` }}>
-        <div style={{ borderTop: bdr }}>
-          <div className="cx3-split">
-            <div style={{ padding: `clamp(28px, 4vw, 48px) ${pad}`, borderRight: bdr }}>
-              <R><H2>{L("Why companies switch to this model.", "Varför företag byter till den här modellen.")}</H2></R>
-            </div>
-            <div style={{ padding: `clamp(28px, 4vw, 48px) ${pad}` }}>
-              {benefits.map((b, i) => (
-                <R key={b} delay={i * 0.03}>
-                  <div style={{ display: "flex", alignItems: "flex-start", gap: 14, padding: "18px 0", borderBottom: i < benefits.length - 1 ? "1px solid rgba(255,255,255,.06)" : "none" }}>
-                    <span style={{ color: ac, fontWeight: 800, fontSize: 18, lineHeight: 1.4 }}>›</span>
-                    <span style={{ fontSize: 16, lineHeight: 1.55, color: lt }}>{b}</span>
-                  </div>
-                </R>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── TRACK RECORD — social proof ── */}
-      <section id="track-record" style={{ paddingTop: `clamp(4rem, 6vw, 6rem)` }}>
-        <div style={{ padding: `0 ${pad}`, marginBottom: 40 }}>
-          <R>
-            <Label>{L("Track record", "Meriter")}</Label>
-            <H2>{L("Experience that delivers.", "Erfarenhet som levererar.")}</H2>
-          </R>
-        </div>
-        <div style={{ borderTop: bdr, borderBottom: bdr }}>
-          <div className="cx3-g3">
-            {proofPoints.map((p, i) => (
-              <R key={i} delay={i * 0.05}>
-                <div style={{ padding: `clamp(28px, 3vw, 48px) ${pad}`, borderRight: i < 2 ? bdr : "none" }}>
-                  <div style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 800, letterSpacing: "-.04em", color: ac, lineHeight: 1 }}>{p.val}</div>
-                  <div style={{ marginTop: 8, fontSize: 15, lineHeight: 1.5, color: m }}>{p.label}</div>
-                </div>
-              </R>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── CASES ── */}
-      <section id="cases" style={{ paddingTop: `clamp(4rem, 6vw, 6rem)` }}>
-        <div style={{ padding: `0 ${pad}`, marginBottom: 40 }}>
-          <R>
-            <Label>{L("Case studies", "Kundcase")}</Label>
-            <H2>{L("From problem to production.", "Från problem till produktion.")}</H2>
-          </R>
-        </div>
-        <div style={{ borderTop: bdr, borderBottom: bdr }}>
-          <div className="cx3-g3">
-            {cases.map((c, i) => (
-              <R key={c.title} delay={i * 0.05}>
-                <div className="cx3-card" style={{ padding: `clamp(28px, 3vw, 44px) ${pad}`, borderRight: i < 2 ? bdr : "none", borderColor: "rgba(255,255,255,.1)", height: "100%", display: "flex", flexDirection: "column" }}>
-                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
-                    <span className="cx3-tag">{c.industry}</span>
-                  </div>
-                  <div style={{ display: "flex", gap: 24, marginBottom: 20 }}>
-                    <div>
-                      <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".08em", color: ac, marginBottom: 2 }}>Cloudfox</div>
-                      <div style={{ fontSize: 18, fontWeight: 800, color: "#fff" }}>{c.weeks}</div>
-                    </div>
-                    <div style={{ width: 1, background: "rgba(255,255,255,.08)" }} />
-                    <div>
-                      <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".08em", color: d, marginBottom: 2 }}>{L("Traditional", "Traditionellt")}</div>
-                      <div style={{ fontSize: 18, fontWeight: 800, color: d, textDecoration: "line-through" }}>{c.traditional}</div>
-                    </div>
-                  </div>
-                  <h3 style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.4rem)", fontWeight: 700, letterSpacing: "-.02em", marginBottom: 16 }}>{c.title}</h3>
-                  <div style={{ fontSize: 13, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".08em", color: d, marginBottom: 6 }}>{L("Challenge", "Utmaning")}</div>
-                  <p style={{ fontSize: 14, lineHeight: 1.6, color: m, marginBottom: 16 }}>{c.problem}</p>
-                  <div style={{ fontSize: 13, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".08em", color: d, marginBottom: 6 }}>{L("Solution", "Lösning")}</div>
-                  <p style={{ fontSize: 14, lineHeight: 1.6, color: m }}>{c.solution}</p>
-                </div>
-              </R>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── SENIOR‑LED — split ── */}
       <section>
         <div style={{ borderTop: bdr }}>
           <div className="cx3-split">
             <div style={{ padding: `clamp(28px, 4vw, 48px) ${pad}`, borderRight: bdr }}>
-              <R><H2>{L("Senior‑led delivery.", "Seniorledd leverans.")}</H2></R>
+              <R><H2>{L("The third partner.", "Det tredje partnerskapet.")}</H2></R>
             </div>
             <div style={{ padding: `clamp(28px, 4vw, 48px) ${pad}` }}>
               <R delay={0.05}>
                 <p style={{ fontSize: 16, lineHeight: 1.65, color: m }}>
                   {L(
-                    "Every engagement is led by a senior solution architect with 20+ years of experience in ERP and operational systems — no junior handoffs, no outsourced delivery.",
-                    "Varje uppdrag leds av en senior lösningsarkitekt med 20+ års erfarenhet av ERP och verksamhetssystem — inga junioröverlämnanden, ingen outsourcad leverans."
+                    "Most SMEs have an IT partner and a business system partner. Nobody owns the gap between them — the processes that fall outside the system and end up in Excel. That is the problem we exist to solve. Every engagement is led by a senior solution architect with 20+ years of business system and operational experience.",
+                    "De flesta SME-bolag har en IT-partner och en affärssystemspartner. Ingen äger gapet däremellan — processerna som faller utanför systemet och hamnar i Excel. Det är det problemet vi finns för att lösa. Varje uppdrag leds av en senior lösningsarkitekt med 20+ års erfarenhet av affärssystem och verksamhetsutveckling."
                   )}
                 </p>
               </R>
@@ -602,6 +437,30 @@ export default function Cloudfox() {
         </div>
       </section>
 
+      {/* ── WHO WE ARE ── */}
+      <section style={{ paddingTop: `clamp(4rem, 6vw, 6rem)` }}>
+        <div style={{ borderTop: bdr }}>
+          <div className="cx3-split">
+            <div style={{ padding: `clamp(28px, 4vw, 48px) ${pad}`, borderRight: bdr }}>
+              <R>
+                <Label>{L("Who we are", "Vilka vi är")}</Label>
+                <H2>{L("Founded by a builder.", "Grundat av en byggare.")}</H2>
+              </R>
+            </div>
+            <div style={{ padding: `clamp(28px, 4vw, 48px) ${pad}` }}>
+              <R delay={0.05}>
+                <p style={{ fontSize: 16, lineHeight: 1.65, color: m }}>
+                  {L(
+                    "Cloudfox was founded by Pontus Granborg with 20+ years of experience as a solution architect in CRM, cloud, data and business systems. Previously co-founded Email Systems — acquired by Webroot in 2011 — and LAGAochDUKA, one of Sweden's leading e-commerce stores for kitchen and design, acquired in 2017. That experience of building things that actually work in production is what we bring to every engagement.",
+                    "Cloudfox grundades av Pontus Granborg med över 20 års erfarenhet som lösningsarkitekt inom CRM, cloud, data och affärssystem. Tidigare med-grundare av Email Systems — förvärvat av Webroot 2011 — och LAGAochDUKA, en av Sveriges ledande e-handlare inom kök och design, förvärvat 2017. Erfarenheten av att bygga saker som faktiskt håller i skarp drift är det vi tar med oss in i varje uppdrag."
+                  )}
+                </p>
+              </R>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── FAQ ── */}
       <section id="faq" style={{ paddingTop: `clamp(4rem, 6vw, 6rem)` }}>
         <div style={{ padding: `0 ${pad}`, marginBottom: 40 }}>
@@ -628,7 +487,7 @@ export default function Cloudfox() {
           <div className="cx3-split">
             <div style={{ padding: `clamp(40px, 5vw, 64px) ${pad}`, borderRight: bdr }}>
               <R>
-                <H2>{L("Free workflow analysis.", "Gratis workflow\u2011analys.")}</H2>
+                <H2>{L("Book a call.", "Boka ett samtal.")}</H2>
                 <p style={{ marginTop: 14, fontSize: 14, color: d }}>{L("No commitment. 30 minutes.", "Inget åtagande. 30 minuter.")}</p>
               </R>
             </div>
@@ -676,8 +535,8 @@ export default function Cloudfox() {
               </div>
               <p style={{ marginTop: 8, fontSize: 13, color: d, maxWidth: "24em", lineHeight: 1.5 }}>
                 {L(
-                  "AI‑accelerated delivery of operational software. Based in Stockholm.",
-                  "AI‑accelererad leverans av verksamhetsapplikationer. Baserat i Stockholm."
+                  "We build what your business system doesn't cover. Based in Stockholm.",
+                  "Vi bygger det affärssystemet inte täcker. Baserat i Stockholm."
                 )}
               </p>
             </div>
@@ -688,9 +547,7 @@ export default function Cloudfox() {
                 {[
                   { label: L("How we work", "Hur vi arbetar"), href: "#how" },
                   { label: L("Solutions", "Lösningar"), href: "#solutions" },
-                  { label: L("Code quality", "Kodkvalitet"), href: "#quality" },
-                  { label: L("Case studies", "Kundcase"), href: "#cases" },
-                  { label: L("Track record", "Meriter"), href: "#track-record" },
+                  { label: L("Quality & security", "Trygghet"), href: "#quality" },
                   { label: "FAQ", href: "#faq" },
                 ].map(link => (
                   <a key={link.label} href={link.href} style={{ display: "block", fontSize: 14, color: m, marginBottom: 8 }}>{link.label}</a>
@@ -707,7 +564,7 @@ export default function Cloudfox() {
           {/* Bottom bar */}
           <div style={{ marginTop: 32, paddingTop: 20, borderTop: "1px solid rgba(255,255,255,.06)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
             <span style={{ fontSize: 12, color: d }}>© {new Date().getFullYear()} Cloudfox</span>
-            <span style={{ fontSize: 12, color: d }}>{L("Built with AI‑accelerated methods", "Byggd med AI‑accelererade metoder")}</span>
+            <span style={{ fontSize: 12, color: d }}>{L("We build what your business system doesn't cover.", "Vi bygger det affärssystemet inte täcker.")}</span>
           </div>
         </div>
       </footer>
