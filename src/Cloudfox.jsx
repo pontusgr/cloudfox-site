@@ -397,8 +397,8 @@ export default function Cloudfox() {
               <R delay={0.05}>
                 <p style={{ fontSize: 16, lineHeight: 1.65, color: m }}>
                   {L(
-                    "Most SMEs have an IT partner and a business system partner. Nobody owns the gap between them — the processes that fall outside the system and end up in Excel. That is the problem we exist to solve. Every engagement is led by a senior solution architect with 20+ years of business system and operational experience.",
-                    "De flesta SME-bolag har en IT-partner och en affärssystemspartner. Ingen äger gapet däremellan — processerna som faller utanför systemet och hamnar i Excel. Det är det problemet vi finns för att lösa. Varje uppdrag leds av en senior lösningsarkitekt med 20+ års erfarenhet av affärssystem och verksamhetsutveckling."
+                    "Most SMEs have an IT partner and a business system partner. Nobody owns the gap between them — the processes that fall outside the system and end up in Excel and email. That is the problem we exist to solve. Every engagement is led by a senior solution architect with 25+ years of business system and operational experience.",
+                    "De flesta SME-bolag har en IT-partner och en affärssystemspartner. Ingen äger gapet däremellan — processerna som faller utanför systemet och hamnar ofta i Excel och mail. Det är det problemet vi finns för att lösa. Varje uppdrag leds av en senior lösningsarkitekt med 25+ års erfarenhet av affärssystem och verksamhetsutveckling."
                   )}
                 </p>
               </R>
