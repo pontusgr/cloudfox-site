@@ -374,6 +374,36 @@ export default function Cloudfox() {
       </section>
 
 
+      {/* ── BUILD VS BUY ANALYSIS ── */}
+      <section style={{ paddingTop: `clamp(4rem, 6vw, 6rem)` }}>
+        <div style={{ borderTop: bdr }}>
+          <div className="cx3-split">
+            <div style={{ padding: `clamp(28px, 4vw, 48px) ${pad}`, borderRight: bdr }}>
+              <R>
+                <Label>{L("Free offer", "Kostnadsfritt erbjudande")}</Label>
+                <H2>{L("Build vs. Buy analysis.", "Build vs. Buy-analys.")}</H2>
+              </R>
+            </div>
+            <div style={{ padding: `clamp(28px, 4vw, 48px) ${pad}` }}>
+              <R delay={0.05}>
+                <p style={{ fontSize: 16, lineHeight: 1.65, color: m }}>
+                  {L(
+                    "We map what your current systems actually cost — licences, manual work and hidden gaps — and show you where owning a custom solution gives better fit at lower long-term cost. A structured analysis worth 15 000–20 000 SEK. At no cost to you.",
+                    "Vi kartlägger vad era nuvarande system faktiskt kostar — licenser, manuellt arbete och dolda brister — och visar var ett eget system ger bättre passform till lägre långsiktig kostnad. Ett strukturerat underlag värt 15 000–20 000 kr. Utan kostnad för er."
+                  )}
+                </p>
+                <p style={{ fontSize: 14, lineHeight: 1.65, color: d, marginTop: 14 }}>
+                  {L("The analysis is offered to companies with at least one business system or SaaS subscription and a genuine interest in evaluating their options.", "Analysen riktar sig till bolag med minst ett affärssystem eller SaaS-abonnemang och ett genuint intresse av att utvärdera sin situation.")}
+                </p>
+                <a href="/analys" className="cx3-btn" style={{ display: "inline-block", marginTop: 24, padding: "14px 28px", fontSize: 15, background: ac, color: "#fff" }}>
+                  {L("Learn more →", "Läs mer →")}
+                </a>
+              </R>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── CTA ── */}
       <section id="contact">
         <div style={{ borderTop: bdr, background: "rgba(79,127,255,.03)" }}>
@@ -457,7 +487,7 @@ export default function Cloudfox() {
           {/* Bottom bar */}
           <div style={{ marginTop: 32, paddingTop: 20, borderTop: "1px solid rgba(255,255,255,.06)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
             <span style={{ fontSize: 12, color: d }}>© {new Date().getFullYear()} Cloudfox</span>
-            <span style={{ fontSize: 12, color: d }}>{L("We build what your business system doesn't cover.", "Vi bygger det affärssystemet inte täcker.")}</span>
+            <span style={{ fontSize: 12, color: d }}>{L("Strategic advisory and AI-native delivery.", "Strategisk rådgivning och AI-native leverans.")}</span>
           </div>
         </div>
       </footer>
