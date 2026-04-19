@@ -81,70 +81,82 @@ export default function Cloudfox() {
 
   const cases = lang === "sv" ? [
     {
-      id: "order",
+      id: "supplier",
       tag: "Område 1",
-      title: "Orderhantering och kundkommunikation",
-      summary: "Orderbekräftelser, statusuppdateringar, avvikelser och leveransbesked hanteras manuellt av säljare och kundtjänst. Varje dag. För varje order. Vi automatiserar flödet från inkommande order till bekräftad leverans.",
-      problem: "En säljare lägger 30–60 minuter per dag på att bekräfta ordrar, svara på statusfrågor och kommunicera avvikelser manuellt. Multiplicerat med 10 säljare och 250 arbetsdagar är det 25 000 manuella arbetstimmar per år — för administrativt arbete som inte skapar värde.",
-      delivery: "AI-agent som hanterar orderbekräftelser, statusuppdateringar och avvikelsekommunikation automatiskt. Integrerar med befintligt affärssystem. Implementerat och i drift inom 2–4 veckor.",
+      title: "Leverantörskvalifikation och inköpsintelligens",
+      summary: "SME som köper från utländska leverantörer — i Asien, Vietnam eller Östeuropa — har sällan struktur för att bedöma, godkänna och följa upp dem systematiskt. Besluten fattas på magkänsla och gamla relationer. Vi bygger AI-system som ger inköp faktiskt beslutsunderlag.",
+      problem: "Utan strukturerad leverantörsbedömning riskerar ni kvalitetsproblem, leveransförseningar och compliance-brister som dyker upp för sent. Inköpare hanterar avvikelser reaktivt — e-post, Excel och telefonsamtal — istället för att ha realtidsdata om varje leverantörs prestanda.",
+      delivery: "AI-system för leverantörskvalifikation som samlar och analyserar leveransdata, kvalitetsdokumentation och avvikelshistorik. Automatiserade godkännandeflöden, riskflaggning och leverantörsrankning — anpassat för er specifika inköpsstruktur och era marknader.",
     },
     {
-      id: "spend",
+      id: "production",
       tag: "Område 2",
-      title: "Kostnads- och spend-analys",
-      summary: "De flesta SME vet vad de köper men inte varför de betalar det priset. Inköpsdata ligger spridd i affärssystem, Excel och e-post. Ingen har en samlad bild. Vi bygger AI-verktyg som ger ledningen faktisk synlighet över kostnader och leverantörsprestanda.",
-      problem: "Utan strukturerad spend-analys fattas inköpsbeslut på magkänsla och historiska relationer. Prisjämförelser görs manuellt eller inte alls. Dubbelarbete och suboptimala leverantörsavtal är inbyggt i verksamheten — men osynligt.",
-      delivery: "AI-driven spend-dashboard som aggregerar inköpsdata från befintliga system, identifierar avvikelser, rankar leverantörer och flaggar besparingsmöjligheter. Beslutsunderlag i realtid istället för månadsrapporter.",
+      title: "Produktionsplanering och kapacitetsutnyttjande",
+      summary: "Tillverkande SME planerar produktion i Excel och affärssystem byggda för redovisning — inte för operationell optimering. Resultatet är underutnyttjad kapacitet, onödiga omställningar och leveransförseningar som kunde ha undvikits. Vi bygger AI-system som ger produktionsledningen faktisk kontroll.",
+      problem: "Produktionsplaneraren har tre system öppna, ett kalkylblad som ingen annan förstår och tio år av tyst kunskap i huvudet. När hen är sjuk stannar planeringen. Ordrar prioriteras fel, maskiner ställs om i fel sekvens och ledtidsestimat till kund baseras på magkänsla. Det är inte ett personproblem — det är ett informationsproblem. Rätt data finns i systemen. Den är bara aldrig aggregerad och analyserad i realtid.",
+      delivery: "AI-system som integrerar orderdata, maskinkapacitet, materialtillgång och historiska cykeltider för att optimera produktionssekvens och beläggning. Visar i realtid var flaskhalsarna uppstår, vilka ordrar som riskerar försening och vad konsekvensen är av att prioritera om. Planeraren fattar bättre beslut — snabbare. Systemet ersätter inte kompetensen, det förstärker den.",
     },
     {
-      id: "process",
+      id: "retention",
       tag: "Område 3",
-      title: "Processdokumentation och intern rapportering",
-      summary: "Interna rapporter, statusuppdateringar och processdokumentation skapas manuellt av medarbetare som har bättre saker att göra. Vi automatiserar det som är repetitivt och standardiserat så att teamet kan fokusera på det som kräver mänsklig bedömning.",
-      problem: "En mellanchef lägger i genomsnitt 4–6 timmar per vecka på att sammanställa statusrapporter, skriva mötesunderlag och dokumentera processer. Det är 200–300 timmar per år per person — tid som försvinner i administration istället för ledarskap.",
-      delivery: "AI-verktyg som automatiserar rapportgenerering, sammanfattar data från befintliga system och producerar strukturerad dokumentation. Rätt format, rätt mottagare, rätt tidpunkt — utan manuell hantering.",
+      title: "Proaktiv kundretention",
+      summary: "De kunder som lämnar utan att klaga är de farligaste att förlora. De syns inte i supportärendena. De hörs inte i kundmötena. De försvinner tyst — och tar framtida order med sig. Vi identifierar dem innan de är borta.",
+      problem: "Traditionella kundmätningar fångar upp kunder som väljer att klaga. Men forskning visar att majoriteten av missnöjda kunder aldrig hör av sig — de byter leverantör istället. Ordermönster, avvikelshistorik och kommunikationsdata innehåller signalerna. De analyseras sällan systematiskt.",
+      delivery: "AI-system som analyserar kunddata över tid — ordermönster, leveransavvikelser, reklamationer, kommunikationsfrekvens — och flaggar kunder med ökad churkrisk. Inkluderar förslag på rätt åtgärd per kund: proaktiv kontakt, kompensation eller eskalering till account manager.",
     },
   ] : [
     {
-      id: "order",
+      id: "supplier",
       tag: "Area 1",
-      title: "Order management and customer communication",
-      summary: "Order confirmations, status updates, deviations and delivery notices are handled manually by sales and customer service. Every day. For every order. We automate the flow from incoming order to confirmed delivery.",
-      problem: "A sales rep spends 30–60 minutes per day manually confirming orders, answering status questions and communicating deviations. Multiplied by 10 sales reps and 250 working days that is 25,000 manual working hours per year — for administrative work that creates no value.",
-      delivery: "AI agent that handles order confirmations, status updates and deviation communication automatically. Integrates with existing business systems. Implemented and live within 2–4 weeks.",
+      title: "Supplier qualification and procurement intelligence",
+      summary: "SMEs buying from foreign suppliers — in Asia, Vietnam or Eastern Europe — rarely have structure to systematically assess, approve and follow up on them. Decisions are made on gut feeling and old relationships. We build AI systems that give procurement actual decision support.",
+      problem: "Without structured supplier assessment you risk quality issues, delivery delays and compliance failures that surface too late. Buyers handle deviations reactively — email, Excel and phone calls — instead of having real-time data on each supplier's performance.",
+      delivery: "AI system for supplier qualification that collects and analyses delivery data, quality documentation and deviation history. Automated approval flows, risk flagging and supplier ranking — tailored to your specific procurement structure and markets.",
     },
     {
-      id: "spend",
+      id: "production",
       tag: "Area 2",
-      title: "Cost and spend analysis",
-      summary: "Most SMEs know what they buy but not why they pay that price. Purchase data sits scattered across business systems, Excel and email. Nobody has a complete picture. We build AI tools that give management actual visibility over costs and supplier performance.",
-      problem: "Without structured spend analysis, purchasing decisions are made on gut feeling and historical relationships. Price comparisons are done manually or not at all. Duplicate work and suboptimal supplier contracts are built into the business — but invisible.",
-      delivery: "AI-driven spend dashboard that aggregates purchasing data from existing systems, identifies deviations, ranks suppliers and flags savings opportunities. Decision support in real time instead of monthly reports.",
+      title: "Production planning and capacity utilisation",
+      summary: "Manufacturing SMEs plan production in Excel and business systems built for accounting — not operational optimisation. The result is underutilised capacity, unnecessary changeovers and delivery delays that could have been avoided. We build AI systems that give production management actual control.",
+      problem: "The production planner has three systems open, a spreadsheet nobody else understands and ten years of tacit knowledge in their head. When they are off sick, planning stops. Orders are prioritised wrong, machines are changed over in the wrong sequence and lead time estimates to customers are based on gut feeling. This is not a people problem — it is an information problem. The right data exists in the systems. It has just never been aggregated and analysed in real time.",
+      delivery: "AI system that integrates order data, machine capacity, material availability and historical cycle times to optimise production sequencing and utilisation. Shows in real time where bottlenecks emerge, which orders are at risk of delay and what the consequence is of reprioritising. The planner makes better decisions — faster. The system does not replace the competence, it amplifies it.",
     },
     {
-      id: "process",
+      id: "retention",
       tag: "Area 3",
-      title: "Process documentation and internal reporting",
-      summary: "Internal reports, status updates and process documentation are created manually by employees who have better things to do. We automate what is repetitive and standardised so the team can focus on what requires human judgement.",
-      problem: "A middle manager spends on average 4–6 hours per week compiling status reports, writing meeting materials and documenting processes. That is 200–300 hours per year per person — time lost in administration instead of leadership.",
-      delivery: "AI tools that automate report generation, summarise data from existing systems and produce structured documentation. Right format, right recipient, right time — without manual handling.",
+      title: "Proactive customer retention",
+      summary: "The customers who leave without complaining are the most dangerous to lose. They do not show up in support tickets. They are not heard in customer meetings. They disappear quietly — taking future orders with them. We identify them before they are gone.",
+      problem: "Traditional customer surveys capture customers who choose to complain. But research shows the majority of dissatisfied customers never reach out — they switch supplier instead. Order patterns, deviation history and communication data contain the signals. They are rarely analysed systematically.",
+      delivery: "AI system that analyses customer data over time — order patterns, delivery deviations, complaints, communication frequency — and flags customers with increasing churn risk. Includes suggested action per customer: proactive outreach, compensation or escalation to account manager.",
     },
   ];
 
   const reasons = lang === "sv" ? [
-    { title: "Claude Code", text: "Vi bygger med det mest kapabla AI-verktyget som finns. Claude Code möjliggör skräddarsydda applikationer och automationer som löser era specifika problem — inte generiska lösningar som passar alla och ingen." },
-    { title: "Kodgranskning som standard", text: "Varje lösning granskas av erfarna kodutvecklare innan leverans. AI bygger snabbt — experterna säkerställer att det som levereras faktiskt håller. Ni betalar inte för felsökning efter implementering." },
-    { title: "Sektorsdjup", text: "Vi förstår verksamheten, inte bara tekniken. En AI-generalist kan bygga ett automationsverktyg. Att bygga rätt automation för er specifika verksamhet kräver att vi förstår hur er bransch faktiskt fungerar." },
-    { title: "Global leveransmodell", text: "Bevisad leveransmodell med ett högkompetent AI/kod-team med global räckvidd. Det ger oss en kostnadsbas och leveranskapacitet som svenska konkurrenter inte kan matcha." },
-    { title: "Levererat på veckor", text: "Fungerande AI i er faktiska miljö inom 2–4 veckor från första möte. Inte månader av kravspecifikation och projektplanering." },
-    { title: "Ni äger lösningen", text: "Inga plattformsberoenden, inga löpande licensavgifter för grundfunktionen. Ni äger koden och logiken. Vi finns kvar som partner för uppgraderingar och expansion." },
+    {
+      title: "Claude Code",
+      text: "Vi bygger med det mest kapabla AI-verktyget som finns. Claude Code möjliggör skräddarsydda applikationer och automationer som löser era specifika problem — snabbare och mer flexibelt än vad traditionell mjukvaruutveckling tillåter. Ingen plattformslåsning. Ni äger koden.",
+    },
+    {
+      title: "Manuell kodgranskning och övervakning",
+      text: "Varje lösning granskas manuellt av erfarna kodutvecklare innan leverans — och övervakas löpande efter driftsättning. AI bygger snabbt. Våra experter säkerställer att det som levereras faktiskt håller, är säkert och fungerar i er miljö. Ni betalar inte för felsökning i efterhand.",
+    },
+    {
+      title: "Tillgång till domänexperter",
+      text: "Vi kompletterar AI-leveransen med experter inom utvalda branscher och processer — supply chain, industriell tillverkning och mer. Det är skillnaden mellan en lösning som tekniskt fungerar och en som löser rätt problem. En generalist kan bygga ett automation-verktyg. Vi bygger rätt automation.",
+    },
   ] : [
-    { title: "Claude Code", text: "We build with the most capable AI tool available. Claude Code enables custom applications and automations that solve your specific problems — not generic solutions that fit everyone and no one." },
-    { title: "Code review as standard", text: "Every solution is reviewed by experienced developers before delivery. AI builds fast — the experts ensure what is delivered actually holds. You do not pay for debugging after implementation." },
-    { title: "Sector depth", text: "We understand the business, not just the technology. An AI generalist can build an automation tool. Building the right automation for your specific business requires understanding how your industry actually works." },
-    { title: "Global delivery model", text: "Proven delivery model with a highly competent AI/code team with global reach. That gives us a cost base and delivery capacity that Swedish competitors cannot match." },
-    { title: "Delivered in weeks", text: "Working AI in your actual environment within 2–4 weeks from the first meeting. Not months of requirements specification and project planning." },
-    { title: "You own the solution", text: "No platform dependencies, no ongoing licence fees for core functionality. You own the code and logic. We remain as a partner for upgrades and expansion." },
+    {
+      title: "Claude Code",
+      text: "We build with the most capable AI tool available. Claude Code enables custom applications and automations that solve your specific problems — faster and more flexibly than traditional software development allows. No platform lock-in. You own the code.",
+    },
+    {
+      title: "Manual code review and monitoring",
+      text: "Every solution is manually reviewed by experienced developers before delivery — and monitored continuously after deployment. AI builds fast. Our experts ensure what is delivered actually holds, is secure and works in your environment. You do not pay for debugging after the fact.",
+    },
+    {
+      title: "Access to domain experts",
+      text: "We complement AI delivery with experts in selected industries and processes — supply chain, industrial manufacturing and more. That is the difference between a solution that technically works and one that solves the right problem. A generalist can build an automation tool. We build the right automation.",
+    },
   ];
 
   return (
@@ -188,16 +200,16 @@ export default function Cloudfox() {
           <R delay={0.05}>
             <h1 style={{ fontSize: "clamp(2.4rem, 5.5vw, 4.8rem)", fontWeight: 800, letterSpacing: "-.045em", lineHeight: 1.03, maxWidth: "18em" }}>
               {L(
-                <>Enterprise-level AI<br />for companies that<br /><span style={{ color: ac }}>don't have a hundred engineers.</span></>,
-                <>AI på enterprise-nivå<br />för företag som inte<br /><span style={{ color: ac }}>har hundra ingenjörer.</span></>
+                <>Enterprise-level AI<br />for companies that don't have<br /><span style={{ color: ac }}>access to a hundred experts.</span></>,
+                <>AI på enterprise-nivå<br />för företag som inte har<br /><span style={{ color: ac }}>tillgång till hundra experter.</span></>
               )}
             </h1>
           </R>
           <R delay={0.1}>
             <p style={{ marginTop: 28, fontSize: "clamp(1rem, 1.5vw, 1.2rem)", lineHeight: 1.7, color: m, maxWidth: "46em" }}>
               {L(
-                "Palantir builds data platforms for governments and Fortune 500 companies. SMEs have the same data, the same complexity, the same need to make better decisions faster — but no access to the tools. Cloudfox changes that.",
-                "Palantir bygger dataplattformar för regeringar och Fortune 500. SME har samma data, samma komplexitet, samma behov av att fatta bättre beslut snabbare — men noll tillgång till verktygen. Cloudfox ändrar på det."
+                "We build AI solutions and automations that give SMEs access to competitive advantages that were previously only possible for large enterprises.",
+                "Vi bygger AI-lösningar och automationer som ger SME tillgång till konkurrensfördelar som tidigare bara var möjliga för stora företag."
               )}
             </p>
           </R>
@@ -215,24 +227,32 @@ export default function Cloudfox() {
       </section>
 
       {/* STATS */}
-      <section style={{ padding: `clamp(3rem,5vw,5rem) ${pad} clamp(2rem,3vw,3rem)`, borderTop: bdr }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 0, borderTop: bdr, borderLeft: bdr }}>
-          {(lang === "sv" ? [
-            { num: "80%", label: "snabbare applikationsutveckling med Claude Code" },
-            { num: "2–4 v", label: "från första möte till fungerande AI i er miljö" },
-            { num: "50–500", label: "anställda — vår primära målmarknad" },
-            { num: "3", label: "pelare: AI-verktyg, kodexperter, sektorsdjup" },
-          ] : [
-            { num: "80%", label: "faster application development with Claude Code" },
-            { num: "2–4 w", label: "from first meeting to working AI in your environment" },
-            { num: "50–500", label: "employees — our primary target market" },
-            { num: "3", label: "pillars: AI tools, code experts, sector depth" },
-          ]).map((s, i) => (
-            <div key={i} style={{ padding: "clamp(24px,3vw,36px)", borderRight: bdr, borderBottom: bdr }}>
-              <div style={{ fontSize: "clamp(1.8rem,3vw,2.8rem)", fontWeight: 800, letterSpacing: "-.05em", color: ac }}>{s.num}</div>
-              <div style={{ marginTop: 6, fontSize: 13, color: d }}>{s.label}</div>
-            </div>
-          ))}
+      {/* WHY CLOUDFOX */}
+      <section id="why" style={{ paddingTop: "clamp(5rem,7vw,8rem)" }}>
+        <div style={{ padding: `0 ${pad}`, marginBottom: 40 }}>
+          <R>
+            <Label>{L("Why Cloudfox", "Varför Cloudfox")}</Label>
+            <H2>{L(<>Three things that make Cloudfox<br />a different kind of partner.</>, <>Tre saker som gör Cloudfox<br />till en annan sorts partner.</>)}</H2>
+            <p style={{ marginTop: 16, fontSize: 16, color: m, lineHeight: 1.7, maxWidth: "50em" }}>
+              {L(
+                "We combine the most capable AI tools, manual code review, and deep domain expertise — in every engagement.",
+                "Vi kombinerar de mest kapabla AI-verktygen, manuell kodgranskning och djup domänexpertis — i varje uppdrag."
+              )}
+            </p>
+          </R>
+        </div>
+        <div style={{ borderTop: bdr }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))" }}>
+            {reasons.map((r, i) => (
+              <R key={r.title} delay={(i % 3) * 0.05}>
+                <div className="cfx-card" style={{ padding: `clamp(28px,3vw,40px) ${pad}`, borderBottom: bdr, border: bdr, borderTop: "none", borderLeft: "none" }}>
+                  <div style={{ width: 6, height: 6, borderRadius: "50%", background: ac, marginBottom: 16 }} />
+                  <h3 style={{ fontSize: "clamp(1rem,1.6vw,1.15rem)", fontWeight: 700, letterSpacing: "-.02em" }}>{r.title}</h3>
+                  <p style={{ marginTop: 10, fontSize: 14, lineHeight: 1.65, color: m }}>{r.text}</p>
+                </div>
+              </R>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -275,35 +295,6 @@ export default function Cloudfox() {
             </div>
           </div>
         ))}
-      </section>
-
-      {/* WHY CLOUDFOX */}
-      <section id="why" style={{ paddingTop: "clamp(5rem,7vw,8rem)" }}>
-        <div style={{ padding: `0 ${pad}`, marginBottom: 40 }}>
-          <R>
-            <Label>{L("Why Cloudfox", "Varför Cloudfox")}</Label>
-            <H2>{L(<>Three things no single competitor<br />can offer at the same time.</>, <>Tre saker ingen enskild konkurrent<br />kan erbjuda samtidigt.</>)}</H2>
-            <p style={{ marginTop: 16, fontSize: 16, color: m, lineHeight: 1.7, maxWidth: "50em" }}>
-              {L(
-                "A pure AI agency lacks security and domain knowledge. A traditional consultancy lacks AI capability. A niche expert lacks delivery capacity. Cloudfox combines all three.",
-                "En ren AI-byrå saknar säkerhet och domänkunskap. Ett traditionellt konsultbolag saknar AI-kompetens. En nischexpert saknar leveranskapacitet. Cloudfox kombinerar alla tre."
-              )}
-            </p>
-          </R>
-        </div>
-        <div style={{ borderTop: bdr }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))" }}>
-            {reasons.map((r, i) => (
-              <R key={r.title} delay={(i % 3) * 0.05}>
-                <div className="cfx-card" style={{ padding: `clamp(28px,3vw,40px) ${pad}`, borderBottom: bdr, border: bdr, borderTop: "none", borderLeft: "none" }}>
-                  <div style={{ width: 6, height: 6, borderRadius: "50%", background: ac, marginBottom: 16 }} />
-                  <h3 style={{ fontSize: "clamp(1rem,1.6vw,1.15rem)", fontWeight: 700, letterSpacing: "-.02em" }}>{r.title}</h3>
-                  <p style={{ marginTop: 10, fontSize: 14, lineHeight: 1.65, color: m }}>{r.text}</p>
-                </div>
-              </R>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* HOW WE WORK */}
@@ -351,8 +342,8 @@ export default function Cloudfox() {
               <R delay={0.06}>
                 <p style={{ fontSize: 16, lineHeight: 1.7, color: m }}>
                   {L(
-                    "Founded by Pontus Granborg — senior solution architect with deep experience in industrial operations, ERP systems and AI-native development. Backed by a highly competent AI and code team with global reach. Every engagement is senior-led from assessment to delivery. No handoffs. No delegated responsibility.",
-                    "Grundat av Pontus Granborg — senior lösningsarkitekt med djup erfarenhet av industriell verksamhet, ERP-system och AI-native utveckling. Backat av ett högkompetent AI- och kodteam med global räckvidd. Varje uppdrag leds av senior kompetens från kartläggning till leverans. Inga överlämnanden. Inget delegerat ansvar."
+                    "Founded by Pontus Granborg — senior solution architect with deep experience in industrial operations, ERP systems and AI-native development. Every engagement is senior-led and backed by a highly competent global delivery team. You always know who is accountable.",
+                    "Grundat av Pontus Granborg — senior lösningsarkitekt med djup erfarenhet av industriell verksamhet, ERP-system och AI-native utveckling. Varje uppdrag är seniorlett och backat av ett högkompetent globalt leveransteam. Ni vet alltid vem som ansvarar."
                   )}
                 </p>
                 <div style={{ marginTop: 28, display: "flex", flexWrap: "wrap", gap: 16, alignItems: "center" }}>
@@ -361,6 +352,35 @@ export default function Cloudfox() {
                   <a href="https://www.linkedin.com/in/pontusgranborg" target="_blank" rel="noopener noreferrer" style={{ fontSize: 14, color: ac, fontWeight: 600 }}>LinkedIn ↗</a>
                   <span style={{ color: d }}>·</span>
                   <span style={{ fontSize: 14, color: d }}>Stockholm, Sweden</span>
+                </div>
+              </R>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* JOIN AS EXPERT */}
+      <section style={{ paddingTop: "clamp(5rem,7vw,8rem)" }}>
+        <div style={{ borderTop: bdr }}>
+          <div className="cfx-split">
+            <div style={{ padding: `clamp(36px,4vw,56px) ${pad}`, borderRight: bdr }}>
+              <R>
+                <Label>{L("For experts", "För experter")}</Label>
+                <H2>{L("Are you an expert in your industry?", "Är du expert inom din bransch?")}</H2>
+              </R>
+            </div>
+            <div style={{ padding: `clamp(36px,4vw,56px) ${pad}` }}>
+              <R delay={0.06}>
+                <p style={{ fontSize: 16, lineHeight: 1.7, color: m }}>
+                  {L(
+                    "Cloudfox builds a network of domain experts who complement our AI delivery. If you have deep knowledge in a specific industry, process, or market — and want to apply that expertise in AI-driven projects — we want to hear from you.",
+                    "Cloudfox bygger ett nätverk av domänexperter som kompletterar vår AI-leverans. Om du har djup kunskap inom en specifik bransch, process eller marknad — och vill tillämpa den kunskapen i AI-drivna projekt — vill vi gärna höra av dig."
+                  )}
+                </p>
+                <div style={{ marginTop: 28 }}>
+                  <a href="mailto:info@cloudfox.se?subject=Expert network" style={{ fontSize: 15, color: ac, fontWeight: 600 }}>
+                    {L("Get in touch →", "Hör av dig →")}
+                  </a>
                 </div>
               </R>
             </div>
