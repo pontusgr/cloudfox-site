@@ -82,7 +82,7 @@ export default function Cloudfox() {
   const cases = lang === "sv" ? [
     {
       id: "supplier",
-      tag: "Område 1",
+      tag: "",
       title: "Leverantörskvalifikation och inköpsintelligens",
       summary: "SME som köper från utländska leverantörer — i Asien, Vietnam eller Östeuropa — har sällan struktur för att bedöma, godkänna och följa upp dem systematiskt. Besluten fattas på magkänsla och gamla relationer. Vi bygger AI-system som ger inköp faktiskt beslutsunderlag.",
       problem: "Utan strukturerad leverantörsbedömning riskerar ni kvalitetsproblem, leveransförseningar och compliance-brister som dyker upp för sent. Inköpare hanterar avvikelser reaktivt — e-post, Excel och telefonsamtal — istället för att ha realtidsdata om varje leverantörs prestanda.",
@@ -90,7 +90,7 @@ export default function Cloudfox() {
     },
     {
       id: "production",
-      tag: "Område 2",
+      tag: "",
       title: "Produktionsplanering och kapacitetsutnyttjande",
       summary: "Tillverkande SME planerar produktion i Excel och affärssystem byggda för redovisning — inte för operationell optimering. Resultatet är underutnyttjad kapacitet, onödiga omställningar och leveransförseningar som kunde ha undvikits. Vi bygger AI-system som ger produktionsledningen faktisk kontroll.",
       problem: "Produktionsplaneraren har tre system öppna, ett kalkylblad som ingen annan förstår och tio år av tyst kunskap i huvudet. När hen är sjuk stannar planeringen. Ordrar prioriteras fel, maskiner ställs om i fel sekvens och ledtidsestimat till kund baseras på magkänsla. Det är inte ett personproblem — det är ett informationsproblem. Rätt data finns i systemen. Den är bara aldrig aggregerad och analyserad i realtid.",
@@ -98,7 +98,7 @@ export default function Cloudfox() {
     },
     {
       id: "retention",
-      tag: "Område 3",
+      tag: "",
       title: "Proaktiv kundretention",
       summary: "De kunder som lämnar utan att klaga är de farligaste att förlora. De syns inte i supportärendena. De hörs inte i kundmötena. De försvinner tyst — och tar framtida order med sig. Vi identifierar dem innan de är borta.",
       problem: "Traditionella kundmätningar fångar upp kunder som väljer att klaga. Men forskning visar att majoriteten av missnöjda kunder aldrig hör av sig — de byter leverantör istället. Ordermönster, avvikelshistorik och kommunikationsdata innehåller signalerna. De analyseras sällan systematiskt.",
@@ -107,7 +107,7 @@ export default function Cloudfox() {
   ] : [
     {
       id: "supplier",
-      tag: "Area 1",
+      tag: "",
       title: "Supplier qualification and procurement intelligence",
       summary: "SMEs buying from foreign suppliers — in Asia, Vietnam or Eastern Europe — rarely have structure to systematically assess, approve and follow up on them. Decisions are made on gut feeling and old relationships. We build AI systems that give procurement actual decision support.",
       problem: "Without structured supplier assessment you risk quality issues, delivery delays and compliance failures that surface too late. Buyers handle deviations reactively — email, Excel and phone calls — instead of having real-time data on each supplier's performance.",
@@ -115,7 +115,7 @@ export default function Cloudfox() {
     },
     {
       id: "production",
-      tag: "Area 2",
+      tag: "",
       title: "Production planning and capacity utilisation",
       summary: "Manufacturing SMEs plan production in Excel and business systems built for accounting — not operational optimisation. The result is underutilised capacity, unnecessary changeovers and delivery delays that could have been avoided. We build AI systems that give production management actual control.",
       problem: "The production planner has three systems open, a spreadsheet nobody else understands and ten years of tacit knowledge in their head. When they are off sick, planning stops. Orders are prioritised wrong, machines are changed over in the wrong sequence and lead time estimates to customers are based on gut feeling. This is not a people problem — it is an information problem. The right data exists in the systems. It has just never been aggregated and analysed in real time.",
@@ -123,7 +123,7 @@ export default function Cloudfox() {
     },
     {
       id: "retention",
-      tag: "Area 3",
+      tag: "",
       title: "Proactive customer retention",
       summary: "The customers who leave without complaining are the most dangerous to lose. They do not show up in support tickets. They are not heard in customer meetings. They disappear quietly — taking future orders with them. We identify them before they are gone.",
       problem: "Traditional customer surveys capture customers who choose to complain. But research shows the majority of dissatisfied customers never reach out — they switch supplier instead. Order patterns, deviation history and communication data contain the signals. They are rarely analysed systematically.",
@@ -292,7 +292,7 @@ export default function Cloudfox() {
               style={{ padding: `clamp(28px,3vw,40px) ${pad}`, cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 24, transition: "background .2s", background: openCase === c.id ? "rgba(79,127,255,.025)" : "transparent" }}
             >
               <div style={{ flex: 1 }}>
-                <span className="cfx-tag" style={{ marginBottom: 12, display: "inline-block" }}>{c.tag}</span>
+                {c.tag && <span className="cfx-tag" style={{ marginBottom: 12, display: "inline-block" }}>{c.tag}</span>}
                 <h3 style={{ fontSize: "clamp(1.3rem,2.5vw,2rem)", fontWeight: 700, letterSpacing: "-.03em" }}>{c.title}</h3>
                 <p style={{ marginTop: 10, fontSize: 15, color: m, lineHeight: 1.65, maxWidth: "56em" }}>{c.summary}</p>
               </div>
