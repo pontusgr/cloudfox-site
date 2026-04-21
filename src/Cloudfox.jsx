@@ -200,20 +200,25 @@ export default function Cloudfox() {
           <R delay={0.05}>
             <h1 style={{ fontSize: "clamp(2.4rem, 5.5vw, 4.8rem)", fontWeight: 800, letterSpacing: "-.045em", lineHeight: 1.03, maxWidth: "18em" }}>
               {L(
-                <>Enterprise-level AI<br />for companies that don't have<br /><span style={{ color: ac }}>access to a hundred experts.</span></>,
-                <>AI på enterprise-nivå<br />för företag som inte har<br /><span style={{ color: ac }}>tillgång till hundra experter.</span></>
+                <>AI at enterprise level for SME<br />without access to <span style={{ color: ac }}>AI budgets and AI experts.</span></>,
+                <>AI på enterprise-nivå för SME<br />utan tillgång till <span style={{ color: ac }}>AI-budgetar och AI-experter.</span></>
               )}
             </h1>
           </R>
           <R delay={0.1}>
             <p style={{ marginTop: 28, fontSize: "clamp(1rem, 1.5vw, 1.2rem)", lineHeight: 1.7, color: m, maxWidth: "46em" }}>
               {L(
-                "We build AI solutions and automations that give SMEs access to competitive advantages that were previously only possible for large enterprises.",
-                "Vi bygger AI-lösningar och automationer som ger SME tillgång till konkurrensfördelar som tidigare bara var möjliga för stora företag."
+                "SMEs know the opportunities with AI are enormous. But they don't have large AI budgets, they don't have internal AI experts — and their IT and business system partners often have too much to lose to embrace what modern AI makes possible.",
+                "SME vet att möjligheterna med AI är stora. Men de har ingen stor AI-budget, de har inte tillgång till interna AI-experter — och deras IT- och affärssystemspartner har ofta för mycket att förlora på att anpassa sig till vad modernt AI möjliggör."
               )}
             </p>
           </R>
-          <R delay={0.14}>
+          <R delay={0.12}>
+            <p style={{ marginTop: 16, fontSize: "clamp(1rem, 1.5vw, 1.15rem)", fontWeight: 600, color: lt }}>
+              {L("That is why we created Cloudfox.", "Därför har vi skapat Cloudfox.")}
+            </p>
+          </R>
+          <R delay={0.16}>
             <div style={{ marginTop: 36, display: "flex", flexWrap: "wrap", gap: 12 }}>
               <a href="#cases" className="cfx-btn" style={{ padding: "15px 30px", fontSize: 15, background: ac, color: "#fff" }}>
                 {L("See what we automate", "Se vad vi automatiserar")} <span style={{ fontSize: 18 }}>→</span>
@@ -227,6 +232,21 @@ export default function Cloudfox() {
       </section>
 
       {/* STATS */}
+      <section style={{ borderTop: bdr, borderBottom: bdr }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))" }}>
+          {[
+            { value: "80%", label: L("faster development with Claude Code", "snabbare utveckling med Claude Code") },
+            { value: "2–4 v", label: L("from problem to working AI", "från problem till fungerande AI") },
+            { value: L("Measurable ROI", "Mätbar ROI"), label: L("we start with what the problem costs you today", "vi börjar med vad problemet kostar er idag") },
+          ].map((s, i) => (
+            <div key={i} style={{ padding: `clamp(28px,3vw,40px) ${pad}`, borderRight: i < 2 ? bdr : "none" }}>
+              <div style={{ fontSize: "clamp(1.8rem,3vw,2.4rem)", fontWeight: 800, letterSpacing: "-.04em", color: "#fff" }}>{s.value}</div>
+              <div style={{ marginTop: 6, fontSize: 14, color: m, lineHeight: 1.5 }}>{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* WHY CLOUDFOX */}
       <section id="why" style={{ paddingTop: "clamp(5rem,7vw,8rem)" }}>
         <div style={{ padding: `0 ${pad}`, marginBottom: 40 }}>
