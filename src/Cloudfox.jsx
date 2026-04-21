@@ -41,19 +41,19 @@ export default function Cloudfox() {
     document.head.appendChild(l);
     const s = document.createElement("style");
     s.textContent = `
-      .cfx{--a:#1D4ED8;--bg:#06090F;--s:'Inter',system-ui,sans-serif;font-family:var(--s);color:#F1F5F9;background:var(--bg)}
+      .cfx{--a:#4F7FFF;--bg:#06090F;--s:'Inter',system-ui,sans-serif;font-family:var(--s);color:#F1F5F9;background:var(--bg)}
       .cfx *{box-sizing:border-box;margin:0}.cfx a{color:inherit;text-decoration:none}
       .cfx-card{transition:border-color .25s,background .25s}
-      .cfx-card:hover{border-color:rgba(29,110,250,.25)!important;background:rgba(29,110,250,.02)!important}
+      .cfx-card:hover{border-color:rgba(79,127,255,.25)!important;background:rgba(79,127,255,.02)!important}
       .cfx-g3{display:grid;grid-template-columns:1fr}
       @media(min-width:768px){.cfx-g3{grid-template-columns:repeat(3,1fr)}}
       .cfx-split{display:grid;grid-template-columns:1fr}
       @media(min-width:900px){.cfx-split{grid-template-columns:5fr 7fr;align-items:start}}
       .cfx-btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;border-radius:3px;font-family:var(--s);cursor:pointer;border:none;letter-spacing:-.01em;transition:filter .2s}
       .cfx-btn:hover{filter:brightness(1.1)}
-      .cfx-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:2px;background:rgba(29,110,250,.1);color:#93C5FD}
+      .cfx-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:2px;background:rgba(79,127,255,.1);color:#93C5FD}
       .cfx-input{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:3px;padding:13px 16px;color:#F1F5F9;font-size:15px;font-family:var(--s);outline:none;width:100%;transition:border-color .2s}
-      .cfx-input:focus{border-color:rgba(29,110,250,.5)}
+      .cfx-input:focus{border-color:rgba(79,127,255,.5)}
       .cfx-input::placeholder{color:#475569}
       .cfx-expand{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.22,1,.36,1)}
       .cfx-expand.open{max-height:600px}
@@ -61,7 +61,7 @@ export default function Cloudfox() {
     document.head.appendChild(s);
   }, []);
 
-  const ac = "#1D4ED8";
+  const ac = "#4F7FFF";
   const m = "#94A3B8";
   const d = "#475569";
   const lt = "#E2E8F0";
@@ -187,7 +187,7 @@ export default function Cloudfox() {
 
       {/* HERO */}
       <section style={{ position: "relative", overflow: "hidden", padding: `clamp(4rem,7vw,6rem) ${pad} clamp(3rem,5vw,5rem)` }}>
-        <div style={{ position: "absolute", top: "5%", right: "-5%", width: 700, height: 700, borderRadius: "50%", background: "radial-gradient(circle, rgba(29,110,250,.06) 0%, transparent 65%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: "5%", right: "-5%", width: 700, height: 700, borderRadius: "50%", background: "radial-gradient(circle, rgba(79,127,255,.06) 0%, transparent 65%)", pointerEvents: "none" }} />
         <div style={{ position: "relative" }}>
           <R>
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 28 }}>
@@ -269,7 +269,7 @@ export default function Cloudfox() {
           <div key={c.id} style={{ borderTop: bdr }}>
             <div
               onClick={() => setOpenCase(openCase === c.id ? null : c.id)}
-              style={{ padding: `clamp(28px,3vw,40px) ${pad}`, cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 24, transition: "background .2s", background: openCase === c.id ? "rgba(29,110,250,.025)" : "transparent" }}
+              style={{ padding: `clamp(28px,3vw,40px) ${pad}`, cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 24, transition: "background .2s", background: openCase === c.id ? "rgba(79,127,255,.025)" : "transparent" }}
             >
               <div style={{ flex: 1 }}>
                 <span className="cfx-tag" style={{ marginBottom: 12, display: "inline-block" }}>{c.tag}</span>
