@@ -97,12 +97,12 @@ export default function Cloudfox() {
       delivery: "AI-system som integrerar orderdata, maskinkapacitet, materialtillgång och historiska cykeltider för att optimera produktionssekvens och beläggning. Visar i realtid var flaskhalsarna uppstår, vilka ordrar som riskerar försening och vad konsekvensen är av att prioritera om. Planeraren fattar bättre beslut — snabbare. Systemet ersätter inte kompetensen, det förstärker den.",
     },
     {
-      id: "retention",
+      id: "conversion",
       tag: "",
-      title: "Proaktiv kundretention",
-      summary: "De kunder som lämnar utan att klaga är de farligaste att förlora. De syns inte i supportärendena. De hörs inte i kundmötena. De försvinner tyst — och tar framtida order med sig. Vi identifierar dem innan de är borta.",
-      problem: "Traditionella kundmätningar fångar upp kunder som väljer att klaga. Men forskning visar att majoriteten av missnöjda kunder aldrig hör av sig — de byter leverantör istället. Ordermönster, avvikelshistorik och kommunikationsdata innehåller signalerna. De analyseras sällan systematiskt.",
-      delivery: "AI-system som analyserar kunddata över tid — ordermönster, leveransavvikelser, reklamationer, kommunikationsfrekvens — och flaggar kunder med ökad churkrisk. Inkluderar förslag på rätt åtgärd per kund: proaktiv kontakt, kompensation eller eskalering till account manager.",
+      title: "Öka konvertering med interaktiva AI-verktyg",
+      summary: "Prisjämförelser, ROI-kalkylatorer, produktkonfiguratorer — verktyg som tidigare kostade hundratusentals kronor och månaders utvecklingstid. Vi bygger dem på dagar. Resultatet är en webbplats som aktivt säljer istället för att passivt informera.",
+      problem: "De flesta SME-webbplatser är digitala broschyrer med ett kontaktformulär. Besökaren lämnar utan att ha förstått värdet, utan att ha räknat på sin situation och utan en anledning att höra av sig. Det är inte ett trafikproblem — det är ett konverteringsproblem. Rätt verktyg på rätt ställe gör hela skillnaden.",
+      delivery: "AI-byggda interaktiva verktyg direkt på er webbplats — produktkonfiguratorer, prisjämförelser, ROI-kalkylatorer, avancerade kontaktformulär. Besökaren matar in sin situation och får ett konkret svar. Ni får en kvalificerad lead med reell köpintention. Verktyg som tidigare krävde en stor webbbyrå och ett halvår — levererade på dagar.",
     },
   ] : [
     {
@@ -122,12 +122,12 @@ export default function Cloudfox() {
       delivery: "AI system that integrates order data, machine capacity, material availability and historical cycle times to optimise production sequencing and utilisation. Shows in real time where bottlenecks emerge, which orders are at risk of delay and what the consequence is of reprioritising. The planner makes better decisions — faster. The system does not replace the competence, it amplifies it.",
     },
     {
-      id: "retention",
+      id: "conversion",
       tag: "",
-      title: "Proactive customer retention",
-      summary: "The customers who leave without complaining are the most dangerous to lose. They do not show up in support tickets. They are not heard in customer meetings. They disappear quietly — taking future orders with them. We identify them before they are gone.",
-      problem: "Traditional customer surveys capture customers who choose to complain. But research shows the majority of dissatisfied customers never reach out — they switch supplier instead. Order patterns, deviation history and communication data contain the signals. They are rarely analysed systematically.",
-      delivery: "AI system that analyses customer data over time — order patterns, delivery deviations, complaints, communication frequency — and flags customers with increasing churn risk. Includes suggested action per customer: proactive outreach, compensation or escalation to account manager.",
+      title: "Increase conversion with interactive AI tools",
+      summary: "Price comparisons, ROI calculators, product configurators — tools that used to cost hundreds of thousands and months of development time. We build them in days. The result is a website that actively sells instead of passively informing.",
+      problem: "Most SME websites are digital brochures with a contact form. The visitor leaves without having understood the value, without having calculated their own situation, and without a reason to reach out. This is not a traffic problem — it is a conversion problem. The right tool in the right place makes all the difference.",
+      delivery: "AI-built interactive tools directly on your website — product configurators, price comparisons, ROI calculators, advanced contact forms. The visitor inputs their situation and gets a concrete answer. You get a qualified lead with real purchase intent. Tools that previously required a large agency and six months — delivered in days.",
     },
   ];
 
