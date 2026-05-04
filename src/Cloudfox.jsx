@@ -202,7 +202,7 @@ export default function Cloudfox() {
                   "Halv dags utbildning för ert team",
                   "Löpande stöd inom både utveckling och verksamhet",
                 ],
-                tail: "",
+                tail: "Fast pris: 15 000–25 000 kr",
               },
               {
                 n: "02",
@@ -214,7 +214,7 @@ export default function Cloudfox() {
                   "Integrationer med era befintliga system — ERP, SSO, dataflöden",
                   "Deployment till miljön ni föredrar (Azure, AWS eller annan moln-miljö)",
                 ],
-                tail: "",
+                tail: "Från 50 000 kr",
               },
               {
                 n: "03",
@@ -226,7 +226,7 @@ export default function Cloudfox() {
                   "Backup och felsökning vid driftstörningar",
                   "Förbättringar och buggfixar löpande",
                 ],
-                tail: "",
+                tail: "Från 1 500 kr/månad per app",
               },
             ] : [
               {
@@ -239,7 +239,7 @@ export default function Cloudfox() {
                   "Half-day training for your team",
                   "Ongoing support across development and business operations",
                 ],
-                tail: "",
+                tail: "Fixed price: 15,000–25,000 SEK",
               },
               {
                 n: "02",
@@ -251,7 +251,7 @@ export default function Cloudfox() {
                   "Integrations with your existing systems — ERP, SSO, data flows",
                   "Deployment to your preferred environment (Azure, AWS or other cloud)",
                 ],
-                tail: "",
+                tail: "From 50,000 SEK",
               },
               {
                 n: "03",
@@ -263,7 +263,7 @@ export default function Cloudfox() {
                   "Backups and incident response",
                   "Improvements and bug fixes ongoing",
                 ],
-                tail: "",
+                tail: "From 1,500 SEK/month per app",
               },
             ]).map((step, i) => (
               <R key={step.n} delay={i * 0.06}>
@@ -278,7 +278,7 @@ export default function Cloudfox() {
                       </li>
                     ))}
                   </ul>
-                  {step.tail && <p style={{ marginTop: 18, fontSize: 13, color: d, fontStyle: "italic" }}>{step.tail}</p>}
+                  {step.tail && <p style={{ marginTop: 20, paddingTop: 16, borderTop: bdr, fontSize: 14, fontWeight: 600, color: lt }}>{step.tail}</p>}
                 </div>
               </R>
             ))}
