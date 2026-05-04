@@ -308,9 +308,9 @@ export default function Cloudfox() {
           }}>
             {(lang === "sv" ? [
               { title: "Kvalitetsavvikelser", desc: "Registrera, klassificera och spåra åtgärder" },
-              { title: "Maskin- och utrustningsregister", desc: "Asset register med status, historik och dokumentation" },
+              { title: "Lead-kvalificeringsagent", desc: "Analyserar inbound, kvalificerar och bokar möten" },
               { title: "Leverantörsbedömning", desc: "Risk, prestanda och dokumenthantering" },
-              { title: "Felanmälningsapp", desc: "Registrera fel, tilldela och följ åtgärd" },
+              { title: "Research-agent", desc: "Konkurrent- och marknadsintel, summerar och rapporterar" },
               { title: "ROI-kalkylator", desc: "Interaktiv på er webbsida som kvalificerar leads" },
               { title: "Produktkonfigurator", desc: "Kunden bygger sitt offertunderlag själv" },
               { title: "Inköpsförfrågan & anbudsmatris", desc: "RFP-automation och leverantörsjämförelse" },
@@ -318,12 +318,12 @@ export default function Cloudfox() {
               { title: "Avtalsöversikt", desc: "AI extraherar villkor, deadlines och parter från PDF" },
               { title: "Field service-app", desc: "Tekniker rapporterar arbete från fält" },
               { title: "Audit & compliance", desc: "Krav, evidens och deadlines på ett ställe" },
-              { title: "Reseräkningssystem", desc: "Utlägg, kvitton och godkännandeflöde" },
+              { title: "Kundservice-agent", desc: "Svarar på vanliga frågor, eskalerar komplexa" },
             ] : [
               { title: "Quality deviations", desc: "Log, classify and track corrective actions" },
-              { title: "Asset register", desc: "Equipment register with status, history and documentation" },
+              { title: "Lead qualification agent", desc: "Analyses inbound, qualifies leads and books meetings" },
               { title: "Supplier assessment", desc: "Risk, performance and document handling" },
-              { title: "Issue reporting app", desc: "Log faults, assign and track resolution" },
+              { title: "Research agent", desc: "Competitive and market intel, summarises and reports" },
               { title: "ROI calculator", desc: "Interactive on your website to qualify leads" },
               { title: "Product configurator", desc: "Customers build their own quote basis" },
               { title: "RFP & bid comparison", desc: "Procurement automation and supplier scoring" },
@@ -331,7 +331,7 @@ export default function Cloudfox() {
               { title: "Contract overview", desc: "AI extracts terms, deadlines and parties from PDF" },
               { title: "Field service app", desc: "Technicians report work from the field" },
               { title: "Audit & compliance", desc: "Requirements, evidence and deadlines in one place" },
-              { title: "Expense reporting", desc: "Receipts, expenses and approval flow" },
+              { title: "Customer service agent", desc: "Answers common queries, escalates complex ones" },
             ]).map((ex, i) => (
               <div key={i} className="cfx-card" style={{
                 padding: "clamp(22px,2vw,30px) clamp(24px,2.5vw,36px)",
