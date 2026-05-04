@@ -198,7 +198,8 @@ export default function Cloudfox() {
                 summary: "Vi sätter upp grunden",
                 bullets: [
                   "Claude Code + Supabase eller Microsoft Power Apps Vibe + Dataverse",
-                  "Förkonfigurerad AI och datamodell för er bransch och era processer",
+                  "Förkonfigurerad AI, datamodell och mock-APIs för er bransch och era processer",
+                  "Kostnadsskydd: budget-caps och kostnads-övervakning från dag ett",
                   "Halv dags utbildning för ert team",
                   "Löpande stöd inom både utveckling och verksamhet",
                 ],
@@ -213,6 +214,7 @@ export default function Cloudfox() {
                   "Kodgranskning och optimering — prestanda, kvalitet, underhållbarhet",
                   "Integrationer med era befintliga system — ERP, SSO, dataflöden",
                   "Deployment till miljön ni föredrar (Azure, AWS eller annan moln-miljö)",
+                  "Dokumentation och överlämning — kod, arkitektur, körinstruktioner",
                 ],
                 tail: "Från 50 000 kr",
               },
@@ -224,6 +226,7 @@ export default function Cloudfox() {
                   "Hosting i er moln-miljö (Azure, AWS eller annan)",
                   "Säkerhetsuppdateringar, tester och monitoring",
                   "Backup och felsökning vid driftstörningar",
+                  "Namngiven kontakt och månadsrapportering",
                   "Förbättringar och buggfixar löpande",
                 ],
                 tail: "Från 1 500 kr/månad per app",
@@ -235,7 +238,8 @@ export default function Cloudfox() {
                 summary: "We set up the foundation",
                 bullets: [
                   "Claude Code + Supabase or Microsoft Power Apps Vibe + Dataverse",
-                  "Preconfigured AI and data model for your industry and processes",
+                  "Preconfigured AI, data model and mock APIs for your industry and processes",
+                  "Cost guardrails: budget caps and spend monitoring from day one",
                   "Half-day training for your team",
                   "Ongoing support across development and business operations",
                 ],
@@ -250,6 +254,7 @@ export default function Cloudfox() {
                   "Code review and optimization — performance, quality, maintainability",
                   "Integrations with your existing systems — ERP, SSO, data flows",
                   "Deployment to your preferred environment (Azure, AWS or other cloud)",
+                  "Documentation and handoff — code, architecture, operating instructions",
                 ],
                 tail: "From 50,000 SEK",
               },
@@ -261,13 +266,14 @@ export default function Cloudfox() {
                   "Hosting in your cloud environment (Azure, AWS or other)",
                   "Security updates, automated tests and monitoring",
                   "Backups and incident response",
+                  "Named contact and monthly reporting",
                   "Improvements and bug fixes ongoing",
                 ],
                 tail: "From 1,500 SEK/month per app",
               },
             ]).map((step, i) => (
               <R key={step.n} delay={i * 0.06}>
-                <div className="cfx-card" style={{ padding: `clamp(32px,3vw,48px) ${pad}`, borderRight: i < 2 ? bdr : "none", height: "100%", border: "1px solid transparent", borderTop: "none", borderBottom: "none", borderLeft: "none" }}>
+                <div className="cfx-card" style={{ padding: `clamp(32px,3vw,48px) ${pad}`, borderRight: i < 2 ? bdr : "none", height: "100%", border: "1px solid transparent", borderTop: "none", borderBottom: "none", borderLeft: "none", display: "flex", flexDirection: "column" }}>
                   <h3 style={{ fontSize: "clamp(1.1rem,2vw,1.4rem)", fontWeight: 700, letterSpacing: "-.03em" }}>{step.title}</h3>
                   <p style={{ marginTop: 10, fontSize: 14, color: lt, fontWeight: 500 }}>{step.summary}</p>
                   <ul style={{ marginTop: 18, paddingLeft: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}>
@@ -278,7 +284,7 @@ export default function Cloudfox() {
                       </li>
                     ))}
                   </ul>
-                  {step.tail && <p style={{ marginTop: 20, paddingTop: 16, borderTop: bdr, fontSize: 14, fontWeight: 600, color: lt }}>{step.tail}</p>}
+                  {step.tail && <p style={{ marginTop: "auto", paddingTop: 16, borderTop: bdr, fontSize: 14, fontWeight: 600, color: lt }}>{step.tail}</p>}
                 </div>
               </R>
             ))}
