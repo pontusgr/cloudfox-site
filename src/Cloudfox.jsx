@@ -89,7 +89,7 @@ export default function Cloudfox() {
     },
     {
       title: "Driftsansvar",
-      text: "När en vibe-codad app går sönder klockan 22 på lördag finns det inte alltid någon att ringa. Det finns hos oss. En partner från idé till drift — manuell kodgranskning före leverans, övervakning efter, namngiven kontakt när något händer.",
+      text: "När en vibe-codad app går sönder klockan 22 på lördag finns det inte alltid någon att ringa. Det finns hos oss. En partner från idé till drift — manuell kodgranskning före leverans, GDPR-compliance, övervakning efter, namngiven kontakt när något händer.",
     },
   ] : [
     {
@@ -102,7 +102,7 @@ export default function Cloudfox() {
     },
     {
       title: "Operational accountability",
-      text: "When a vibe-coded app breaks at 10pm on a Saturday, there isn't always someone to call. There is with us. A partner from idea to operations — manual code review before delivery, monitoring after, named contact when something happens.",
+      text: "When a vibe-coded app breaks at 10pm on a Saturday, there isn't always someone to call. There is with us. A partner from idea to operations — manual code review before delivery, GDPR compliance, monitoring after, named contact when something happens.",
     },
   ];
 
@@ -210,7 +210,7 @@ export default function Cloudfox() {
                 title: "Produktion",
                 summary: "Vi tar prototypen till produktion",
                 bullets: [
-                  "Säkerhetsgranskning av koden — OWASP, auth, secrets management",
+                  "Säkerhetsgranskning — OWASP, auth, secrets management, GDPR-compliance",
                   "Kodgranskning och optimering — prestanda, kvalitet, underhållbarhet",
                   "Integrationer med era befintliga system — ERP, SSO, dataflöden",
                   "Deployment till miljön ni föredrar (Azure, AWS eller annan moln-miljö)",
@@ -223,7 +223,7 @@ export default function Cloudfox() {
                 title: "Drift",
                 summary: "Vi tar driftsansvaret",
                 bullets: [
-                  "Hosting i er moln-miljö (Azure, AWS eller annan)",
+                  "EU-hostat i er moln-miljö (Azure, AWS eller annan) — GDPR-säkert",
                   "Säkerhetsuppdateringar, tester och monitoring",
                   "Backup och felsökning vid driftstörningar",
                   "Namngiven kontakt och månadsrapportering",
@@ -250,7 +250,7 @@ export default function Cloudfox() {
                 title: "Production",
                 summary: "We take the prototype to production",
                 bullets: [
-                  "Security review of the code — OWASP, auth, secrets management",
+                  "Security review — OWASP, auth, secrets management, GDPR compliance",
                   "Code review and optimization — performance, quality, maintainability",
                   "Integrations with your existing systems — ERP, SSO, data flows",
                   "Deployment to your preferred environment (Azure, AWS or other cloud)",
@@ -263,7 +263,7 @@ export default function Cloudfox() {
                 title: "Operations",
                 summary: "We take operational accountability",
                 bullets: [
-                  "Hosting in your cloud environment (Azure, AWS or other)",
+                  "EU-hosted in your cloud environment (Azure, AWS or other) — GDPR-secure",
                   "Security updates, automated tests and monitoring",
                   "Backups and incident response",
                   "Named contact and monthly reporting",
