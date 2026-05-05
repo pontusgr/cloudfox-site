@@ -197,7 +197,7 @@ export default function Cloudfox() {
                 title: "Prototyp",
                 summary: "Vi sätter upp grunden",
                 bullets: [
-                  "Claude Code + Supabase eller Microsoft Power Apps Vibe + Dataverse",
+                  "Lovable / Claude Code + Supabase eller Microsoft Power Apps Vibe + Dataverse",
                   "Förkonfigurerad AI, datamodell och mock-APIs för er bransch och era processer",
                   "Kostnadsskydd: budget-caps och kostnads-övervakning från dag ett",
                   "Halv dags utbildning för ert team",
@@ -237,7 +237,7 @@ export default function Cloudfox() {
                 title: "Prototype",
                 summary: "We set up the foundation",
                 bullets: [
-                  "Claude Code + Supabase or Microsoft Power Apps Vibe + Dataverse",
+                  "Lovable / Claude Code + Supabase or Microsoft Power Apps Vibe + Dataverse",
                   "Preconfigured AI, data model and mock APIs for your industry and processes",
                   "Cost guardrails: budget caps and spend monitoring from day one",
                   "Half-day training for your team",
@@ -504,7 +504,7 @@ export default function Cloudfox() {
             <div>
               <div style={{ fontSize: "1.25rem", fontWeight: 800, letterSpacing: "-.05em" }}>cloudfox<span style={{ color: ac }}>.</span></div>
               <p style={{ marginTop: 10, fontSize: 13, color: d, maxWidth: "22em", lineHeight: 1.6 }}>
-                {L("AI partner for Swedish SME. Stockholm.", "AI-partner för svensk SME. Stockholm.")}
+                {L("You build the prototype. We make it secure in production. Stockholm.", "Ni bygger prototypen. Vi gör den säker i produktion. Stockholm.")}
               </p>
             </div>
             <div style={{ display: "flex", gap: 48 }}>
@@ -529,7 +529,7 @@ export default function Cloudfox() {
           </div>
           <div style={{ marginTop: 36, paddingTop: 20, borderTop: "1px solid rgba(255,255,255,.05)", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 8 }}>
             <span style={{ fontSize: 12, color: d }}>© {new Date().getFullYear()} Cloudfox AB</span>
-            <span style={{ fontSize: 12, color: d }}>{L("AI partner for Swedish SME.", "AI-partner för svensk SME.")}</span>
+            <span style={{ fontSize: 12, color: d }}>{L("You build the prototype. We make it secure in production.", "Ni bygger prototypen. Vi gör den säker i produktion.")}</span>
           </div>
         </div>
       </footer>
