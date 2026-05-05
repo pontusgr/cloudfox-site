@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06090F"/>
+      <stop offset="100%" style="stop-color:#0a0f1e"/>
+    </linearGradient>
+    <linearGradient id="accent-line" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4F7FFF;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#4F7FFF;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#4F7FFF;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="glow-filter" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="80" result="blur"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Glow blobs -->
+  <ellipse cx="150" cy="500" rx="320" ry="220" fill="#4F7FFF" opacity="0.07" filter="url(#glow-filter)"/>
+  <ellipse cx="1050" cy="150" rx="280" ry="200" fill="#4F7FFF" opacity="0.06" filter="url(#glow-filter)"/>
+
+  <!-- Subtle decorative rings -->
+  <circle cx="100" cy="500" r="200" fill="none" stroke="rgba(79,127,255,0.07)" stroke-width="1"/>
+  <circle cx="100" cy="500" r="140" fill="none" stroke="rgba(79,127,255,0.1)" stroke-width="1"/>
+  <circle cx="100" cy="500" r="80" fill="none" stroke="rgba(79,127,255,0.14)" stroke-width="1"/>
+
+  <!-- Top accent line -->
+  <rect x="200" y="0" width="800" height="2" fill="url(#accent-line)"/>
+
+  <!-- CLOUDFOX wordmark -->
+  <text x="100" y="120" font-family="'DM Sans', 'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="0.25em" fill="#4F7FFF">CLOUDFOX</text>
+
+  <!-- Main headline -->
+  <text x="100" y="240" font-family="'DM Sans', 'Helvetica Neue', Arial, sans-serif" font-size="68" font-weight="700" letter-spacing="-0.03em" fill="#ffffff">Ni bygger prototypen.</text>
+  <text x="100" y="320" font-family="'DM Sans', 'Helvetica Neue', Arial, sans-serif" font-size="68" font-weight="700" letter-spacing="-0.03em" fill="#ffffff">Vi gör den <tspan fill="#4F7FFF">säker i produktion.</tspan></text>
+
+  <!-- Subline -->
+  <text x="100" y="410" font-family="'DM Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" font-weight="400" fill="#9CA3AF">AI-partner för svensk SME — Microsoft + Anthropic</text>
+
+  <!-- Bottom tag -->
+  <text x="100" y="540" font-family="'DM Sans', 'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="0.14em" fill="#4F7FFF">PROTOTYP → PRODUKTION → DRIFT · CLOUDFOX.SE</text>
+
+</svg>
