@@ -80,29 +80,29 @@ export default function Cloudfox() {
 
   const reasons = lang === "sv" ? [
     {
-      title: "Inget vendor lock-in",
-      text: "Ni äger koden, miljön och besluten. Vi har djup i båda AI-stackarna som faktiskt spelar roll för svensk SME — Microsoft och Anthropic — men inget intresse av att låsa er till någondera. Vi väljer rätt verktyg per problem.",
+      title: "Microsoft + Anthropic — båda stackarna",
+      text: "Vi är djupa i båda AI-stackarna som faktiskt spelar roll för svensk SME. Pure Anthropic-shops kan inte göra Microsoft. Pure Microsoft-partners får inte rekommendera Claude. Vi väljer rätt verktyg per problem — och har inget intresse av att pusha en stack över den andra.",
     },
     {
-      title: "Ert team bygger, vi gör det produktionsdugligt",
-      text: "Marknadschefen bygger i Lovable. Inköp vibar i Claude. Vi tar prototyperna till produktion — säkerhet, integrationer, deployment. Ni äger koden från dag ett. Vi är inte grindvakter, vi är acceleratorn.",
+      title: "Egen admin-modul — ni styr lösningen",
+      text: "Vi bygger lösningen, ni styr den. I admin-modulen kan er process-ägare justera prompts, regler, mallar och fält själva — i minuter, utan att skriva kod. Säkra gränser så ni inte kan bryta arkitekturen. Större ändringar tar vi som tillägg.",
     },
     {
-      title: "Driftsansvar",
-      text: "När en vibe-codad app går sönder klockan 22 på lördag finns det inte alltid någon att ringa. Det finns hos oss. En partner från idé till drift — manuell kodgranskning före leverans, GDPR-compliance, övervakning efter, namngiven kontakt när något händer.",
+      title: "Driftsansvar från idé till drift",
+      text: "När er AI-lösning går sönder klockan 22 på lördag finns det inte alltid någon att ringa hos andra leverantörer. Det finns hos oss. Manuell kodgranskning före leverans, GDPR-compliance, övervakning efter, namngiven kontakt när något händer.",
     },
   ] : [
     {
-      title: "No vendor lock-in",
-      text: "You own the code, the environment and the decisions. We have depth in both AI stacks that actually matter for Swedish SMEs — Microsoft and Anthropic — but no interest in locking you into either. We choose the right tool per problem.",
+      title: "Microsoft + Anthropic — both stacks",
+      text: "We have depth in both AI stacks that actually matter for Swedish SMEs. Pure Anthropic shops cannot do Microsoft. Pure Microsoft partners cannot recommend Claude. We choose the right tool per problem — with no incentive to push one stack over the other.",
     },
     {
-      title: "Your team builds, we make it production-ready",
-      text: "Your marketing manager is building in Lovable. Procurement is vibing in Claude. We take the prototypes to production — security, integrations, deployment. You own the code from day one. We're not gatekeepers, we're the accelerator.",
+      title: "Your own admin module — you steer the solution",
+      text: "We build the solution, you steer it. In the admin module, your process owners can adjust prompts, rules, templates and fields themselves — in minutes, without writing code. Safe boundaries so you can't break the architecture. Larger changes we handle as add-ons.",
     },
     {
-      title: "Operational accountability",
-      text: "When a vibe-coded app breaks at 10pm on a Saturday, there isn't always someone to call. There is with us. A partner from idea to operations — manual code review before delivery, GDPR compliance, monitoring after, named contact when something happens.",
+      title: "Operational accountability from idea to ongoing",
+      text: "When your AI solution breaks at 10pm on a Saturday, there isn't always someone to call at other vendors. There is with us. Manual code review before delivery, GDPR compliance, monitoring after, named contact when something happens.",
     },
   ];
 
@@ -147,22 +147,25 @@ export default function Cloudfox() {
           <R delay={0.05}>
             <h1 style={{ fontSize: "clamp(2.4rem, 5.5vw, 4.8rem)", fontWeight: 800, letterSpacing: "-.045em", lineHeight: 1.05, maxWidth: "18em" }}>
               {L(
-                <>AI on your terms.<br />You build the prototype.<br />We make it <span style={{ color: ac }}>secure in production.</span></>,
-                <>AI på era villkor.<br />Ni bygger prototypen.<br />Vi gör den <span style={{ color: ac }}>säker i produktion.</span></>
+                <>Enterprise AI for Swedish SME.<br /><span style={{ color: ac }}>We build. You steer. We operate.</span></>,
+                <>Enterprise AI för svensk SME.<br /><span style={{ color: ac }}>Vi bygger. Ni styr. Vi driver.</span></>
               )}
             </h1>
           </R>
           <R delay={0.1}>
             <p style={{ marginTop: 28, fontSize: "clamp(1rem, 1.5vw, 1.2rem)", lineHeight: 1.7, color: m, maxWidth: "46em" }}>
               {L(
-                "Your marketing manager is building in Lovable. Procurement is vibing in Claude. But the prototypes get stuck: no safe deployment, no integration, no one accountable for operations. Bridging that gap takes AI expertise and budgets Swedish SMEs rarely have.",
-                "Marknadschefen bygger i Lovable. Inköp vibar i Claude. Men prototyperna fastnar: ingen säker driftsättning, ingen integration, ingen som ansvarar för driften. Att överbrygga gapet kräver AI-expertis och budgetar svenska SME sällan har."
+                "Your competitors with 5,000+ employees have AI-driven processes. For your size it has been too expensive and too complex to build internally — and your IT and ERP partners rarely help you forward.",
+                "Era konkurrenter med 5 000+ anställda har AI-drivna processer. För er storlek har det varit för dyrt och för komplext att bygga internt — och era IT- och affärssystempartners hjälper sällan framåt."
               )}
             </p>
           </R>
           <R delay={0.12}>
-            <p style={{ marginTop: 16, fontSize: "clamp(1rem, 1.5vw, 1.15rem)", fontWeight: 600, color: lt }}>
-              {L("That is why we created Cloudfox.", "Därför har vi skapat Cloudfox.")}
+            <p style={{ marginTop: 16, fontSize: "clamp(1rem, 1.5vw, 1.15rem)", fontWeight: 600, color: lt, maxWidth: "46em" }}>
+              {L(
+                "Cloudfox delivers enterprise-grade AI tailored to your business. Integrated with your systems. With operational accountability from day one. Data in your cloud environment.",
+                "Cloudfox levererar enterprise-grade AI anpassad efter er affär. Integrerad med era system. Drift-ansvarig från dag ett. Datan i er moln-miljö."
+              )}
             </p>
           </R>
           <R delay={0.16}>
@@ -180,11 +183,11 @@ export default function Cloudfox() {
         <div style={{ padding: `clamp(4rem,6vw,6rem) ${pad} clamp(2rem,3vw,3rem)` }}>
           <R>
             <Label>{L("How it works", "Så fungerar det")}</Label>
-            <H2>{L("Three steps from idea to operations.", "Tre steg från idé till drift.")}</H2>
+            <H2>{L(<>Tre roller, ett kontinuerligt<br />partnerskap.</>, <>Tre roller, ett kontinuerligt<br />partnerskap.</>)}</H2>
             <p style={{ marginTop: 16, fontSize: 16, color: m, lineHeight: 1.7, maxWidth: "50em" }}>
               {L(
-                "A connected journey from idea to operations — three steps, three clear handoffs of responsibility.",
-                "En sammanhängande resa från idé till drift — tre tydliga steg, tre tydliga ansvarsskiften."
+                "Not a delivery project that ends. A continuous partnership with clear responsibilities. We build the foundation. You steer the solution through our admin module. We operate it — from day one through year five.",
+                "Inte ett leveransprojekt med slut. Ett kontinuerligt partnerskap med tydliga ansvar. Vi bygger grunden. Ni styr lösningen genom vår admin-modul. Vi driftar den — från dag ett till år fem."
               )}
             </p>
           </R>
@@ -194,29 +197,29 @@ export default function Cloudfox() {
             {(lang === "sv" ? [
               {
                 n: "01",
-                title: "Prototyp",
-                summary: "Vi sätter upp grunden",
+                title: "Discovery",
+                summary: "Vi förstår er affär och identifierar use case",
                 bullets: [
-                  "Lovable / Claude Code + Supabase eller Microsoft Power Apps Vibe + Dataverse",
-                  "Förkonfigurerad AI, datamodell och mock-APIs för er bransch och era processer",
-                  "Kostnadsskydd: budget-caps och kostnads-övervakning från dag ett",
-                  "Halv dags utbildning för ert team",
-                  "Löpande stöd inom både utveckling och verksamhet",
+                  "Strategic AI Workshop med ledningsgruppen (90 min)",
+                  "Inventering av era processer och AI-möjligheter",
+                  "Konkret roadmap: vilka use cases, prioritering, ROI per case",
+                  "Stack-rekommendation (Microsoft eller Anthropic) per use case",
+                  "Foundation setup — databas, auth, miljöer förkonfigurerade",
                 ],
                 tail: "Fast pris: 15 000–25 000 kr",
               },
               {
                 n: "02",
-                title: "Produktion",
-                summary: "Vi tar prototypen till produktion",
+                title: "Anpassning",
+                summary: "Ni styr lösningen — kontinuerligt, i admin-modulen",
                 bullets: [
-                  "Säkerhetsgranskning — OWASP, auth, secrets management, GDPR-compliance",
-                  "Kodgranskning och optimering — prestanda, kvalitet, underhållbarhet",
-                  "Integrationer med era befintliga system — ERP, SSO, dataflöden",
-                  "Deployment till miljön ni föredrar (Azure, AWS eller annan moln-miljö)",
-                  "Dokumentation och överlämning — kod, arkitektur, körinstruktioner",
+                  "Egen admin-modul: redigera AI-prompts, regler, mallar och fält",
+                  "Test-sandbox — pröva ändringar innan de går live",
+                  "Säkra gränser — ni kan inte bryta arkitekturen, bara konfigurera",
+                  "Snabba iterationer — minuter, inte veckor, för småändringar",
+                  "Större ändringar (nya integrationer, AI-funktioner) tar vi som tillägg",
                 ],
-                tail: "Från 50 000 kr",
+                tail: "Från 50 000 kr — initial bygge",
               },
               {
                 n: "03",
@@ -234,29 +237,29 @@ export default function Cloudfox() {
             ] : [
               {
                 n: "01",
-                title: "Prototype",
-                summary: "We set up the foundation",
+                title: "Discovery",
+                summary: "We understand your business and identify the use case",
                 bullets: [
-                  "Lovable / Claude Code + Supabase or Microsoft Power Apps Vibe + Dataverse",
-                  "Preconfigured AI, data model and mock APIs for your industry and processes",
-                  "Cost guardrails: budget caps and spend monitoring from day one",
-                  "Half-day training for your team",
-                  "Ongoing support across development and business operations",
+                  "Strategic AI Workshop with leadership team (90 min)",
+                  "Inventory of your processes and AI opportunities",
+                  "Concrete roadmap: which use cases, prioritization, ROI per case",
+                  "Stack recommendation (Microsoft or Anthropic) per use case",
+                  "Foundation setup — database, auth, environments preconfigured",
                 ],
                 tail: "Fixed price: 15,000–25,000 SEK",
               },
               {
                 n: "02",
-                title: "Production",
-                summary: "We take the prototype to production",
+                title: "Adaptation",
+                summary: "You steer the solution — continuously, in the admin module",
                 bullets: [
-                  "Security review — OWASP, auth, secrets management, GDPR compliance",
-                  "Code review and optimization — performance, quality, maintainability",
-                  "Integrations with your existing systems — ERP, SSO, data flows",
-                  "Deployment to your preferred environment (Azure, AWS or other cloud)",
-                  "Documentation and handoff — code, architecture, operating instructions",
+                  "Your own admin module: edit AI prompts, rules, templates and fields",
+                  "Test sandbox — try changes before they go live",
+                  "Safe boundaries — you cannot break architecture, only configure",
+                  "Fast iterations — minutes, not weeks, for small changes",
+                  "Larger changes (new integrations, AI features) we handle as add-ons",
                 ],
-                tail: "From 50,000 SEK",
+                tail: "From 50,000 SEK — initial build",
               },
               {
                 n: "03",
@@ -296,12 +299,12 @@ export default function Cloudfox() {
       <section id="examples" style={{ borderTop: bdr }}>
         <div style={{ padding: `clamp(4rem,6vw,6rem) ${pad} clamp(2rem,3vw,3rem)` }}>
           <R>
-            <Label>{L("What can be built", "Vad kan byggas")}</Label>
-            <H2>{L("Examples your team can prototype.", "Exempel ert team kan prototypa.")}</H2>
+            <Label>{L("What we deliver", "Vad vi levererar")}</Label>
+            <H2>{L("AI solutions that solve real SME problems.", "AI-lösningar som löser konkreta SME-problem.")}</H2>
             <p style={{ marginTop: 16, fontSize: 16, color: m, lineHeight: 1.7, maxWidth: "50em" }}>
               {L(
-                "Anything below follows the same journey: your team prototypes, we take it to production, we run it. The list is just examples — we'll happily help you find the right use cases for your industry and needs.",
-                "Allt nedan följer samma resa: ert team prototypar, vi tar till produktion, vi kör driften. Listan är bara exempel och vi hjälper er gärna hitta use-case utifrån er bransch och behov."
+                "Tailored delivery — every solution adapted to your business, your data and your existing systems. The list below is examples; we help you identify the right use cases for your industry and needs.",
+                "Skräddarsydd leverans — varje lösning anpassad efter er affär, er data och era befintliga system. Listan är bara exempel — vi hjälper er identifiera rätt use cases utifrån er bransch och behov."
               )}
             </p>
           </R>
@@ -313,28 +316,28 @@ export default function Cloudfox() {
             gap: "1px",
           }}>
             {(lang === "sv" ? [
+              { title: "AI-driven offerthantering", desc: "Generera anpassade offerter på sekunder — er prislogik, era partners, era regler" },
+              { title: "Lead-kvalificering & response", desc: "Svara på inkommande leads inom minuter, kvalificera och boka möten" },
               { title: "Kvalitetsavvikelser", desc: "Registrera, klassificera och spåra åtgärder" },
-              { title: "Lead-kvalificeringsagent", desc: "Analyserar inbound, kvalificerar och bokar möten" },
-              { title: "Leverantörsbedömning", desc: "Risk, prestanda och dokumenthantering" },
-              { title: "Research-agent", desc: "Konkurrent- och marknadsintel, summerar och rapporterar" },
+              { title: "Leverantörsuppföljning", desc: "Risk, prestanda och dokumenthantering" },
               { title: "ROI-kalkylator", desc: "Interaktiv på er webbsida som kvalificerar leads" },
               { title: "Produktkonfigurator", desc: "Kunden bygger sitt offertunderlag själv" },
               { title: "Inköpsförfrågan & anbudsmatris", desc: "RFP-automation och leverantörsjämförelse" },
-              { title: "Onboarding-flöde", desc: "Guide nyanställda genom första månaden" },
               { title: "Avtalsöversikt", desc: "AI extraherar villkor, deadlines och parter från PDF" },
+              { title: "Onboarding-flöde", desc: "Guide nyanställda genom första månaden" },
               { title: "Field service-app", desc: "Tekniker rapporterar arbete från fält" },
               { title: "Audit & compliance", desc: "Krav, evidens och deadlines på ett ställe" },
               { title: "Kundservice-agent", desc: "Svarar på vanliga frågor, eskalerar komplexa" },
             ] : [
+              { title: "AI-driven quote management", desc: "Generate tailored quotes in seconds — your pricing logic, your partners, your rules" },
+              { title: "Lead qualification & response", desc: "Respond to inbound leads in minutes, qualify and book meetings" },
               { title: "Quality deviations", desc: "Log, classify and track corrective actions" },
-              { title: "Lead qualification agent", desc: "Analyses inbound, qualifies leads and books meetings" },
-              { title: "Supplier assessment", desc: "Risk, performance and document handling" },
-              { title: "Research agent", desc: "Competitive and market intel, summarises and reports" },
+              { title: "Supplier follow-up", desc: "Risk, performance and document handling" },
               { title: "ROI calculator", desc: "Interactive on your website to qualify leads" },
               { title: "Product configurator", desc: "Customers build their own quote basis" },
               { title: "RFP & bid comparison", desc: "Procurement automation and supplier scoring" },
-              { title: "Onboarding flow", desc: "Guide new hires through their first month" },
               { title: "Contract overview", desc: "AI extracts terms, deadlines and parties from PDF" },
+              { title: "Onboarding flow", desc: "Guide new hires through their first month" },
               { title: "Field service app", desc: "Technicians report work from the field" },
               { title: "Audit & compliance", desc: "Requirements, evidence and deadlines in one place" },
               { title: "Customer service agent", desc: "Answers common queries, escalates complex ones" },
@@ -504,7 +507,7 @@ export default function Cloudfox() {
             <div>
               <div style={{ fontSize: "1.25rem", fontWeight: 800, letterSpacing: "-.05em" }}>cloudfox<span style={{ color: ac }}>.</span></div>
               <p style={{ marginTop: 10, fontSize: 13, color: d, maxWidth: "22em", lineHeight: 1.6 }}>
-                {L("You build the prototype. We make it secure in production. Stockholm.", "Ni bygger prototypen. Vi gör den säker i produktion. Stockholm.")}
+                {L("Enterprise AI for Swedish SME. Delivered. Integrated. Operated. Stockholm.", "Enterprise AI för svensk SME. Levererat. Integrerat. Drift-ansvarigt. Stockholm.")}
               </p>
             </div>
             <div style={{ display: "flex", gap: 48 }}>
@@ -529,7 +532,7 @@ export default function Cloudfox() {
           </div>
           <div style={{ marginTop: 36, paddingTop: 20, borderTop: "1px solid rgba(255,255,255,.05)", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 8 }}>
             <span style={{ fontSize: 12, color: d }}>© {new Date().getFullYear()} Cloudfox AB</span>
-            <span style={{ fontSize: 12, color: d }}>{L("You build the prototype. We make it secure in production.", "Ni bygger prototypen. Vi gör den säker i produktion.")}</span>
+            <span style={{ fontSize: 12, color: d }}>{L("Enterprise AI for Swedish SME.", "Enterprise AI för svensk SME.")}</span>
           </div>
         </div>
       </footer>
