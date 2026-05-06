@@ -85,7 +85,7 @@ export default function Cloudfox() {
     },
     {
       title: "Egen admin-modul — ni styr lösningen",
-      text: "Vi bygger lösningen, ni styr den. I admin-modulen kan er process-ägare justera prompts, regler, mallar och fält själva — i minuter, utan att skriva kod. Säkra gränser så ni inte kan bryta arkitekturen. Större ändringar tar vi som tillägg.",
+      text: "Vi bygger lösningen, ni styr den. I admin-modulen justerar er process-ägare AI-prompts, prisregler, output-mallar och form-fält själva — i minuter, utan att skriva kod. Ex för offert-app: ändra säsongstillägg från +8% till +10%, lägga till regler för nya destinationer, tweaka tone-of-voice. Säkra gränser så ni inte kan bryta arkitekturen. Större ändringar tar vi som tillägg.",
     },
     {
       title: "Driftsansvar från idé till drift",
@@ -98,7 +98,7 @@ export default function Cloudfox() {
     },
     {
       title: "Your own admin module — you steer the solution",
-      text: "We build the solution, you steer it. In the admin module, your process owners can adjust prompts, rules, templates and fields themselves — in minutes, without writing code. Safe boundaries so you can't break the architecture. Larger changes we handle as add-ons.",
+      text: "We build the solution, you steer it. In the admin module, your process owners adjust AI prompts, pricing rules, output templates and form fields themselves — in minutes, without writing code. Example for a quote app: change seasonal surcharge from +8% to +10%, add rules for new destinations, tweak tone-of-voice. Safe boundaries so you can't break the architecture. Larger changes we handle as add-ons.",
     },
     {
       title: "Operational accountability from idea to ongoing",
