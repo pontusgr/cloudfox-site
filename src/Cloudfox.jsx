@@ -155,8 +155,8 @@ export default function Cloudfox() {
           <R delay={0.1}>
             <p style={{ marginTop: 28, fontSize: "clamp(1rem, 1.5vw, 1.2rem)", lineHeight: 1.7, color: m, maxWidth: "46em" }}>
               {L(
-                "Your competitors with 5,000+ employees have AI-driven processes. For your size it has been too expensive and too complex to build internally — and your IT and ERP partners rarely help you forward.",
-                "Era konkurrenter med 5 000+ anställda har AI-drivna processer. För er storlek har det varit för dyrt och för komplext att bygga internt — och era IT- och affärssystempartners hjälper sällan framåt."
+                "AI that previously required million-budget investments and 6-12 months now takes weeks. For Swedish SMEs this means huge opportunities — the window for competitive advantage is open, but it closes when everyone has AI.",
+                "AI som tidigare krävde miljonbudgetar och tog 6-12 månader tar nu veckor. För svensk SME innebär det stora möjligheter — fönstret för konkurrensfördel är öppet, men det stänger när alla har AI."
               )}
             </p>
           </R>
