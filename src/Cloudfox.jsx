@@ -81,7 +81,7 @@ export default function Cloudfox() {
   const reasons = lang === "sv" ? [
     {
       title: "Microsoft + Anthropic — båda stackarna",
-      text: "Vi är djupa i båda AI-stackarna som faktiskt spelar roll för svensk SME. Pure Anthropic-shops kan inte göra Microsoft. Pure Microsoft-partners får inte rekommendera Claude. Vi väljer rätt verktyg per problem — och har inget intresse av att pusha en stack över den andra.",
+      text: "Vi har medvetet fokuserat på de två AI-stackar som tillsammans täcker svensk SMEs behov. Microsoft för djup integration med era befintliga system — Office, Business Central, Power Platform, SharePoint. Anthropic för avancerad AI-utveckling där modellens kvalitet är avgörande — Claude för komplex reasoning, integration och custom-lösningar. Vi väljer rätt verktyg per problem, inte rätt vendor per försäljning.",
     },
     {
       title: "Egen admin-modul — ni styr lösningen",
@@ -94,7 +94,7 @@ export default function Cloudfox() {
   ] : [
     {
       title: "Microsoft + Anthropic — both stacks",
-      text: "We have depth in both AI stacks that actually matter for Swedish SMEs. Pure Anthropic shops cannot do Microsoft. Pure Microsoft partners cannot recommend Claude. We choose the right tool per problem — with no incentive to push one stack over the other.",
+      text: "We have deliberately focused on the two AI stacks that together cover Swedish SME needs. Microsoft for deep integration with your existing systems — Office, Business Central, Power Platform, SharePoint. Anthropic for advanced AI development where model quality is critical — Claude for complex reasoning, integration, and custom solutions. We choose the right tool per problem, not the right vendor per sale.",
     },
     {
       title: "Your own admin module — you steer the solution",
