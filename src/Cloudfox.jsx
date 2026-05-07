@@ -106,6 +106,40 @@ export default function Cloudfox() {
     },
   ];
 
+  const principles = lang === "sv" ? [
+    {
+      n: "01",
+      title: "AI runt — inte istället för — ert affärssystem",
+      text: "Behåll era befintliga system. AI bygger ett intelligenslager runt — ERP/affärssystem som datakälla, AI som beslutslager. Ingen rip-and-replace, ingen 12-månaders migrering. Investeringen ni gjort skyddas, ni får moderna AI-kapabiliteter på veckor.",
+    },
+    {
+      n: "02",
+      title: "Ledningsgruppsdriven transformation — inte ett IT-projekt",
+      text: "AI förändrar processer, roller och kultur. Det måste ägas av ledningsgruppen, inte IT-avdelningen. Vi börjar varje uppdrag med en strategisk workshop med er ledningsgrupp — för utan ledningsförankring blir AI-lösningar ett verktyg som ingen använder.",
+    },
+    {
+      n: "03",
+      title: "Cloudfox bygger systemet. Era anställda förbättrar det.",
+      text: "Det är säljarna, supporten och operations som dagligen möter affären — och bäst förstår var lösningen behöver justeras. Vi levererar arkitekturen, datamodellen och säkra ramar. Sedan iterar er personal löpande inom dem — utan IT-tickets, utan väntetid, utan extern konsult. Maximal innovation från de som har bäst koll.",
+    },
+  ] : [
+    {
+      n: "01",
+      title: "AI around — not instead of — your business system",
+      text: "Keep your existing systems. AI builds an intelligence layer around — ERP as data source, AI as decision layer. No rip-and-replace, no 12-month migration. The investment you've made is protected; you get modern AI capabilities in weeks.",
+    },
+    {
+      n: "02",
+      title: "Management-team-driven transformation — not an IT project",
+      text: "AI changes processes, roles, and culture. It must be owned by the management team, not the IT department. We begin every engagement with a strategic workshop with your leadership — because without management buy-in, AI solutions become tools no one uses.",
+    },
+    {
+      n: "03",
+      title: "Cloudfox builds the system. Your people improve it.",
+      text: "Sales, support, and operations meet your business every day — they know best where the solution needs adjustment. We deliver the architecture, data model, and safe boundaries. Then your staff iterates within them, continuously — no IT tickets, no waiting, no external consultant. Maximum innovation from the people closest to the work.",
+    },
+  ];
+
   return (
     <div className="cfx" style={{ background: "#06090F", minHeight: "100vh" }}>
 
@@ -175,6 +209,35 @@ export default function Cloudfox() {
               </a>
             </div>
           </R>
+        </div>
+      </section>
+
+      {/* PRINCIPLES — Vår syn på AI för SME */}
+      <section id="principles" style={{ borderTop: bdr }}>
+        <div style={{ padding: `clamp(4rem,6vw,6rem) ${pad} clamp(2rem,3vw,3rem)` }}>
+          <R>
+            <Label>{L("Our view", "Vår syn")}</Label>
+            <H2>{L(<>Tre principer för AI-driven<br />SME-transformation.</>, <>Tre principer för AI-driven<br />SME-transformation.</>)}</H2>
+            <p style={{ marginTop: 16, fontSize: 16, color: m, lineHeight: 1.7, maxWidth: "50em" }}>
+              {L(
+                "Three convictions that shape every Cloudfox engagement — from the first workshop to year five of operations.",
+                "Tre övertygelser som präglar varje Cloudfox-uppdrag — från första workshopen till år fem av drift."
+              )}
+            </p>
+          </R>
+        </div>
+        <div style={{ borderTop: bdr, borderBottom: bdr }}>
+          <div className="cfx-g3">
+            {principles.map((p, i) => (
+              <R key={p.n} delay={i * 0.05}>
+                <div className="cfx-card" style={{ padding: `clamp(28px,3vw,40px) ${pad}`, borderRight: i < 2 ? bdr : "none", borderBottom: bdr }}>
+                  <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".18em", color: ac, marginBottom: 14 }}>{p.n}</div>
+                  <h3 style={{ fontSize: "clamp(1.05rem,1.7vw,1.25rem)", fontWeight: 700, letterSpacing: "-.02em", lineHeight: 1.25, marginBottom: 14 }}>{p.title}</h3>
+                  <p style={{ fontSize: 14, lineHeight: 1.7, color: m }}>{p.text}</p>
+                </div>
+              </R>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -514,6 +577,7 @@ export default function Cloudfox() {
               <div>
                 <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".1em", color: d, marginBottom: 14 }}>{L("Navigate", "Navigera")}</div>
                 {[
+                  { label: L("Our view", "Vår syn"), href: "#principles" },
                   { label: L("How it works", "Så fungerar det"), href: "#offerings" },
                   { label: L("What can be built", "Vad kan byggas"), href: "#examples" },
                   { label: L("Why Cloudfox", "Varför Cloudfox"), href: "#why" },
