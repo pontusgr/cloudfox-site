@@ -80,8 +80,8 @@ export default function Cloudfox() {
 
   const reasons = lang === "sv" ? [
     {
-      title: "Microsoft + Anthropic — båda stackarna",
-      text: "Vi har medvetet fokuserat på de två AI-stackar som tillsammans täcker svensk SMEs behov. Microsoft för djup integration med era befintliga system — Office, Business Central, Power Platform, SharePoint. Anthropic för avancerad AI-utveckling där modellens kvalitet är avgörande — Claude för komplex reasoning, integration och custom-lösningar. Vi väljer rätt verktyg per problem, inte rätt vendor per försäljning.",
+      title: "Microsoft + Claude + Lovable",
+      text: "Vi har medvetet fokuserat på de verktyg som tillsammans täcker svensk SMEs behov. Microsoft för djup integration med era befintliga system — Office, Power Platform, SharePoint. Claude för avancerad AI-utveckling där modellens kvalitet är avgörande — komplex reasoning, integration och custom-lösningar. Lovable för snabb prototyping och visuella front-ends när ni snabbt behöver se en idé i verkligheten. Vi väljer rätt verktyg per problem, inte rätt vendor per försäljning.",
     },
     {
       title: "Egen admin-modul — ni styr lösningen",
@@ -93,8 +93,8 @@ export default function Cloudfox() {
     },
   ] : [
     {
-      title: "Microsoft + Anthropic — both stacks",
-      text: "We have deliberately focused on the two AI stacks that together cover Swedish SME needs. Microsoft for deep integration with your existing systems — Office, Business Central, Power Platform, SharePoint. Anthropic for advanced AI development where model quality is critical — Claude for complex reasoning, integration, and custom solutions. We choose the right tool per problem, not the right vendor per sale.",
+      title: "Microsoft + Claude + Lovable",
+      text: "We have deliberately focused on the tools that together cover Swedish SME needs. Microsoft for deep integration with your existing systems — Office, Power Platform, SharePoint. Claude for advanced AI development where model quality is critical — complex reasoning, integration, and custom solutions. Lovable for rapid prototyping and visual front-ends when you need to see an idea come to life quickly. We choose the right tool per problem, not the right vendor per sale.",
     },
     {
       title: "Your own admin module — you steer the solution",
