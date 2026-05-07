@@ -147,8 +147,8 @@ export default function Cloudfox() {
           <R delay={0.05}>
             <h1 style={{ fontSize: "clamp(2.4rem, 5.5vw, 4.8rem)", fontWeight: 800, letterSpacing: "-.045em", lineHeight: 1.05, maxWidth: "18em" }}>
               {L(
-                <>Enterprise AI for Swedish SME.<br /><span style={{ color: ac }}>We build. You steer. We operate.</span></>,
-                <>Enterprise AI för svensk SME.<br /><span style={{ color: ac }}>Vi bygger. Ni styr. Vi driver.</span></>
+                <>Enterprise AI <span style={{ color: ac }}>for Swedish SME</span>.</>,
+                <>Enterprise AI <span style={{ color: ac }}>för svensk SME</span>.</>
               )}
             </h1>
           </R>
