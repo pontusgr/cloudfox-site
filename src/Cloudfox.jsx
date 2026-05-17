@@ -12,9 +12,21 @@ function useReveal(th = 0.08) {
   }, [th]);
   return [ref, v];
 }
+
 function R({ children, delay = 0 }) {
   const [ref, v] = useReveal();
-  return <div ref={ref} style={{ opacity: v ? 1 : 0, transform: v ? "translateY(0)" : "translateY(22px)", transition: `opacity .6s cubic-bezier(.22,1,.36,1) ${delay}s, transform .6s cubic-bezier(.22,1,.36,1) ${delay}s` }}>{children}</div>;
+  return (
+    <div
+      ref={ref}
+      style={{
+        opacity: v ? 1 : 0,
+        transform: v ? "translateY(0)" : "translateY(24px)",
+        transition: `opacity .8s cubic-bezier(.22,1,.36,1) ${delay}s, transform .8s cubic-bezier(.22,1,.36,1) ${delay}s`,
+      }}
+    >
+      {children}
+    </div>
+  );
 }
 
 export default function Cloudfox() {
@@ -31,572 +43,534 @@ export default function Cloudfox() {
     });
     setSent(true);
   };
-  const L = (en, sv) => lang === "sv" ? sv : en;
+
+  const L = (en, sv) => (lang === "sv" ? sv : en);
 
   useEffect(() => {
-    if (document.getElementById("cf-f4")) return;
-    const l = document.createElement("link"); l.id = "cf-f4"; l.rel = "stylesheet";
-    l.href = "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap";
+    if (document.getElementById("cf-fonts-v2")) return;
+    const l = document.createElement("link");
+    l.id = "cf-fonts-v2";
+    l.rel = "stylesheet";
+    l.href = "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&display=swap";
     document.head.appendChild(l);
+
     const s = document.createElement("style");
+    s.id = "cf-styles-v2";
     s.textContent = `
-      .cfx{--a:#4F7FFF;--bg:#06090F;--s:'Inter',system-ui,sans-serif;font-family:var(--s);color:#F1F5F9;background:var(--bg)}
-      .cfx *{box-sizing:border-box;margin:0}.cfx a{color:inherit;text-decoration:none}
-      .cfx-card{transition:border-color .25s,background .25s}
-      .cfx-card:hover{border-color:rgba(79,127,255,.25)!important;background:rgba(79,127,255,.02)!important}
-      .cfx-g3{display:grid;grid-template-columns:1fr}
-      @media(min-width:768px){.cfx-g3{grid-template-columns:repeat(3,1fr)}}
-      .cfx-split{display:grid;grid-template-columns:1fr}
-      @media(min-width:900px){.cfx-split{grid-template-columns:5fr 7fr;align-items:start}}
-      .cfx-btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;border-radius:3px;font-family:var(--s);cursor:pointer;border:none;letter-spacing:-.01em;transition:filter .2s}
-      .cfx-btn:hover{filter:brightness(1.1)}
-      .cfx-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:2px;background:rgba(79,127,255,.1);color:#93C5FD}
-      .cfx-input{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:3px;padding:13px 16px;color:#F1F5F9;font-size:15px;font-family:var(--s);outline:none;width:100%;transition:border-color .2s}
-      .cfx-input:focus{border-color:rgba(79,127,255,.5)}
-      .cfx-input::placeholder{color:#475569}
-      .cfx-expand{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.22,1,.36,1)}
-      .cfx-expand.open{max-height:600px}
+      :root{
+        --bg:#F2EDE3;
+        --surface:#E8E1D3;
+        --ink:#0E0E0C;
+        --ink-2:#3A332B;
+        --muted:#76706A;
+        --line:#CFC4B0;
+        --accent:#A04A2A;
+        --accent-2:#7A3618;
+      }
+      .cfx{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+      .cfx *{box-sizing:border-box;margin:0}
+      .cfx a{color:inherit;text-decoration:none}
+      .cfx-display{font-family:'Fraunces',Georgia,serif;font-weight:400;letter-spacing:-.025em}
+      .cfx-btn{display:inline-flex;align-items:center;gap:10px;font-family:'Inter',sans-serif;font-weight:500;cursor:pointer;border:none;transition:all .3s ease}
+      .cfx-btn-primary{background:var(--ink);color:var(--bg);padding:16px 28px;font-size:15px}
+      .cfx-btn-primary:hover{background:var(--accent)}
+      .cfx-btn-ghost{background:transparent;color:var(--ink);padding:14px 0;font-size:14px;border-bottom:1px solid var(--ink)}
+      .cfx-btn-ghost:hover{color:var(--accent);border-color:var(--accent)}
+      .cfx-eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+      .cfx-eyebrow::before{content:"";display:inline-block;width:32px;height:1px;background:var(--accent)}
+      .cfx-input{background:transparent;border:none;border-bottom:1px solid var(--line);padding:14px 0;color:var(--ink);font-family:'Inter',sans-serif;font-size:16px;outline:none;width:100%;transition:border-color .2s}
+      .cfx-input::placeholder{color:var(--muted)}
+      .cfx-input:focus{border-color:var(--ink)}
+      .cfx-g2{display:grid;grid-template-columns:1fr;gap:0}
+      @media(min-width:900px){.cfx-g2{grid-template-columns:repeat(2,1fr)}}
+      .cfx-g3{display:grid;grid-template-columns:1fr;gap:0}
+      @media(min-width:900px){.cfx-g3{grid-template-columns:repeat(3,1fr)}}
+      .cfx-usecase{padding:36px 32px;border-top:1px solid var(--line);border-left:1px solid var(--line);transition:background .25s,color .25s}
+      .cfx-usecase:hover{background:var(--ink);color:var(--bg)}
+      .cfx-usecase:hover .cfx-uc-num{color:var(--accent)}
+      .cfx-usecase:hover .cfx-uc-text{color:rgba(242,237,227,.7)}
+      .cfx-uc-num{font-family:'Fraunces',serif;font-size:14px;color:var(--accent);letter-spacing:.05em;transition:color .25s}
+      .cfx-uc-text{color:var(--muted);transition:color .25s}
+      .cfx-lang button{cursor:pointer;border:none;background:none;font-family:'Inter',sans-serif;padding:6px 0;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+      .cfx-fade-line{height:1px;background:linear-gradient(90deg,transparent 0%,var(--line) 20%,var(--line) 80%,transparent 100%)}
     `;
     document.head.appendChild(s);
   }, []);
 
-  const ac = "#4F7FFF";
-  const m = "#94A3B8";
-  const d = "#475569";
-  const lt = "#E2E8F0";
-  const bdr = "1px solid rgba(255,255,255,.07)";
-  const pad = "clamp(1.5rem, 6vw, 7rem)";
+  const pad = "clamp(1.5rem, 6vw, 8rem)";
 
-  const Label = ({ children }) => (
-    <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 18 }}>
-      <div style={{ width: 28, height: 2, background: ac }} />
-      <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".14em", textTransform: "uppercase", color: ac }}>{children}</span>
-    </div>
-  );
-
-  const H2 = ({ children }) => (
-    <h2 style={{ fontSize: "clamp(1.7rem, 3.5vw, 3rem)", fontWeight: 800, letterSpacing: "-.04em", lineHeight: 1.06 }}>{children}</h2>
-  );
-
-  const reasons = lang === "sv" ? [
-    {
-      title: "Microsoft + Claude + Lovable",
-      text: "Vi har medvetet fokuserat på de verktyg som tillsammans täcker svensk SMEs behov. Microsoft för djup integration med era befintliga system — Office, Power Platform, SharePoint. Claude för avancerad AI-utveckling där modellens kvalitet är avgörande — komplex reasoning, integration och custom-lösningar. Lovable för snabb prototyping och visuella front-ends när ni snabbt behöver se en idé i verkligheten. Vi väljer rätt verktyg per problem, inte rätt vendor per försäljning.",
-    },
-    {
-      title: "Egen admin-modul — ni styr lösningen",
-      text: "Vi bygger lösningen, ni styr den. I admin-modulen justerar er process-ägare AI-prompts, prisregler, output-mallar och form-fält själva — i minuter, utan att skriva kod. Ex för offert-app: ändra säsongstillägg från +8% till +10%, lägga till regler för nya destinationer, tweaka tone-of-voice. Säkra gränser så ni inte kan bryta arkitekturen. Större ändringar tar vi som tillägg.",
-    },
-    {
-      title: "Driftsansvar från idé till drift",
-      text: "När er AI-lösning går sönder klockan 22 på lördag finns det inte alltid någon att ringa hos andra leverantörer. Det finns hos oss. Manuell kodgranskning före leverans, GDPR-compliance, övervakning efter, namngiven kontakt när något händer.",
-    },
-  ] : [
-    {
-      title: "Microsoft + Claude + Lovable",
-      text: "We have deliberately focused on the tools that together cover Swedish SME needs. Microsoft for deep integration with your existing systems — Office, Power Platform, SharePoint. Claude for advanced AI development where model quality is critical — complex reasoning, integration, and custom solutions. Lovable for rapid prototyping and visual front-ends when you need to see an idea come to life quickly. We choose the right tool per problem, not the right vendor per sale.",
-    },
-    {
-      title: "Your own admin module — you steer the solution",
-      text: "We build the solution, you steer it. In the admin module, your process owners adjust AI prompts, pricing rules, output templates and form fields themselves — in minutes, without writing code. Example for a quote app: change seasonal surcharge from +8% to +10%, add rules for new destinations, tweak tone-of-voice. Safe boundaries so you can't break the architecture. Larger changes we handle as add-ons.",
-    },
-    {
-      title: "Operational accountability from idea to ongoing",
-      text: "When your AI solution breaks at 10pm on a Saturday, there isn't always someone to call at other vendors. There is with us. Manual code review before delivery, GDPR compliance, monitoring after, named contact when something happens.",
-    },
-  ];
-
-  const principles = lang === "sv" ? [
-    {
-      n: "01",
-      title: "AI runt — inte istället för — ert affärssystem",
-      text: "Behåll era befintliga system. AI bygger ett intelligenslager runt — ERP/affärssystem som datakälla, AI som beslutslager. Ingen rip-and-replace, ingen 12-månaders migrering. Investeringen ni gjort skyddas, ni får moderna AI-kapabiliteter på veckor.",
-    },
-    {
-      n: "02",
-      title: "Ledningsgruppsdriven transformation — inte ett IT-projekt",
-      text: "AI förändrar processer, roller och kultur. Det måste ägas av ledningsgruppen, inte IT-avdelningen. Vi börjar varje uppdrag med en strategisk workshop med er ledningsgrupp — för utan ledningsförankring blir AI-lösningar ett verktyg som ingen använder.",
-    },
-    {
-      n: "03",
-      title: "Cloudfox bygger systemet. Era anställda förbättrar det.",
-      text: "Det är säljarna, supporten och operations som dagligen möter affären — och bäst förstår var lösningen behöver justeras. Vi levererar arkitekturen, datamodellen och säkra ramar. Sedan iterar er personal löpande inom dem — utan IT-tickets, utan väntetid, utan extern konsult. Maximal innovation från de som har bäst koll.",
-    },
-  ] : [
-    {
-      n: "01",
-      title: "AI around — not instead of — your business system",
-      text: "Keep your existing systems. AI builds an intelligence layer around — ERP as data source, AI as decision layer. No rip-and-replace, no 12-month migration. The investment you've made is protected; you get modern AI capabilities in weeks.",
-    },
-    {
-      n: "02",
-      title: "Management-team-driven transformation — not an IT project",
-      text: "AI changes processes, roles, and culture. It must be owned by the management team, not the IT department. We begin every engagement with a strategic workshop with your leadership — because without management buy-in, AI solutions become tools no one uses.",
-    },
-    {
-      n: "03",
-      title: "Cloudfox builds the system. Your people improve it.",
-      text: "Sales, support, and operations meet your business every day — they know best where the solution needs adjustment. We deliver the architecture, data model, and safe boundaries. Then your staff iterates within them, continuously — no IT tickets, no waiting, no external consultant. Maximum innovation from the people closest to the work.",
-    },
-  ];
+  const useCases = lang === "sv"
+    ? [
+        { num: "01", title: "Revenue-leakage detection", text: "Pengar ni redan tjänat — men inte fakturerat. Vår flaggskeppslösning." },
+        { num: "02", title: "Anbudshantering", text: "AI som läser RFP, föreslår svar, genererar komplett anbud på timmar." },
+        { num: "03", title: "Mailklassificering", text: "Lead, support, faktura, intern? Auto-triage på 2 sekunder per mail." },
+        { num: "04", title: "Custom AI-agenter", text: "Skräddarsydda agenter för era processer. Bygger, integrerar, driftar." },
+        { num: "05", title: "Reservdels- och produktsök", text: "Naturlig fråga → matchning mot ERP. Slut på 30-minuters-letande." },
+        { num: "06", title: "Offert-generering", text: "Strukturerad input → komplett offert på sekunder. Inte minuter." },
+      ]
+    : [
+        { num: "01", title: "Revenue-leakage detection", text: "Money you've already earned — but never invoiced. Our flagship." },
+        { num: "02", title: "Bid management", text: "AI that reads RFPs, suggests answers, generates the full bid in hours." },
+        { num: "03", title: "Email classification", text: "Lead, support, invoice, internal? Auto-triage in 2 seconds per email." },
+        { num: "04", title: "Custom AI agents", text: "Tailored agents for your processes. We build, integrate, operate." },
+        { num: "05", title: "Parts & product search", text: "Natural query → match against ERP. End the 30-minute searches." },
+        { num: "06", title: "Quote generation", text: "Structured input → complete quote in seconds. Not minutes." },
+      ];
 
   return (
-    <div className="cfx" style={{ background: "#06090F", minHeight: "100vh" }}>
-
+    <div className="cfx">
       {/* NAV */}
-      <nav style={{ position: "sticky", top: 0, zIndex: 50, background: "rgba(6,9,15,.95)", backdropFilter: "blur(20px)", borderBottom: bdr }}>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 58, padding: `0 ${pad}` }}>
-          <div style={{ fontSize: "1.3rem", fontWeight: 800, letterSpacing: "-.05em" }}>
-            cloudfox<span style={{ color: ac }}>.</span>
+      <nav
+        style={{
+          position: "sticky",
+          top: 0,
+          zIndex: 50,
+          background: "rgba(242,237,227,.92)",
+          backdropFilter: "blur(20px)",
+          borderBottom: "1px solid var(--line)",
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 64, padding: `0 ${pad}` }}>
+          <div className="cfx-display" style={{ fontSize: "1.4rem", fontWeight: 500, letterSpacing: "-.02em" }}>
+            cloudfox<span style={{ color: "var(--accent)" }}>.</span>
           </div>
-          <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-            <div style={{ display: "flex", gap: 2 }}>
-              {["sv", "en"].map(l => (
-                <button key={l} onClick={() => setLang(l)} style={{
-                  padding: "4px 10px", fontSize: 11, fontWeight: lang === l ? 700 : 400, textTransform: "uppercase",
-                  background: "none", border: "none", cursor: "pointer", fontFamily: "var(--s)", letterSpacing: ".08em",
-                  color: lang === l ? "#F1F5F9" : d, borderBottom: lang === l ? `2px solid ${ac}` : "2px solid transparent",
-                }}>{l}</button>
+          <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
+            <div className="cfx-lang" style={{ display: "flex", gap: 16 }}>
+              {["sv", "en"].map((l) => (
+                <button
+                  key={l}
+                  onClick={() => setLang(l)}
+                  style={{
+                    color: lang === l ? "var(--ink)" : "var(--muted)",
+                    fontWeight: lang === l ? 600 : 400,
+                  }}
+                >
+                  {l}
+                </button>
               ))}
             </div>
-            <a href="#contact" className="cfx-btn" style={{ fontSize: 13, padding: "9px 20px", background: ac, color: "#fff" }}>
-              {L("Book free review", "Kostnadsfri genomgång")}
+            <a href="#contact" className="cfx-btn cfx-btn-ghost" style={{ fontSize: 13 }}>
+              {L("Contact", "Kontakt")}
             </a>
           </div>
         </div>
       </nav>
 
       {/* HERO */}
-      <section style={{ position: "relative", overflow: "hidden", padding: `clamp(4rem,7vw,6rem) ${pad} clamp(3rem,5vw,5rem)` }}>
-        <div style={{ position: "absolute", top: "5%", right: "-5%", width: 700, height: 700, borderRadius: "50%", background: "radial-gradient(circle, rgba(79,127,255,.06) 0%, transparent 65%)", pointerEvents: "none" }} />
-        <div style={{ position: "relative" }}>
+      <section style={{ padding: `clamp(5rem,10vw,9rem) ${pad} clamp(4rem,7vw,7rem)`, position: "relative" }}>
+        <R>
+          <div className="cfx-eyebrow" style={{ marginBottom: 56 }}>
+            {L("Forward Deployed", "Forward Deployed")}
+          </div>
+        </R>
+        <R delay={0.08}>
+          <h1
+            className="cfx-display"
+            style={{
+              fontSize: "clamp(3rem, 9vw, 8.5rem)",
+              fontWeight: 400,
+              lineHeight: 0.96,
+              maxWidth: "14em",
+              marginBottom: 48,
+            }}
+          >
+            {L(
+              <>We sit inside your business.</>,
+              <>Vi sitter inuti er affär.</>
+            )}
+          </h1>
+        </R>
+        <R delay={0.16}>
+          <p
+            style={{
+              fontSize: "clamp(1.15rem, 1.6vw, 1.4rem)",
+              lineHeight: 1.55,
+              color: "var(--ink-2)",
+              maxWidth: "32em",
+              fontWeight: 400,
+            }}
+          >
+            {L(
+              "An AI consultancy that builds custom AI from within Swedish companies. Forward Deployed Engineers on Anthropic Claude. Not reports. Not platforms. Build.",
+              "AI-konsultbolaget som bygger custom AI inifrån svenska bolag. Forward Deployed Engineers på Anthropic Claude. Inte rapporter. Inte plattformar. Bygge."
+            )}
+          </p>
+        </R>
+        <R delay={0.24}>
+          <div style={{ marginTop: 64, display: "flex", gap: 32, alignItems: "center", flexWrap: "wrap" }}>
+            <a href="#contact" className="cfx-btn cfx-btn-primary">
+              {L("Schedule a conversation", "Boka samtal")} <span style={{ fontSize: 18 }}>→</span>
+            </a>
+            <a href="#thesis" className="cfx-btn cfx-btn-ghost">
+              {L("Read our thesis", "Läs vår tes")}
+            </a>
+          </div>
+        </R>
+      </section>
+
+      <div className="cfx-fade-line" style={{ margin: `0 ${pad}` }} />
+
+      {/* THESIS / MANIFESTO */}
+      <section id="thesis" style={{ padding: `clamp(5rem,9vw,8rem) ${pad}` }}>
+        <R>
+          <div className="cfx-eyebrow" style={{ marginBottom: 48 }}>
+            {L("Our thesis", "Vår tes")}
+          </div>
+        </R>
+        <R delay={0.05}>
+          <div style={{ maxWidth: "44em" }}>
+            <h2
+              className="cfx-display"
+              style={{
+                fontSize: "clamp(2rem, 4.5vw, 3.6rem)",
+                lineHeight: 1.08,
+                marginBottom: 40,
+              }}
+            >
+              {L(
+                <>AI is delivered, not described.</>,
+                <>AI levereras, inte beskrivs.</>
+              )}
+            </h2>
+          </div>
+        </R>
+        <R delay={0.1}>
+          <div
+            style={{
+              maxWidth: "40em",
+              fontSize: "clamp(1.05rem, 1.4vw, 1.2rem)",
+              lineHeight: 1.7,
+              color: "var(--ink-2)",
+              fontFamily: "'Inter',sans-serif",
+            }}
+          >
+            <p style={{ marginBottom: 24 }}>
+              {L(
+                "The best consultant sits next to you, not above you. Real building requires that we understand your processes as well as your CFO does.",
+                "Den bästa konsulten sitter bredvid er, inte över er. Bygge på riktigt kräver att vi förstår era processer lika väl som er ekonomichef."
+              )}
+            </p>
+            <p style={{ marginBottom: 24 }}>
+              {L(
+                "Tools are means. Transformation is the goal. Strategy presentations don't ship code. Platforms don't fit every business. Workshops produce slides, not systems.",
+                "Verktyg är medel. Transformation är målet. Strategipresentationer levererar ingen kod. Plattformar passar inte varje affär. Workshops producerar slides, inte system."
+              )}
+            </p>
+            <p>
+              {L(
+                "We are the firm that embeds engineers in your operation — building working AI while sitting in your real-world friction.",
+                "Vi är konsultbolaget som embeddar ingenjörer i er verksamhet — bygger fungerande AI medan vi sitter i er verkliga friktion."
+              )}
+            </p>
+          </div>
+        </R>
+      </section>
+
+      <div className="cfx-fade-line" style={{ margin: `0 ${pad}` }} />
+
+      {/* REVENUE-LEAKAGE — flagship */}
+      <section style={{ padding: `clamp(5rem,9vw,8rem) ${pad}`, background: "var(--surface)" }}>
+        <R>
+          <div className="cfx-eyebrow" style={{ marginBottom: 48 }}>
+            {L("Where we start", "Hur vi börjar")}
+          </div>
+        </R>
+        <div className="cfx-g2" style={{ gap: "clamp(2rem, 4vw, 4rem)", alignItems: "start" }}>
+          <R delay={0.05}>
+            <h2
+              className="cfx-display"
+              style={{
+                fontSize: "clamp(2rem, 4.2vw, 3.4rem)",
+                lineHeight: 1.06,
+              }}
+            >
+              {L(
+                <>Money you've already earned — but never invoiced.</>,
+                <>Pengar ni redan tjänat — men inte fakturerat.</>
+              )}
+            </h2>
+          </R>
+          <R delay={0.12}>
+            <div style={{ fontSize: "clamp(1rem, 1.3vw, 1.15rem)", lineHeight: 1.75, color: "var(--ink-2)" }}>
+              <p style={{ marginBottom: 20 }}>
+                {L(
+                  "Approved quotes that never became orders. Renewed contracts without price updates. Add-on deliveries without matching invoice lines.",
+                  "Offerter godkända som aldrig blev order. Förlängda avtal utan prisuppdatering. Tilläggsleveranser utan motsvarande fakturarad."
+                )}
+              </p>
+              <p style={{ marginBottom: 20 }}>
+                {L(
+                  <>Between your sales system and your finance system, typically <strong style={{ color: "var(--ink)" }}>0.3–1.5% of revenue leaks</strong> — money already earned, never captured.</>,
+                  <>Mellan ert säljsystem och ert ekonomisystem läcker det typiskt <strong style={{ color: "var(--ink)" }}>0,3–1,5% av omsättningen</strong> — pengar redan tjänat, aldrig fångat.</>
+                )}
+              </p>
+              <p>
+                {L(
+                  "We've built the AI agent that finds the gaps. That's where our relationship with you usually starts.",
+                  "Vi har byggt AI-agenten som hittar gapen. Det är där vår relation med er typiskt börjar."
+                )}
+              </p>
+            </div>
+          </R>
+        </div>
+      </section>
+
+      {/* HOW WE DELIVER — FDE */}
+      <section style={{ padding: `clamp(5rem,9vw,8rem) ${pad}` }}>
+        <R>
+          <div className="cfx-eyebrow" style={{ marginBottom: 48 }}>
+            {L("How we deliver", "Hur vi levererar")}
+          </div>
+        </R>
+        <div className="cfx-g2" style={{ gap: "clamp(2rem, 4vw, 4rem)", alignItems: "start" }}>
+          <R delay={0.05}>
+            <h2 className="cfx-display" style={{ fontSize: "clamp(2rem, 4.2vw, 3.4rem)", lineHeight: 1.06 }}>
+              {L(<>Forward Deployed Engineers.</>, <>Forward Deployed Engineers.</>)}
+            </h2>
+          </R>
+          <R delay={0.12}>
+            <div style={{ fontSize: "clamp(1rem, 1.3vw, 1.15rem)", lineHeight: 1.75, color: "var(--ink-2)" }}>
+              <p style={{ marginBottom: 20 }}>
+                {L(
+                  "A model borrowed from the world's most advanced AI firms. Not report consultants. Not sandbox builders. Engineers embedded in your operation, working alongside your process owners, building iteratively.",
+                  "En modell vi lånat från världens mest framstående AI-bolag. Inte rapport-konsulter. Inte sandlåds-builders. Ingenjörer embeddade i er verksamhet, jobbar bredvid era processägare, bygger iterativt."
+                )}
+              </p>
+              <p>
+                {L(
+                  "Bi-weekly checkpoints. Continuous deployment. You see working software in week one, not month four.",
+                  "Avstämning varannan vecka. Kontinuerlig produktion. Ni ser fungerande mjukvara vecka ett, inte månad fyra."
+                )}
+              </p>
+            </div>
+          </R>
+        </div>
+      </section>
+
+      <div className="cfx-fade-line" style={{ margin: `0 ${pad}` }} />
+
+      {/* STACK */}
+      <section style={{ padding: `clamp(5rem,9vw,8rem) ${pad}` }}>
+        <R>
+          <div className="cfx-eyebrow" style={{ marginBottom: 48 }}>
+            {L("What we build with", "Vad vi bygger med")}
+          </div>
+        </R>
+        <div className="cfx-g2" style={{ gap: "clamp(2rem, 4vw, 4rem)", alignItems: "start" }}>
+          <R delay={0.05}>
+            <h2 className="cfx-display" style={{ fontSize: "clamp(2rem, 4.2vw, 3.4rem)", lineHeight: 1.06 }}>
+              {L(<>We don't build our own platform.</>, <>Vi bygger inte egen plattform.</>)}
+            </h2>
+          </R>
+          <R delay={0.12}>
+            <div style={{ fontSize: "clamp(1rem, 1.3vw, 1.15rem)", lineHeight: 1.75, color: "var(--ink-2)" }}>
+              <p style={{ marginBottom: 20 }}>
+                {L(
+                  <>We use <strong style={{ color: "var(--ink)" }}>Anthropic Claude</strong> — the most capable AI model for business-critical reasoning — and inherit Anthropic's R&D instead of building our own. <strong style={{ color: "var(--ink)" }}>Microsoft Copilot</strong> as a complement where it fits.</>,
+                  <>Vi använder <strong style={{ color: "var(--ink)" }}>Anthropic Claude</strong> — den mest kapabla AI-modellen för affärskritiska resonemang — och ärver Anthropics R&D istället för att bygga egen. <strong style={{ color: "var(--ink)" }}>Microsoft Copilot</strong> som komplement där det passar.</>
+                )}
+              </p>
+              <p>
+                {L(
+                  "We choose the right tool per problem, not the right vendor per sale.",
+                  "Vi väljer rätt verktyg per problem, inte rätt vendor per försäljning."
+                )}
+              </p>
+            </div>
+          </R>
+        </div>
+      </section>
+
+      <div className="cfx-fade-line" style={{ margin: `0 ${pad}` }} />
+
+      {/* USE CASES */}
+      <section style={{ padding: `clamp(5rem,9vw,8rem) 0 0 0` }}>
+        <div style={{ padding: `0 ${pad}`, marginBottom: 64 }}>
           <R>
-            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 28 }}>
-              <div style={{ width: 28, height: 2, background: ac }} />
-              <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".14em", textTransform: "uppercase", color: ac }}>
-                {L("AI partner for SME", "AI-partner för SME")}
-              </span>
+            <div className="cfx-eyebrow" style={{ marginBottom: 32 }}>
+              {L("What we build", "Vad vi bygger")}
             </div>
           </R>
           <R delay={0.05}>
-            <h1 style={{ fontSize: "clamp(2.4rem, 5.5vw, 4.8rem)", fontWeight: 800, letterSpacing: "-.045em", lineHeight: 1.05, maxWidth: "18em" }}>
+            <h2 className="cfx-display" style={{ fontSize: "clamp(2rem, 4.2vw, 3.4rem)", lineHeight: 1.06, maxWidth: "20em" }}>
               {L(
-                <>Enterprise AI <span style={{ color: ac }}>for Swedish SME</span>.</>,
-                <>Enterprise AI <span style={{ color: ac }}>för svensk SME</span>.</>
+                <>Production-ready AI agents. In weeks.</>,
+                <>Produktionsklara AI-agenter. På veckor.</>
               )}
-            </h1>
+            </h2>
           </R>
-          <R delay={0.1}>
-            <p style={{ marginTop: 28, fontSize: "clamp(1rem, 1.5vw, 1.2rem)", lineHeight: 1.7, color: m, maxWidth: "46em" }}>
+        </div>
+        <div style={{ borderRight: "1px solid var(--line)", borderBottom: "1px solid var(--line)", margin: `0 ${pad}` }}>
+          <div className="cfx-g3">
+            {useCases.map((uc, i) => (
+              <R key={uc.num} delay={i * 0.04}>
+                <div className="cfx-usecase">
+                  <div className="cfx-uc-num" style={{ marginBottom: 24 }}>{uc.num}</div>
+                  <h3
+                    className="cfx-display"
+                    style={{ fontSize: "clamp(1.3rem, 1.8vw, 1.6rem)", fontWeight: 500, lineHeight: 1.2, marginBottom: 16 }}
+                  >
+                    {uc.title}
+                  </h3>
+                  <p className="cfx-uc-text" style={{ fontSize: 15, lineHeight: 1.6 }}>{uc.text}</p>
+                </div>
+              </R>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WHO WE WORK WITH */}
+      <section style={{ padding: `clamp(5rem,9vw,8rem) ${pad}`, background: "var(--ink)", color: "var(--bg)" }}>
+        <R>
+          <div className="cfx-eyebrow" style={{ marginBottom: 48, color: "#D89E7A" }}>
+            <span style={{ color: "#D89E7A" }}>{L("Who we work with", "Vilka vi jobbar med")}</span>
+          </div>
+        </R>
+        <R delay={0.05}>
+          <h2
+            className="cfx-display"
+            style={{ fontSize: "clamp(2rem, 5vw, 4rem)", lineHeight: 1.05, maxWidth: "16em", marginBottom: 40 }}
+          >
+            {L(
+              <>CEO-led companies, 150–500 employees, that want transformation — not slides.</>,
+              <>VD-ledda bolag, 150–500 anställda, som vill omformas — inte få slides.</>
+            )}
+          </h2>
+        </R>
+        <R delay={0.12}>
+          <p
+            style={{
+              fontSize: "clamp(1.05rem, 1.4vw, 1.25rem)",
+              lineHeight: 1.7,
+              color: "rgba(242,237,227,.7)",
+              maxWidth: "44em",
+            }}
+          >
+            {L(
+              "Established businesses. Real operations. Complex enough that leakage exists. Small enough that the CEO is reachable. Big enough that it matters.",
+              "Etablerade bolag. Verklig affär. Komplexa nog att läckage finns. Små nog att VD är reachable. Stora nog att det spelar roll."
+            )}
+          </p>
+        </R>
+      </section>
+
+      {/* WHO WE'RE HIRING */}
+      <section style={{ padding: `clamp(5rem,9vw,8rem) ${pad}` }}>
+        <R>
+          <div className="cfx-eyebrow" style={{ marginBottom: 48 }}>
+            {L("Who we're looking for", "Vilka vi söker")}
+          </div>
+        </R>
+        <div className="cfx-g2" style={{ gap: "clamp(2rem, 4vw, 4rem)", alignItems: "start" }}>
+          <R delay={0.05}>
+            <h2 className="cfx-display" style={{ fontSize: "clamp(2rem, 4.2vw, 3.4rem)", lineHeight: 1.06 }}>
               {L(
-                "AI that previously required million-budget investments and 6-12 months now takes weeks. For Swedish SMEs this means huge opportunities — the window for competitive advantage is open, but it closes when everyone has AI.",
-                "AI som tidigare krävde miljonbudgetar och tog 6-12 månader tar nu veckor. För svensk SME innebär det stora möjligheter — fönstret för konkurrensfördel är öppet, men det stänger när alla har AI."
+                <>The sharpest consultants in the Nordics.</>,
+                <>De vassaste konsulterna i Norden.</>
               )}
-            </p>
+            </h2>
           </R>
           <R delay={0.12}>
-            <p style={{ marginTop: 16, fontSize: "clamp(1rem, 1.5vw, 1.15rem)", fontWeight: 600, color: lt, maxWidth: "46em" }}>
-              {L(
-                "Cloudfox delivers enterprise-grade AI tailored to your business. Integrated with your systems. With operational accountability from day one. Data in your cloud environment.",
-                "Cloudfox levererar enterprise-grade AI anpassad efter er affär. Integrerad med era system. Drift-ansvarig från dag ett. Datan i er moln-miljö."
-              )}
-            </p>
-          </R>
-          <R delay={0.16}>
-            <div style={{ marginTop: 36 }}>
-              <a href="#contact" className="cfx-btn" style={{ padding: "15px 30px", fontSize: 15, background: ac, color: "#fff" }}>
-                {L("Book a free review", "Boka kostnadsfri genomgång")} <span style={{ fontSize: 18 }}>→</span>
+            <div style={{ fontSize: "clamp(1rem, 1.3vw, 1.15rem)", lineHeight: 1.75, color: "var(--ink-2)" }}>
+              <p style={{ marginBottom: 20 }}>
+                {L(
+                  "We hire people who understand that the difference between strategy and delivery is everything. Forward Deployed Engineers. Prompt engineers. Linguists who actually get what LLMs are.",
+                  "Vi hyr människor som förstår att skillnaden mellan strategi och leverans är allt. Forward Deployed Engineers. Prompt-ingenjörer. Lingvister som faktiskt fattar vad LLM:er är."
+                )}
+              </p>
+              <p style={{ marginBottom: 32 }}>
+                {L(
+                  "We hire for curiosity, depth, and the impatience to actually build.",
+                  "Vi hyr för nyfikenhet, djup, och otåligheten att faktiskt bygga."
+                )}
+              </p>
+              <a href="mailto:pontus.granborg@cloudfox.se?subject=Application" className="cfx-btn cfx-btn-ghost">
+                {L("Apply →", "Sök →")}
               </a>
             </div>
           </R>
         </div>
       </section>
 
-      {/* PRINCIPLES — Vår syn på AI för SME */}
-      <section id="principles" style={{ borderTop: bdr }}>
-        <div style={{ padding: `clamp(4rem,6vw,6rem) ${pad} clamp(2rem,3vw,3rem)` }}>
-          <R>
-            <Label>{L("Our view", "Vår syn")}</Label>
-            <H2>{L(<>Tre principer för AI-driven<br />SME-transformation.</>, <>Tre principer för AI-driven<br />SME-transformation.</>)}</H2>
-            <p style={{ marginTop: 16, fontSize: 16, color: m, lineHeight: 1.7, maxWidth: "50em" }}>
-              {L(
-                "Three convictions that shape every Cloudfox engagement — from the first workshop to year five of operations.",
-                "Tre övertygelser som präglar varje Cloudfox-uppdrag — från första workshopen till år fem av drift."
-              )}
-            </p>
-          </R>
-        </div>
-        <div style={{ borderTop: bdr, borderBottom: bdr }}>
-          <div className="cfx-g3">
-            {principles.map((p, i) => (
-              <R key={p.n} delay={i * 0.05}>
-                <div className="cfx-card" style={{ padding: `clamp(28px,3vw,40px) ${pad}`, borderRight: i < 2 ? bdr : "none", borderBottom: bdr }}>
-                  <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".18em", color: ac, marginBottom: 14 }}>{p.n}</div>
-                  <h3 style={{ fontSize: "clamp(1.05rem,1.7vw,1.25rem)", fontWeight: 700, letterSpacing: "-.02em", lineHeight: 1.25, marginBottom: 14 }}>{p.title}</h3>
-                  <p style={{ fontSize: 14, lineHeight: 1.7, color: m }}>{p.text}</p>
-                </div>
-              </R>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* HOW IT WORKS — productized offerings ladder */}
-      <section id="offerings" style={{ borderTop: bdr }}>
-        <div style={{ padding: `clamp(4rem,6vw,6rem) ${pad} clamp(2rem,3vw,3rem)` }}>
-          <R>
-            <Label>{L("How it works", "Så fungerar det")}</Label>
-            <H2>{L(<>Tre roller, ett kontinuerligt<br />partnerskap.</>, <>Tre roller, ett kontinuerligt<br />partnerskap.</>)}</H2>
-            <p style={{ marginTop: 16, fontSize: 16, color: m, lineHeight: 1.7, maxWidth: "50em" }}>
-              {L(
-                "Not a delivery project that ends. A continuous partnership with clear responsibilities. We build the foundation. You steer the solution through our admin module. We operate it — from day one through year five.",
-                "Inte ett leveransprojekt med slut. Ett kontinuerligt partnerskap med tydliga ansvar. Vi bygger grunden. Ni styr lösningen genom vår admin-modul. Vi driftar den — från dag ett till år fem."
-              )}
-            </p>
-          </R>
-        </div>
-        <div style={{ borderTop: bdr, borderBottom: bdr }}>
-          <div className="cfx-g3">
-            {(lang === "sv" ? [
-              {
-                n: "01",
-                title: "Discovery",
-                summary: "Vi förstår er affär och identifierar use case",
-                bullets: [
-                  "Strategic AI Workshop med ledningsgruppen (90 min)",
-                  "Inventering av era processer och AI-möjligheter",
-                  "Konkret roadmap: vilka use cases, prioritering, ROI per case",
-                  "Stack-rekommendation (Microsoft eller Anthropic) per use case",
-                  "Foundation setup — databas, auth, miljöer förkonfigurerade",
-                ],
-                tail: "Fast pris: 15 000–25 000 kr",
-              },
-              {
-                n: "02",
-                title: "Anpassning",
-                summary: "Ni styr lösningen — kontinuerligt, i admin-modulen",
-                bullets: [
-                  "Egen admin-modul: redigera AI-prompts, regler, mallar och fält",
-                  "Test-sandbox — pröva ändringar innan de går live",
-                  "Säkra gränser — ni kan inte bryta arkitekturen, bara konfigurera",
-                  "Snabba iterationer — minuter, inte veckor, för småändringar",
-                  "Större ändringar (nya integrationer, AI-funktioner) tar vi som tillägg",
-                ],
-                tail: "Från 50 000 kr — initial bygge",
-              },
-              {
-                n: "03",
-                title: "Drift",
-                summary: "Vi tar driftsansvaret",
-                bullets: [
-                  "EU-hostat i er moln-miljö (Azure, AWS eller annan) — GDPR-säkert",
-                  "Säkerhetsuppdateringar, tester och monitoring",
-                  "Backup och felsökning vid driftstörningar",
-                  "Namngiven kontakt och månadsrapportering",
-                  "Förbättringar och buggfixar löpande",
-                ],
-                tail: "Från 1 500 kr/månad per app",
-              },
-            ] : [
-              {
-                n: "01",
-                title: "Discovery",
-                summary: "We understand your business and identify the use case",
-                bullets: [
-                  "Strategic AI Workshop with leadership team (90 min)",
-                  "Inventory of your processes and AI opportunities",
-                  "Concrete roadmap: which use cases, prioritization, ROI per case",
-                  "Stack recommendation (Microsoft or Anthropic) per use case",
-                  "Foundation setup — database, auth, environments preconfigured",
-                ],
-                tail: "Fixed price: 15,000–25,000 SEK",
-              },
-              {
-                n: "02",
-                title: "Adaptation",
-                summary: "You steer the solution — continuously, in the admin module",
-                bullets: [
-                  "Your own admin module: edit AI prompts, rules, templates and fields",
-                  "Test sandbox — try changes before they go live",
-                  "Safe boundaries — you cannot break architecture, only configure",
-                  "Fast iterations — minutes, not weeks, for small changes",
-                  "Larger changes (new integrations, AI features) we handle as add-ons",
-                ],
-                tail: "From 50,000 SEK — initial build",
-              },
-              {
-                n: "03",
-                title: "Operations",
-                summary: "We take operational accountability",
-                bullets: [
-                  "EU-hosted in your cloud environment (Azure, AWS or other) — GDPR-secure",
-                  "Security updates, automated tests and monitoring",
-                  "Backups and incident response",
-                  "Named contact and monthly reporting",
-                  "Improvements and bug fixes ongoing",
-                ],
-                tail: "From 1,500 SEK/month per app",
-              },
-            ]).map((step, i) => (
-              <R key={step.n} delay={i * 0.06}>
-                <div className="cfx-card" style={{ padding: `clamp(32px,3vw,48px) ${pad}`, borderRight: i < 2 ? bdr : "none", height: "100%", border: "1px solid transparent", borderTop: "none", borderBottom: "none", borderLeft: "none", display: "flex", flexDirection: "column" }}>
-                  <h3 style={{ fontSize: "clamp(1.1rem,2vw,1.4rem)", fontWeight: 700, letterSpacing: "-.03em" }}>{step.title}</h3>
-                  <p style={{ marginTop: 10, fontSize: 14, color: lt, fontWeight: 500 }}>{step.summary}</p>
-                  <ul style={{ marginTop: 18, paddingLeft: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}>
-                    {step.bullets.map((b, j) => (
-                      <li key={j} style={{ fontSize: 14, color: m, lineHeight: 1.6, position: "relative", paddingLeft: 18 }}>
-                        <span style={{ position: "absolute", left: 0, top: 1, color: ac, fontWeight: 700 }}>·</span>
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                  {step.tail && <p style={{ marginTop: "auto", paddingTop: 16, borderTop: bdr, fontSize: 14, fontWeight: 600, color: lt }}>{step.tail}</p>}
-                </div>
-              </R>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* WHAT CAN BE BUILT */}
-      <section id="examples" style={{ borderTop: bdr }}>
-        <div style={{ padding: `clamp(4rem,6vw,6rem) ${pad} clamp(2rem,3vw,3rem)` }}>
-          <R>
-            <Label>{L("What we deliver", "Vad vi levererar")}</Label>
-            <H2>{L("AI solutions that solve real SME problems.", "AI-lösningar som löser konkreta SME-problem.")}</H2>
-            <p style={{ marginTop: 16, fontSize: 16, color: m, lineHeight: 1.7, maxWidth: "50em" }}>
-              {L(
-                "Tailored delivery — every solution adapted to your business, your data and your existing systems. The list below is examples; we help you identify the right use cases for your industry and needs.",
-                "Skräddarsydd leverans — varje lösning anpassad efter er affär, er data och era befintliga system. Listan är bara exempel — vi hjälper er identifiera rätt use cases utifrån er bransch och behov."
-              )}
-            </p>
-          </R>
-        </div>
-        <div style={{ borderTop: bdr, borderBottom: bdr, background: "rgba(255,255,255,.07)" }}>
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-            gap: "1px",
-          }}>
-            {(lang === "sv" ? [
-              { title: "AI-driven offerthantering", desc: "Generera anpassade offerter på sekunder — er prislogik, era partners, era regler" },
-              { title: "Lead-kvalificering & response", desc: "Svara på inkommande leads inom minuter, kvalificera och boka möten" },
-              { title: "Kvalitetsavvikelser", desc: "Registrera, klassificera och spåra åtgärder" },
-              { title: "Leverantörsuppföljning", desc: "Risk, prestanda och dokumenthantering" },
-              { title: "ROI-kalkylator", desc: "Interaktiv på er webbsida som kvalificerar leads" },
-              { title: "Produktkonfigurator", desc: "Kunden bygger sitt offertunderlag själv" },
-              { title: "Inköpsförfrågan & anbudsmatris", desc: "RFP-automation och leverantörsjämförelse" },
-              { title: "Avtalsöversikt", desc: "AI extraherar villkor, deadlines och parter från PDF" },
-              { title: "Onboarding-flöde", desc: "Guide nyanställda genom första månaden" },
-              { title: "Field service-app", desc: "Tekniker rapporterar arbete från fält" },
-              { title: "Audit & compliance", desc: "Krav, evidens och deadlines på ett ställe" },
-              { title: "Kundservice-agent", desc: "Svarar på vanliga frågor, eskalerar komplexa" },
-            ] : [
-              { title: "AI-driven quote management", desc: "Generate tailored quotes in seconds — your pricing logic, your partners, your rules" },
-              { title: "Lead qualification & response", desc: "Respond to inbound leads in minutes, qualify and book meetings" },
-              { title: "Quality deviations", desc: "Log, classify and track corrective actions" },
-              { title: "Supplier follow-up", desc: "Risk, performance and document handling" },
-              { title: "ROI calculator", desc: "Interactive on your website to qualify leads" },
-              { title: "Product configurator", desc: "Customers build their own quote basis" },
-              { title: "RFP & bid comparison", desc: "Procurement automation and supplier scoring" },
-              { title: "Contract overview", desc: "AI extracts terms, deadlines and parties from PDF" },
-              { title: "Onboarding flow", desc: "Guide new hires through their first month" },
-              { title: "Field service app", desc: "Technicians report work from the field" },
-              { title: "Audit & compliance", desc: "Requirements, evidence and deadlines in one place" },
-              { title: "Customer service agent", desc: "Answers common queries, escalates complex ones" },
-            ]).map((ex, i) => (
-              <div key={i} className="cfx-card" style={{
-                padding: "clamp(22px,2vw,30px) clamp(24px,2.5vw,36px)",
-                background: "#06090F",
-              }}>
-                <h3 style={{ fontSize: 15, fontWeight: 700, letterSpacing: "-.015em", color: lt }}>{ex.title}</h3>
-                <p style={{ marginTop: 8, fontSize: 13, color: m, lineHeight: 1.55 }}>{ex.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* STATS */}
-      <section style={{ borderTop: bdr, borderBottom: bdr }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))" }}>
-          {[
-            { value: "80%", label: L("faster than traditional development", "snabbare än traditionell utveckling") },
-            { value: L("Days", "Dagar"), label: L("from prototype to secure production", "från prototyp till säker produktion") },
-            { value: "100%", label: L("you own the code from day one", "ni äger koden från dag ett") },
-          ].map((s, i) => (
-            <div key={i} style={{ padding: `clamp(28px,3vw,40px) ${pad}`, borderRight: i < 2 ? bdr : "none" }}>
-              <div style={{ fontSize: "clamp(1.8rem,3vw,2.4rem)", fontWeight: 800, letterSpacing: "-.04em", color: "#fff" }}>{s.value}</div>
-              <div style={{ marginTop: 6, fontSize: 14, color: m, lineHeight: 1.5 }}>{s.label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* WHY CLOUDFOX */}
-      <section id="why" style={{ paddingTop: "clamp(5rem,7vw,8rem)" }}>
-        <div style={{ padding: `0 ${pad}`, marginBottom: 40 }}>
-          <R>
-            <Label>{L("Why Cloudfox", "Varför Cloudfox")}</Label>
-            <H2>{L(<>Three things that make Cloudfox<br />a different kind of partner.</>, <>Tre saker som gör Cloudfox<br />till en annan sorts partner.</>)}</H2>
-            <p style={{ marginTop: 16, fontSize: 16, color: m, lineHeight: 1.7, maxWidth: "50em" }}>
-              {L(
-                "We combine deep expertise in both AI stacks, manual code review and senior delivery — in every engagement.",
-                "Vi kombinerar djup expertis i båda AI-stackarna, manuell kodgranskning och senior leverans — i varje uppdrag."
-              )}
-            </p>
-          </R>
-        </div>
-        <div style={{ borderTop: bdr }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))" }}>
-            {reasons.map((r, i) => (
-              <R key={r.title} delay={(i % 3) * 0.05}>
-                <div className="cfx-card" style={{ padding: `clamp(28px,3vw,40px) ${pad}`, borderBottom: bdr, border: bdr, borderTop: "none", borderLeft: "none" }}>
-                  <h3 style={{ fontSize: "clamp(1rem,1.6vw,1.15rem)", fontWeight: 700, letterSpacing: "-.02em" }}>{r.title}</h3>
-                  <p style={{ marginTop: 10, fontSize: 14, lineHeight: 1.65, color: m }}>{r.text}</p>
-                </div>
-              </R>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* WHO WE ARE */}
-      <section style={{ paddingTop: "clamp(5rem,7vw,8rem)" }}>
-        <div style={{ borderTop: bdr }}>
-          <div className="cfx-split">
-            <div style={{ padding: `clamp(36px,4vw,56px) ${pad}`, borderRight: bdr }}>
-              <R>
-                <Label>{L("The team", "Teamet")}</Label>
-                <H2>{L("Senior expertise from day one.", "Senior expertis från dag ett.")}</H2>
-              </R>
-            </div>
-            <div style={{ padding: `clamp(36px,4vw,56px) ${pad}` }}>
-              <R delay={0.06}>
-                <p style={{ fontSize: 16, lineHeight: 1.7, color: m }}>
-                  {L(
-                    "Founded by Pontus Granborg — senior solution architect with 20+ years of experience in industrial operations, ERP systems and AI-native development. Every engagement is senior-led and backed by a global delivery team. You always know who is accountable.",
-                    "Grundat av Pontus Granborg — senior lösningsarkitekt med 20+ års erfarenhet av industriell verksamhet, ERP-system och AI-native utveckling. Varje uppdrag är seniorlett och backat av ett globalt leveransteam. Ni vet alltid vem som ansvarar."
-                  )}
-                </p>
-                <p style={{ marginTop: 24, fontSize: 13, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".1em", color: d }}>
-                  {L("Contact CEO Pontus Granborg", "Kontakta VD Pontus Granborg")}
-                </p>
-                <div style={{ marginTop: 12, display: "flex", flexWrap: "wrap", gap: 16, alignItems: "center" }}>
-                  <a href="tel:+46700901706" style={{ fontSize: 14, color: ac, fontWeight: 600 }}>070-090 17 06</a>
-                  <span style={{ color: d }}>·</span>
-                  <a href="https://www.linkedin.com/in/pontusgranborg" target="_blank" rel="noopener noreferrer" style={{ fontSize: 14, color: ac, fontWeight: 600 }}>LinkedIn ↗</a>
-                  <span style={{ color: d }}>·</span>
-                  <span style={{ fontSize: 14, color: d }}>Stockholm, Sweden</span>
-                </div>
-              </R>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CONTACT */}
-      <section id="contact" style={{ paddingTop: "clamp(5rem,7vw,8rem)" }}>
-        <div style={{ borderTop: bdr }}>
-          <div className="cfx-split">
-            <div style={{ padding: `clamp(40px,5vw,64px) ${pad}`, borderRight: bdr }}>
-              <R>
-                <Label>{L("Contact", "Kontakt")}</Label>
-                <H2>{L("Book a free review.", "Boka en kostnadsfri genomgång.")}</H2>
-                <p style={{ marginTop: 16, fontSize: 15, color: d, lineHeight: 1.65 }}>
-                  {L(
-                    "Do you have a prototype you want to take to production? Or are you considering starting? We'll go through where it's worth investing — 45 min, no commitment.",
-                    "Har ni en prototyp ni vill ta till produktion? Eller funderar ni på att börja? Vi går igenom var det är värt att satsa — 45 min, inget åtagande."
-                  )}
-                </p>
-                <div style={{ marginTop: 32, display: "flex", flexDirection: "column", gap: 10 }}>
-                  {[
-                    { label: "Email", val: "info@cloudfox.se", href: "mailto:info@cloudfox.se" },
-                    { label: L("Phone", "Telefon"), val: "070-090 17 06", href: "tel:+46700901706" },
-                    { label: "LinkedIn", val: "Pontus Granborg ↗", href: "https://www.linkedin.com/in/pontusgranborg" },
-                  ].map(({ label, val, href }) => (
-                    <div key={label} style={{ display: "flex", gap: 16, alignItems: "center" }}>
-                      <span style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".1em", color: d, width: 64 }}>{label}</span>
-                      <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" style={{ fontSize: 15, color: lt, fontWeight: 500 }}>{val}</a>
-                    </div>
-                  ))}
-                </div>
-              </R>
-            </div>
-            <div style={{ padding: `clamp(40px,5vw,64px) ${pad}` }}>
-              <R delay={0.06}>
-                {sent ? (
-                  <div style={{ padding: "32px", background: "rgba(34,197,94,.05)", border: "1px solid rgba(34,197,94,.2)", borderRadius: 4 }}>
-                    <p style={{ fontSize: 18, fontWeight: 600, color: "#22C55E" }}>
-                      {L("Thanks — we'll be in touch shortly.", "Tack — vi hör av oss inom kort.")}
-                    </p>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                    {[
-                      { key: "name", placeholder: L("Your name", "Ditt namn"), type: "text" },
-                      { key: "email", placeholder: L("Your email", "Din e-post"), type: "email" },
-                    ].map(({ key, placeholder, type }) => (
-                      <input key={key} type={type} placeholder={placeholder} required value={form[key]}
-                        onChange={e => setForm(f => ({ ...f, [key]: e.target.value }))}
-                        className="cfx-input" />
-                    ))}
-                    <textarea
-                      placeholder={L(
-                        "Brief about you — have you already built prototypes or are you considering starting?",
-                        "Kort om er — har ni redan byggt prototyper eller funderar ni på att börja?"
-                      )}
-                      required rows={5} value={form.message}
-                      onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
-                      className="cfx-input" style={{ resize: "vertical" }} />
-                    <div style={{ display: "flex", alignItems: "center", gap: 16, marginTop: 4 }}>
-                      <button type="submit" className="cfx-btn" style={{ padding: "14px 28px", fontSize: 15, background: ac, color: "#fff" }}>
-                        {L("Send", "Skicka")} →
-                      </button>
-                      <span style={{ fontSize: 13, color: d }}>{L("No commitment.", "Inget åtagande.")}</span>
-                    </div>
-                  </form>
-                )}
-              </R>
-            </div>
+      <section id="contact" style={{ padding: `clamp(5rem,9vw,8rem) ${pad}`, background: "var(--surface)" }}>
+        <R>
+          <div className="cfx-eyebrow" style={{ marginBottom: 48 }}>
+            {L("Get in touch", "Kontakt")}
           </div>
+        </R>
+        <div className="cfx-g2" style={{ gap: "clamp(2rem, 4vw, 4rem)", alignItems: "start" }}>
+          <R delay={0.05}>
+            <div>
+              <h2 className="cfx-display" style={{ fontSize: "clamp(2rem, 4.2vw, 3.4rem)", lineHeight: 1.06, marginBottom: 32 }}>
+                {L(<>Let's find your leaked revenue.</>, <>Låt oss hitta era läckta intäkter.</>)}
+              </h2>
+              <p style={{ fontSize: "clamp(1rem, 1.3vw, 1.15rem)", lineHeight: 1.7, color: "var(--ink-2)", maxWidth: "32em" }}>
+                {L(
+                  "Schedule a 30-minute conversation. We'll walk through where typical leakage occurs in companies like yours — and what an embedded engagement would look like.",
+                  "Boka 30 min. Vi går igenom var läckage typiskt uppstår i bolag som ert — och hur en embedded-leverans hos er skulle se ut."
+                )}
+              </p>
+              <div style={{ marginTop: 48, fontSize: 14, lineHeight: 1.8, color: "var(--muted)" }}>
+                <div style={{ color: "var(--ink)", marginBottom: 4 }}>Pontus Granborg</div>
+                <div>VD, Cloudfox</div>
+                <div>pontus.granborg@cloudfox.se</div>
+                <div>+46 70 090 17 06</div>
+              </div>
+            </div>
+          </R>
+          <R delay={0.12}>
+            {!sent ? (
+              <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 28 }}>
+                <input
+                  className="cfx-input"
+                  required
+                  placeholder={L("Name", "Namn")}
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                />
+                <input
+                  className="cfx-input"
+                  required
+                  type="email"
+                  placeholder={L("Email", "E-post")}
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                />
+                <textarea
+                  className="cfx-input"
+                  required
+                  rows={4}
+                  placeholder={L("How can we help?", "Hur kan vi hjälpa?")}
+                  value={form.message}
+                  onChange={(e) => setForm({ ...form, message: e.target.value })}
+                  style={{ resize: "vertical", minHeight: 100 }}
+                />
+                <button type="submit" className="cfx-btn cfx-btn-primary" style={{ alignSelf: "flex-start" }}>
+                  {L("Send →", "Skicka →")}
+                </button>
+              </form>
+            ) : (
+              <div style={{ fontSize: "clamp(1.1rem, 1.4vw, 1.3rem)", lineHeight: 1.6, color: "var(--ink)" }}>
+                <div style={{ marginBottom: 12, color: "var(--accent)", fontWeight: 600 }}>
+                  {L("Message received.", "Mottaget.")}
+                </div>
+                {L("We'll be in touch within 24 hours.", "Vi hör av oss inom 24 timmar.")}
+              </div>
+            )}
+          </R>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer style={{ borderTop: bdr, marginTop: "clamp(3rem,5vw,6rem)" }}>
-        <div style={{ padding: `40px ${pad} 28px` }}>
-          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-start", gap: 40 }}>
-            <div>
-              <div style={{ fontSize: "1.25rem", fontWeight: 800, letterSpacing: "-.05em" }}>cloudfox<span style={{ color: ac }}>.</span></div>
-              <p style={{ marginTop: 10, fontSize: 13, color: d, maxWidth: "22em", lineHeight: 1.6 }}>
-                {L("Enterprise AI for Swedish SME. Delivered. Integrated. Operated. Stockholm.", "Enterprise AI för svensk SME. Levererat. Integrerat. Drift-ansvarigt. Stockholm.")}
-              </p>
-            </div>
-            <div style={{ display: "flex", gap: 48 }}>
-              <div>
-                <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".1em", color: d, marginBottom: 14 }}>{L("Navigate", "Navigera")}</div>
-                {[
-                  { label: L("Our view", "Vår syn"), href: "#principles" },
-                  { label: L("How it works", "Så fungerar det"), href: "#offerings" },
-                  { label: L("What can be built", "Vad kan byggas"), href: "#examples" },
-                  { label: L("Why Cloudfox", "Varför Cloudfox"), href: "#why" },
-                  { label: L("Contact", "Kontakt"), href: "#contact" },
-                ].map(link => (
-                  <a key={link.label} href={link.href} style={{ display: "block", fontSize: 14, color: m, marginBottom: 8 }}>{link.label}</a>
-                ))}
-              </div>
-              <div>
-                <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".1em", color: d, marginBottom: 14 }}>{L("Contact", "Kontakt")}</div>
-                <a href="mailto:info@cloudfox.se" style={{ display: "block", fontSize: 14, color: m, marginBottom: 8 }}>info@cloudfox.se</a>
-                <a href="tel:+46700901706" style={{ display: "block", fontSize: 14, color: m, marginBottom: 8 }}>070-090 17 06</a>
-                <a href="https://www.linkedin.com/company/cloudfox-group/" target="_blank" rel="noreferrer" style={{ display: "block", fontSize: 14, color: m }}>LinkedIn ↗</a>
-              </div>
-            </div>
+      <footer style={{ padding: `48px ${pad}`, borderTop: "1px solid var(--line)" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 24 }}>
+          <div className="cfx-display" style={{ fontSize: "1.2rem", fontWeight: 500 }}>
+            cloudfox<span style={{ color: "var(--accent)" }}>.</span>
           </div>
-          <div style={{ marginTop: 36, paddingTop: 20, borderTop: "1px solid rgba(255,255,255,.05)", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 8 }}>
-            <span style={{ fontSize: 12, color: d }}>© {new Date().getFullYear()} Cloudfox AB</span>
-            <span style={{ fontSize: 12, color: d }}>{L("Enterprise AI for Swedish SME.", "Enterprise AI för svensk SME.")}</span>
+          <div style={{ fontSize: 12, color: "var(--muted)", letterSpacing: ".05em" }}>
+            © 2026 Cloudfox AB · Stockholm
           </div>
         </div>
       </footer>
