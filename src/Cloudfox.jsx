@@ -101,20 +101,128 @@ export default function Cloudfox() {
 
   const useCases = lang === "sv"
     ? [
-        { num: "01", title: "Revenue-leakage detection", text: "Pengar ni redan tjänat — men inte fakturerat. Vår flaggskeppslösning." },
-        { num: "02", title: "Anbudshantering", text: "AI som läser RFP, föreslår svar, genererar komplett anbud på timmar." },
-        { num: "03", title: "Mailklassificering", text: "Lead, support, faktura, intern? Auto-triage på 2 sekunder per mail." },
-        { num: "04", title: "Custom AI-agenter", text: "Skräddarsydda agenter för era processer. Bygger, integrerar, driftar." },
-        { num: "05", title: "Reservdels- och produktsök", text: "Naturlig fråga → matchning mot ERP. Slut på 30-minuters-letande." },
-        { num: "06", title: "Offert-generering", text: "Strukturerad input → komplett offert på sekunder. Inte minuter." },
+        {
+          num: "01",
+          title: "Contract Compliance & Obligation Enforcement",
+          text: "Komplexa avtal med indexering, SLA-tröskelvärden och bonusklausuler hanteras manuellt — eller inte alls. Typisk läckage: 8–9% av kontraktvärdet. AI som kontinuerligt övervakar villkor och flaggar avvikelser.",
+          competition: "Låg–medel",
+        },
+        {
+          num: "02",
+          title: "Intelligent Time Tracking & Billable Hours",
+          text: "Manuell timrapportering i konsultbolag = 5–15% ofakturerade timmar. AI kategoriserar arbete automatiskt från kalender, mejl och dokument. Direkt återhämtning av förlorad fakturering.",
+          competition: "Låg",
+        },
+        {
+          num: "03",
+          title: "Predictive Maintenance & Asset Optimization",
+          text: "ERP är reaktivt — fel uppstår, någon rapporterar, någon åtgärdar i efterhand. Prediktiv AI varnar innan haveri. 30–50% mindre driftstopp, mätbart inom ett kvartal.",
+          competition: "Medel",
+        },
+        {
+          num: "04",
+          title: "Revenue Leakage Detection",
+          text: "Mellan ert säljsystem och ekonomisystem läcker typiskt 0,3–1,5% av omsättningen — underbetalningar, missade fakturarader, prisavvikelser. AI som flaggar gapen i realtid.",
+          competition: "Medel",
+        },
+        {
+          num: "05",
+          title: "Inventory & Supply Chain Anomaly Detection",
+          text: "Överlager binder kapital. Slut-i-lager dödar försäljning. Slow-movers äter lagerplats. AI flaggar mönstren ERP missar — innan de blir dyra.",
+          competition: "Medel–låg",
+        },
+        {
+          num: "06",
+          title: "Automated Invoice Processing & 3-Way Matching",
+          text: "Inkomna fakturor matchas manuellt mot order och leverans. AI gör det på sekunder, fångar avvikelser automatiskt, frigör cash flow snabbare.",
+          competition: "Medel",
+        },
+        {
+          num: "07",
+          title: "Demand Forecasting & S&OP Optimization",
+          text: "Statiska Excel-prognoser i volatil marknad = systematisk over- eller under-stock. AI som lär sig av faktisk efterfrågan i realtid och justerar löpande.",
+          competition: "Medel",
+        },
+        {
+          num: "08",
+          title: "Supplier Risk & Performance Monitoring",
+          text: "Leverantörsrisker upptäcks oftast när det redan är ett problem. AI bevakar finansiell hälsa, leveransprestanda och geopolitik — proaktivt, automatiskt.",
+          competition: "Låg–medel",
+        },
+        {
+          num: "09",
+          title: "Pricing Optimization & Dynamic Pricing",
+          text: "Statiska priser missar både uppsida (premium-segment) och nedsida (priskänsliga kunder). AI optimerar per kundsegment, säsong och konkurrenssituation.",
+          competition: "Medel",
+        },
+        {
+          num: "10",
+          title: "Compliance Monitoring (GDPR, AI Act, branschspecifikt)",
+          text: "GDPR, EU AI Act, branschspecifika regelverk — kraven växer fortare än compliance-team. AI som kontinuerligt övervakar policy-efterlevnad och flaggar risker.",
+          competition: "Låg",
+        },
       ]
     : [
-        { num: "01", title: "Revenue-leakage detection", text: "Money you've already earned — but never invoiced. Our flagship." },
-        { num: "02", title: "Bid management", text: "AI that reads RFPs, suggests answers, generates the full bid in hours." },
-        { num: "03", title: "Email classification", text: "Lead, support, invoice, internal? Auto-triage in 2 seconds per email." },
-        { num: "04", title: "Custom AI agents", text: "Tailored agents for your processes. We build, integrate, operate." },
-        { num: "05", title: "Parts & product search", text: "Natural query → match against ERP. End the 30-minute searches." },
-        { num: "06", title: "Quote generation", text: "Structured input → complete quote in seconds. Not minutes." },
+        {
+          num: "01",
+          title: "Contract Compliance & Obligation Enforcement",
+          text: "Complex contracts with indexation, SLA thresholds, and bonus clauses are managed manually — or not at all. Typical leakage: 8–9% of contract value. AI that continuously monitors terms and flags deviations.",
+          competition: "Low–medium",
+        },
+        {
+          num: "02",
+          title: "Intelligent Time Tracking & Billable Hours",
+          text: "Manual time entry in consultancies = 5–15% unbilled hours. AI categorizes work automatically from calendar, email, and documents. Direct recovery of lost billing.",
+          competition: "Low",
+        },
+        {
+          num: "03",
+          title: "Predictive Maintenance & Asset Optimization",
+          text: "ERP is reactive — failures occur, someone reports, someone responds after the fact. Predictive AI warns before failure. 30–50% less downtime, measurable within a quarter.",
+          competition: "Medium",
+        },
+        {
+          num: "04",
+          title: "Revenue Leakage Detection",
+          text: "Between your sales system and finance system, typically 0.3–1.5% of revenue leaks — underpayments, missed line items, pricing discrepancies. AI that flags gaps in real time.",
+          competition: "Medium",
+        },
+        {
+          num: "05",
+          title: "Inventory & Supply Chain Anomaly Detection",
+          text: "Overstock ties up capital. Stockouts kill sales. Slow-movers eat shelf space. AI flags the patterns ERP misses — before they get expensive.",
+          competition: "Medium–low",
+        },
+        {
+          num: "06",
+          title: "Automated Invoice Processing & 3-Way Matching",
+          text: "Incoming invoices matched manually against orders and deliveries. AI does it in seconds, catches discrepancies automatically, frees cash flow faster.",
+          competition: "Medium",
+        },
+        {
+          num: "07",
+          title: "Demand Forecasting & S&OP Optimization",
+          text: "Static Excel forecasts in volatile markets = systematic over- or under-stock. AI that learns from actual demand in real time and adjusts continuously.",
+          competition: "Medium",
+        },
+        {
+          num: "08",
+          title: "Supplier Risk & Performance Monitoring",
+          text: "Supplier risks usually detected when they're already a problem. AI monitors financial health, delivery performance, and geopolitics — proactively, automatically.",
+          competition: "Low–medium",
+        },
+        {
+          num: "09",
+          title: "Pricing Optimization & Dynamic Pricing",
+          text: "Static prices miss both upside (premium segments) and downside (price-sensitive customers). AI optimizes per customer segment, season, and competitive position.",
+          competition: "Medium",
+        },
+        {
+          num: "10",
+          title: "Compliance Monitoring (GDPR, AI Act, industry-specific)",
+          text: "GDPR, EU AI Act, industry-specific regulations — requirements grow faster than compliance teams. AI that continuously monitors policy adherence and flags risks.",
+          competition: "Low",
+        },
       ];
 
   return (
@@ -392,27 +500,40 @@ export default function Cloudfox() {
             </div>
           </R>
           <R delay={0.05}>
-            <h2 className="cfx-display" style={{ fontSize: "clamp(2rem, 4.2vw, 3.4rem)", lineHeight: 1.06, maxWidth: "20em" }}>
+            <h2 className="cfx-display" style={{ fontSize: "clamp(2rem, 4.2vw, 3.4rem)", lineHeight: 1.06, maxWidth: "20em", marginBottom: 24 }}>
               {L(
-                <>Production-ready AI agents. In weeks.</>,
-                <>Produktionsklara AI-agenter. På veckor.</>
+                <>Ten production use cases. Ranked by ROI and defensibility.</>,
+                <>Tio produktions-use-cases. Rangordnade efter ROI och försvarbarhet.</>
               )}
             </h2>
           </R>
+          <R delay={0.1}>
+            <p style={{ fontSize: "clamp(1rem, 1.3vw, 1.15rem)", lineHeight: 1.7, color: "var(--ink-2)", maxWidth: "40em" }}>
+              {L(
+                "Each ranked by potential ROI, ERP gap depth, and competitive defensibility. Top 4 are our active focus areas.",
+                "Varje rangordnad efter potentiell ROI, ERP-brist och konkurrenssituation. Topp 4 är våra aktiva fokusområden."
+              )}
+            </p>
+          </R>
         </div>
         <div style={{ borderRight: "1px solid var(--line)", borderBottom: "1px solid var(--line)", margin: `0 ${pad}` }}>
-          <div className="cfx-g3">
+          <div className="cfx-g2">
             {useCases.map((uc, i) => (
-              <R key={uc.num} delay={i * 0.04}>
+              <R key={uc.num} delay={Math.min(i * 0.03, 0.3)}>
                 <div className="cfx-usecase">
-                  <div className="cfx-uc-num" style={{ marginBottom: 24 }}>{uc.num}</div>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 24 }}>
+                    <div className="cfx-uc-num">{uc.num}</div>
+                    <div style={{ fontSize: 10, letterSpacing: ".15em", textTransform: "uppercase", color: "var(--muted)", fontWeight: 500 }}>
+                      {L("Competition:", "Konkurrens:")} <span style={{ color: "var(--ink-2)", fontWeight: 600 }}>{uc.competition}</span>
+                    </div>
+                  </div>
                   <h3
                     className="cfx-display"
-                    style={{ fontSize: "clamp(1.3rem, 1.8vw, 1.6rem)", fontWeight: 500, lineHeight: 1.2, marginBottom: 16 }}
+                    style={{ fontSize: "clamp(1.3rem, 1.9vw, 1.7rem)", fontWeight: 500, lineHeight: 1.2, marginBottom: 16 }}
                   >
                     {uc.title}
                   </h3>
-                  <p className="cfx-uc-text" style={{ fontSize: 15, lineHeight: 1.6 }}>{uc.text}</p>
+                  <p className="cfx-uc-text" style={{ fontSize: 15, lineHeight: 1.65 }}>{uc.text}</p>
                 </div>
               </R>
             ))}
