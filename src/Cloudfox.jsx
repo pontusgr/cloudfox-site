@@ -294,13 +294,13 @@ export default function Cloudfox() {
               fontSize: "clamp(1.15rem, 1.6vw, 1.4rem)",
               lineHeight: 1.55,
               color: "var(--ink-2)",
-              maxWidth: "32em",
+              maxWidth: "34em",
               fontWeight: 400,
             }}
           >
             {L(
-              "An AI consultancy that builds custom AI from within Swedish companies. Forward Deployed Engineers on Anthropic Claude. Not reports. Not platforms. Build.",
-              "AI-konsultbolaget som bygger custom AI inifrån svenska bolag. Forward Deployed Engineers på Anthropic Claude. Inte rapporter. Inte plattformar. Bygge."
+              "An AI consultancy that builds the AI you can't build yourself — regardless of how good the tools become. Forward Deployed Engineers on Anthropic Claude. Not reports. Not platforms. Production-grade transformation.",
+              "AI-konsultbolaget som bygger den AI ni inte kan bygga själva — oavsett hur bra verktygen blir. Forward Deployed Engineers på Anthropic Claude. Inte rapporter. Inte plattformar. Produktionsklass-transformation."
             )}
           </p>
         </R>
@@ -375,53 +375,6 @@ export default function Cloudfox() {
       </section>
 
       <div className="cfx-fade-line" style={{ margin: `0 ${pad}` }} />
-
-      {/* REVENUE-LEAKAGE — flagship */}
-      <section style={{ padding: `clamp(5rem,9vw,8rem) ${pad}`, background: "var(--surface)" }}>
-        <R>
-          <div className="cfx-eyebrow" style={{ marginBottom: 48 }}>
-            {L("Where we start", "Hur vi börjar")}
-          </div>
-        </R>
-        <div className="cfx-g2" style={{ gap: "clamp(2rem, 4vw, 4rem)", alignItems: "start" }}>
-          <R delay={0.05}>
-            <h2
-              className="cfx-display"
-              style={{
-                fontSize: "clamp(2rem, 4.2vw, 3.4rem)",
-                lineHeight: 1.06,
-              }}
-            >
-              {L(
-                <>Money you've already earned — but never invoiced.</>,
-                <>Pengar ni redan tjänat — men inte fakturerat.</>
-              )}
-            </h2>
-          </R>
-          <R delay={0.12}>
-            <div style={{ fontSize: "clamp(1rem, 1.3vw, 1.15rem)", lineHeight: 1.75, color: "var(--ink-2)" }}>
-              <p style={{ marginBottom: 20 }}>
-                {L(
-                  "Approved quotes that never became orders. Renewed contracts without price updates. Add-on deliveries without matching invoice lines.",
-                  "Offerter godkända som aldrig blev order. Förlängda avtal utan prisuppdatering. Tilläggsleveranser utan motsvarande fakturarad."
-                )}
-              </p>
-              <p style={{ marginBottom: 20 }}>
-                {L(
-                  <>Between your sales system and your finance system, typically <strong style={{ color: "var(--ink)" }}>0.3–1.5% of revenue leaks</strong> — money already earned, never captured.</>,
-                  <>Mellan ert säljsystem och ert ekonomisystem läcker det typiskt <strong style={{ color: "var(--ink)" }}>0,3–1,5% av omsättningen</strong> — pengar redan tjänat, aldrig fångat.</>
-                )}
-              </p>
-              <p>
-                {L(
-                  "We've built the AI agent that finds the gaps. That's where our relationship with you usually starts.",
-                  "Vi har byggt AI-agenten som hittar gapen. Det är där vår relation med er typiskt börjar."
-                )}
-              </p>
-            </div>
-          </R>
-        </div>
-      </section>
 
       {/* HOW WE DELIVER — FDE */}
       <section style={{ padding: `clamp(5rem,9vw,8rem) ${pad}` }}>
@@ -502,16 +455,16 @@ export default function Cloudfox() {
           <R delay={0.05}>
             <h2 className="cfx-display" style={{ fontSize: "clamp(2rem, 4.2vw, 3.4rem)", lineHeight: 1.06, maxWidth: "20em", marginBottom: 24 }}>
               {L(
-                <>Ten production use cases. Ranked by ROI and defensibility.</>,
-                <>Tio produktions-use-cases. Rangordnade efter ROI och försvarbarhet.</>
+                <>Ten cases where ERP stops and AI takes over.</>,
+                <>Tio cases där ERP tar slut och AI tar vid.</>
               )}
             </h2>
           </R>
           <R delay={0.1}>
-            <p style={{ fontSize: "clamp(1rem, 1.3vw, 1.15rem)", lineHeight: 1.7, color: "var(--ink-2)", maxWidth: "40em" }}>
+            <p style={{ fontSize: "clamp(1rem, 1.3vw, 1.15rem)", lineHeight: 1.7, color: "var(--ink-2)", maxWidth: "44em" }}>
               {L(
-                "Each ranked by potential ROI, ERP gap depth, and competitive defensibility. Top 4 are our active focus areas.",
-                "Varje rangordnad efter potentiell ROI, ERP-brist och konkurrenssituation. Topp 4 är våra aktiva fokusområden."
+                "Each is a category we build production AI for — ranked by potential ROI, ERP gap depth, and competitive defensibility. We don't push any single case as flagship. We find which one delivers the most for your specific business — and start there.",
+                "Var och en är en kategori vi bygger produktions-AI för — rangordnade efter potentiell ROI, ERP-brist och konkurrenssituation. Vi pushar inte något enskilt case som flaggskepp. Vi hittar vilken som ger mest värde för just er affär — och börjar där."
               )}
             </p>
           </R>
@@ -625,12 +578,12 @@ export default function Cloudfox() {
           <R delay={0.05}>
             <div>
               <h2 className="cfx-display" style={{ fontSize: "clamp(2rem, 4.2vw, 3.4rem)", lineHeight: 1.06, marginBottom: 32 }}>
-                {L(<>Let's find your leaked revenue.</>, <>Låt oss hitta era läckta intäkter.</>)}
+                {L(<>Let's find the highest-ROI case in your business.</>, <>Låt oss hitta ert case med högst ROI.</>)}
               </h2>
               <p style={{ fontSize: "clamp(1rem, 1.3vw, 1.15rem)", lineHeight: 1.7, color: "var(--ink-2)", maxWidth: "32em" }}>
                 {L(
-                  "Schedule a 30-minute conversation. We'll walk through where typical leakage occurs in companies like yours — and what an embedded engagement would look like.",
-                  "Boka 30 min. Vi går igenom var läckage typiskt uppstår i bolag som ert — och hur en embedded-leverans hos er skulle se ut."
+                  "Schedule a 30-minute conversation. We'll walk through the cases relevant to your operation — and what an embedded engagement would look like.",
+                  "Boka 30 min. Vi går igenom vilka case som är relevanta för er verksamhet — och hur en embedded-leverans hos er skulle se ut."
                 )}
               </p>
               <div style={{ marginTop: 48, fontSize: 14, lineHeight: 1.8, color: "var(--muted)" }}>
