@@ -268,23 +268,23 @@ export default function Cloudfox() {
       <section style={{ padding: `clamp(5rem,10vw,9rem) ${pad} clamp(4rem,7vw,7rem)`, position: "relative" }}>
         <R>
           <div className="cfx-eyebrow" style={{ marginBottom: 56 }}>
-            {L("Forward Deployed", "Forward Deployed")}
+            {L("Acceleration through AI", "Acceleration genom AI")}
           </div>
         </R>
         <R delay={0.08}>
           <h1
             className="cfx-display"
             style={{
-              fontSize: "clamp(3rem, 9vw, 8.5rem)",
+              fontSize: "clamp(2.4rem, 6.5vw, 5.6rem)",
               fontWeight: 400,
-              lineHeight: 0.96,
-              maxWidth: "14em",
+              lineHeight: 1.04,
+              maxWidth: "20em",
               marginBottom: 48,
             }}
           >
             {L(
-              <>We sit inside your business.</>,
-              <>Vi sitter inuti er affär.</>
+              <>Your systems become intelligent. Your processes learn. Your team gets leverage.</>,
+              <>Era system blir intelligenta. Era processer lär sig. Ert team får hävstång.</>
             )}
           </h1>
         </R>
@@ -299,8 +299,8 @@ export default function Cloudfox() {
             }}
           >
             {L(
-              "An AI consultancy that builds the AI you can't build yourself — regardless of how good the tools become. Forward Deployed Engineers on Anthropic Claude. Not reports. Not platforms. Production-grade transformation.",
-              "AI-konsultbolaget som bygger den AI ni inte kan bygga själva — oavsett hur bra verktygen blir. Forward Deployed Engineers på Anthropic Claude. Inte rapporter. Inte plattformar. Produktionsklass-transformation."
+              "Cloudfox builds the AI that accelerates the value you've already built — in your systems, your processes, your team. Acceleration, not revolution.",
+              "Cloudfox bygger AI:n som accelererar värdet ni redan byggt — i era system, era processer, ert team. Acceleration, inte revolution."
             )}
           </p>
         </R>
@@ -336,8 +336,8 @@ export default function Cloudfox() {
               }}
             >
               {L(
-                <>AI is delivered, not described.</>,
-                <>AI levereras, inte beskrivs.</>
+                <>You've built the value. We accelerate it.</>,
+                <>Ni har byggt värdet. Vi accelererar det.</>
               )}
             </h2>
           </div>
@@ -354,20 +354,20 @@ export default function Cloudfox() {
           >
             <p style={{ marginBottom: 24 }}>
               {L(
-                "The best consultant sits next to you, not above you. Real building requires that we understand your processes as well as your CFO does.",
-                "Den bästa konsulten sitter bredvid er, inte över er. Bygge på riktigt kräver att vi förstår era processer lika väl som er ekonomichef."
+                "You've invested in your ERP. You've refined your processes over years. You've built a team that knows your business. That's value — real, accumulated, hard to replicate.",
+                "Ni har investerat i ert ERP. Ni har förfinat era processer i flera år. Ni har byggt ett team som kan er affär. Det är värde — verkligt, ackumulerat, svårt att kopiera."
               )}
             </p>
             <p style={{ marginBottom: 24 }}>
               {L(
-                "Tools are means. Transformation is the goal. Strategy presentations don't ship code. Platforms don't fit every business. Workshops produce slides, not systems.",
-                "Verktyg är medel. Transformation är målet. Strategipresentationer levererar ingen kod. Plattformar passar inte varje affär. Workshops producerar slides, inte system."
+                "Most AI consultants want to tear it down and start over. Rip-and-replace. Workshops to redesign everything. Strategy decks that propose transformation.",
+                "De flesta AI-konsulter vill riva ner och börja om. Rip-and-replace. Workshops som ritar om allt. Strategi-decks som föreslår transformation."
               )}
             </p>
             <p>
               {L(
-                "We are the firm that embeds engineers in your operation — building working AI while sitting in your real-world friction.",
-                "Vi är konsultbolaget som embeddar ingenjörer i er verksamhet — bygger fungerande AI medan vi sitter i er verkliga friktion."
+                "We don't. We engineer AI that compounds the value you've built — in your systems, your processes, your team. Acceleration, not revolution.",
+                "Det gör inte vi. Vi bygger AI som förstärker värdet ni byggt — i era system, era processer, ert team. Acceleration, inte revolution."
               )}
             </p>
           </div>
@@ -376,7 +376,85 @@ export default function Cloudfox() {
 
       <div className="cfx-fade-line" style={{ margin: `0 ${pad}` }} />
 
-      {/* HOW WE DELIVER — FDE */}
+      {/* THREE PILLARS */}
+      <section style={{ padding: `clamp(5rem,9vw,8rem) ${pad}`, background: "var(--surface)" }}>
+        <R>
+          <div className="cfx-eyebrow" style={{ marginBottom: 48 }}>
+            {L("Three dimensions of accumulated value", "Tre dimensioner av ackumulerat värde")}
+          </div>
+        </R>
+        <R delay={0.05}>
+          <h2 className="cfx-display" style={{ fontSize: "clamp(2rem, 4.2vw, 3.4rem)", lineHeight: 1.06, maxWidth: "20em", marginBottom: 56 }}>
+            {L(
+              <>Where the value lives — and how we accelerate it.</>,
+              <>Var värdet bor — och hur vi accelererar det.</>
+            )}
+          </h2>
+        </R>
+        <div className="grid-3" style={{ gap: "clamp(2rem, 3vw, 3.5rem)" }}>
+          <R delay={0.05}>
+            <div>
+              <h3 className="cfx-display" style={{ fontSize: "clamp(1.4rem, 2.2vw, 1.8rem)", lineHeight: 1.2, marginBottom: 20 }}>
+                {L(<>Systems</>, <>System</>)}
+              </h3>
+              <p style={{ fontSize: 15, lineHeight: 1.7, color: 'var(--ink-2)', marginBottom: 16 }}>
+                {L(
+                  <>Your ERP, CRM, finance, integrations. Decades of investment. <strong style={{ color: 'var(--ink)' }}>We don't rip them out. We make them intelligent.</strong></>,
+                  <>Era ERP, CRM, ekonomi-system, integrationer. Decennier av investering. <strong style={{ color: 'var(--ink)' }}>Vi river dem inte. Vi gör dem intelligenta.</strong></>
+                )}
+              </p>
+              <p style={{ fontSize: 13, lineHeight: 1.6, color: 'var(--muted)', fontStyle: 'italic' }}>
+                {L(
+                  "AI that lives on top of your Visma, reads your SharePoint, understands your Dynamics.",
+                  "AI som lever ovanpå er Visma, läser er SharePoint, förstår er Dynamics."
+                )}
+              </p>
+            </div>
+          </R>
+          <R delay={0.1}>
+            <div>
+              <h3 className="cfx-display" style={{ fontSize: "clamp(1.4rem, 2.2vw, 1.8rem)", lineHeight: 1.2, marginBottom: 20 }}>
+                {L(<>Processes</>, <>Processer</>)}
+              </h3>
+              <p style={{ fontSize: 15, lineHeight: 1.7, color: 'var(--ink-2)', marginBottom: 16 }}>
+                {L(
+                  <>Your SOPs, workflows, decision rules. Industry wisdom baked in. <strong style={{ color: 'var(--ink)' }}>We don't redesign them. We make them learn.</strong></>,
+                  <>Era SOP:er, workflows, beslutsregler. Branschvisdom inbakad. <strong style={{ color: 'var(--ink)' }}>Vi designar inte om dem. Vi får dem att lära sig.</strong></>
+                )}
+              </p>
+              <p style={{ fontSize: 13, lineHeight: 1.6, color: 'var(--muted)', fontStyle: 'italic' }}>
+                {L(
+                  "AI that follows your process but optimizes every run and flags exceptions before they become problems.",
+                  "AI som följer er process men optimerar varje körning och flaggar undantag innan de blir problem."
+                )}
+              </p>
+            </div>
+          </R>
+          <R delay={0.15}>
+            <div>
+              <h3 className="cfx-display" style={{ fontSize: "clamp(1.4rem, 2.2vw, 1.8rem)", lineHeight: 1.2, marginBottom: 20 }}>
+                {L(<>Culture</>, <>Kultur</>)}
+              </h3>
+              <p style={{ fontSize: 15, lineHeight: 1.7, color: 'var(--ink-2)', marginBottom: 16 }}>
+                {L(
+                  <>Your people, their tacit knowledge, your customer relationships, your brand. <strong style={{ color: 'var(--ink)' }}>We don't replace them. We give them AI leverage.</strong></>,
+                  <>Era anställda, deras tysta kunskap, era kundrelationer, varumärket. <strong style={{ color: 'var(--ink)' }}>Vi ersätter dem inte. Vi ger dem AI-leverage.</strong></>
+                )}
+              </p>
+              <p style={{ fontSize: 13, lineHeight: 1.6, color: 'var(--muted)', fontStyle: 'italic' }}>
+                {L(
+                  "Sales gets AI that finds leads. CFO gets AI that finds leakage. Humans win — with AI as leverage.",
+                  "Säljaren får AI som hittar leads. CFO får AI som hittar läckage. Människan vinner — med AI som hävstång."
+                )}
+              </p>
+            </div>
+          </R>
+        </div>
+      </section>
+
+      <div className="cfx-fade-line" style={{ margin: `0 ${pad}` }} />
+
+      {/* HOW WE DELIVER */}
       <section style={{ padding: `clamp(5rem,9vw,8rem) ${pad}` }}>
         <R>
           <div className="cfx-eyebrow" style={{ marginBottom: 48 }}>
@@ -386,15 +464,15 @@ export default function Cloudfox() {
         <div className="cfx-g2" style={{ gap: "clamp(2rem, 4vw, 4rem)", alignItems: "start" }}>
           <R delay={0.05}>
             <h2 className="cfx-display" style={{ fontSize: "clamp(2rem, 4.2vw, 3.4rem)", lineHeight: 1.06 }}>
-              {L(<>Forward Deployed Engineers.</>, <>Forward Deployed Engineers.</>)}
+              {L(<>We sit beside you. Not above you.</>, <>Vi sitter bredvid er. Inte över er.</>)}
             </h2>
           </R>
           <R delay={0.12}>
             <div style={{ fontSize: "clamp(1rem, 1.3vw, 1.15rem)", lineHeight: 1.75, color: "var(--ink-2)" }}>
               <p style={{ marginBottom: 20 }}>
                 {L(
-                  "A model borrowed from the world's most advanced AI firms. Not report consultants. Not sandbox builders. Engineers embedded in your operation, working alongside your process owners, building iteratively.",
-                  "En modell vi lånat från världens mest framstående AI-bolag. Inte rapport-konsulter. Inte sandlåds-builders. Ingenjörer embeddade i er verksamhet, jobbar bredvid era processägare, bygger iterativt."
+                  "Not report consultants. Not demo builders. Engineers embedded in your operation, working alongside your process owners, building iteratively.",
+                  "Inte rapport-konsulter. Inte demo-byggare. Ingenjörer som sitter med i er verksamhet, jobbar bredvid era processägare, bygger iterativt."
                 )}
               </p>
               <p>
@@ -507,8 +585,8 @@ export default function Cloudfox() {
             style={{ fontSize: "clamp(2rem, 5vw, 4rem)", lineHeight: 1.05, maxWidth: "16em", marginBottom: 40 }}
           >
             {L(
-              <>CEO-led companies, 150–500 employees, that want transformation — not slides.</>,
-              <>VD-ledda bolag, 150–500 anställda, som vill omformas — inte få slides.</>
+              <>CEO-led companies, 150–500 employees, that want acceleration — not slides.</>,
+              <>VD-ledda bolag, 150–500 anställda, som vill accelerera — inte få slides.</>
             )}
           </h2>
         </R>
@@ -522,8 +600,8 @@ export default function Cloudfox() {
             }}
           >
             {L(
-              "Established businesses. Real operations. Complex enough that leakage exists. Small enough that the CEO is reachable. Big enough that it matters.",
-              "Etablerade bolag. Verklig affär. Komplexa nog att läckage finns. Små nog att VD är reachable. Stora nog att det spelar roll."
+              "Established businesses. Real operations. Complex enough that AI creates leverage. Small enough that the CEO is reachable. Big enough that it matters.",
+              "Etablerade bolag. Verklig affär. Komplexa nog att AI ger hävstång. Små nog att VD är nåbar. Stora nog att det spelar roll."
             )}
           </p>
         </R>
@@ -549,8 +627,8 @@ export default function Cloudfox() {
             <div style={{ fontSize: "clamp(1rem, 1.3vw, 1.15rem)", lineHeight: 1.75, color: "var(--ink-2)" }}>
               <p style={{ marginBottom: 20 }}>
                 {L(
-                  "We hire people who understand that the difference between strategy and delivery is everything. Forward Deployed Engineers. Prompt engineers. Linguists who actually get what LLMs are.",
-                  "Vi hyr människor som förstår att skillnaden mellan strategi och leverans är allt. Forward Deployed Engineers. Prompt-ingenjörer. Lingvister som faktiskt fattar vad LLM:er är."
+                  "We hire people who understand that the difference between strategy and delivery is everything. Engineers who sit beside customers. People who actually understand what AI is and isn't.",
+                  "Vi hyr människor som förstår att skillnaden mellan strategi och leverans är allt. Ingenjörer som sitter med kunden. Människor som faktiskt fattar vad AI är — och inte är."
                 )}
               </p>
               <p style={{ marginBottom: 32 }}>
@@ -582,8 +660,8 @@ export default function Cloudfox() {
               </h2>
               <p style={{ fontSize: "clamp(1rem, 1.3vw, 1.15rem)", lineHeight: 1.7, color: "var(--ink-2)", maxWidth: "32em" }}>
                 {L(
-                  "Schedule a 30-minute conversation. We'll walk through the cases relevant to your operation — and what an embedded engagement would look like.",
-                  "Boka 30 min. Vi går igenom vilka case som är relevanta för er verksamhet — och hur en embedded-leverans hos er skulle se ut."
+                  "Schedule 30 minutes. We'll walk through which cases would create the most acceleration for you — and what a collaboration would look like.",
+                  "Boka 30 min. Vi går igenom vilka cases som ger störst acceleration hos er — och hur ett samarbete skulle se ut."
                 )}
               </p>
               <div style={{ marginTop: 48, fontSize: 14, lineHeight: 1.8, color: "var(--muted)" }}>
