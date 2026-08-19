@@ -1,3 +1,10 @@
+# Undersidor som är statisk HTML måste fångas FÖRE SPA-fallbacken nedan,
+# annars serveras React-appen på adresser utan avslutande snedstreck.
+[[redirects]]
+  from = "/guider/claude-code"
+  to = "/guider/claude-code/"
+  status = 301
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

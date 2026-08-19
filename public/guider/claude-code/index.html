@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kom igång med Claude Code — guide för dig som inte är utvecklare | Cloudfox</title>
+<meta name="description" content="En guide för dig som inte är professionell utvecklare. Efter en timme har du en fungerande uppsättning av Claude Code och något du faktiskt använder igen.">
+<meta name="author" content="Pontus Granborg, Cloudfox">
+<link rel="canonical" href="https://cloudfox.se/guider/claude-code/">
+<link rel="icon" href="/favicon.svg">
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="sv_SE">
+<meta property="og:site_name" content="Cloudfox">
+<meta property="og:title" content="Kom igång med Claude Code">
+<meta property="og:description" content="En guide för dig som inte är professionell utvecklare. Efter en timme har du en fungerande uppsättning av Claude Code och något du faktiskt använder igen.">
+<meta property="og:url" content="https://cloudfox.se/guider/claude-code/">
+<meta property="og:image" content="https://cloudfox.se/og-image.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kom igång med Claude Code">
+<meta name="twitter:description" content="En guide för dig som inte är professionell utvecklare. Efter en timme har du en fungerande uppsättning av Claude Code och något du faktiskt använder igen.">
+<meta name="twitter:image" content="https://cloudfox.se/og-image.png">
+<style>
+  :root {
+    --bg:#fbfbfa; --surface:#fff; --border:#e4e2dd; --text:#1f1e1c; --muted:#6b6862;
+    --accent:#2f5d8f; --accent-soft:#eaf1f8; --warn:#9a6216; --warn-soft:#fdf4e5;
+    --code-bg:#f5f4f1; --radius:10px; --brand:#0e0e0c; --brand-dot:#c0491f;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{ --bg:#1a1917; --surface:#232220; --border:#37352f; --text:#eeece7; --muted:#a39e94;
+      --accent:#7dabdd; --accent-soft:#1e2b38; --warn:#e0b060; --warn-soft:#302819;
+      --code-bg:#1b1a18; --brand:#f2f0ec; --brand-dot:#e0703f; }
+  }
+  .brand{display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+    padding-bottom:22px;border-bottom:1px solid var(--border);margin-bottom:34px}
+  .brand-hoger{margin-left:auto}
+  .pdf-knapp{
+    display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+    font-size:14px;font-weight:600;color:var(--accent);
+    background:var(--accent-soft);border:1px solid var(--border);
+    border-radius:999px;padding:8px 16px;transition:filter .12s ease}
+  .pdf-knapp:hover{filter:brightness(.97)}
+  .pdf-knapp svg{flex:none}
+
+  @media print{
+    :root{--bg:#fff;--surface:#fff;--text:#000;--muted:#444;--border:#ccc;
+      --accent:#1a3d5f;--accent-soft:#f2f6fa;--code-bg:#f6f6f4;--brand:#000}
+    body{background:#fff}
+    .wrap{max-width:none;padding:0}
+    .pdf-knapp{display:none}
+    a{color:#000;text-decoration:none}
+    a[href^="http"]::after{content:" (" attr(href) ")";font-size:.85em;color:#555}
+    h1,h2,h3{break-after:avoid-page;page-break-after:avoid}
+    pre,.key,.note,figure,table{break-inside:avoid-page;page-break-inside:avoid}
+    footer{break-before:avoid-page}
+    @page{margin:18mm 16mm}
+  }
+  .brand-mark{font-family:Georgia,"Iowan Old Style","Times New Roman",serif;
+    font-size:23px;font-weight:700;letter-spacing:-.005em;color:var(--brand)}
+  .brand-mark .dot{color:var(--brand-dot)}
+  .brand-tag{font-size:13.5px;color:var(--muted);border-left:1px solid var(--border);padding-left:12px}
+  .byline{font-size:14.5px;color:var(--muted);margin:0 0 34px}
+  .byline strong{color:var(--text);font-weight:600}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
+    font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:760px;margin:0 auto;padding:56px 28px 96px}
+  h1{font-size:36px;line-height:1.15;margin:0 0 16px;letter-spacing:-.02em}
+  .lede{font-size:18px;color:var(--muted);margin:0 0 20px;max-width:60ch}
+  h2{font-size:22px;margin:52px 0 10px;padding-top:26px;border-top:1px solid var(--border);letter-spacing:-.01em}
+  h3{font-size:16.5px;margin:26px 0 4px}
+  p{margin:12px 0}
+  ul,ol{padding-left:22px;margin:12px 0} li{margin:7px 0}
+  code{background:var(--code-bg);border:1px solid var(--border);padding:1px 5px;border-radius:4px;
+    font-size:13.5px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  pre{background:var(--code-bg);border:1px solid var(--border);border-radius:var(--radius);
+    padding:16px 18px;overflow-x:auto;font-size:13.5px;line-height:1.6;margin:14px 0;white-space:pre-wrap}
+  pre code{background:none;border:none;padding:0;font-size:inherit}
+  table{width:100%;border-collapse:collapse;margin:18px 0;font-size:15px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+  th{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:600}
+  .callout{background:var(--warn-soft);border:1px solid var(--border);border-left:3px solid var(--warn);
+    border-radius:6px;padding:14px 18px;margin:20px 0;font-size:15.5px}
+  .callout strong{color:var(--warn)}
+  .step{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:18px 20px;margin:14px 0}
+  .step .num{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;
+    color:var(--accent);background:var(--accent-soft);padding:3px 9px;border-radius:20px;margin-bottom:8px}
+  figure{margin:18px 0}
+  figure svg{width:100%;height:auto;display:block;border:1px solid var(--border);
+    border-radius:var(--radius);background:var(--surface)}
+  figcaption{font-size:13.5px;color:var(--muted);margin-top:8px}
+  .where{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--muted);border:1px solid var(--border);
+    padding:2px 9px;border-radius:20px;margin-left:6px;vertical-align:2px}
+  .step h3{margin:0 0 4px;font-size:17.5px}
+  .step p:last-child,.step pre:last-child{margin-bottom:0}
+  .key{background:var(--accent-soft);border:1px solid var(--border);border-left:3px solid var(--accent);
+    border-radius:6px;padding:16px 20px;margin:24px 0}
+  .key p:first-child{margin-top:0} .key p:last-child{margin-bottom:0}
+  footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--border);font-size:13.5px;color:var(--muted)}
+  footer a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="brand">
+  <span class="brand-mark">cloudfox<span class="dot">.</span></span>
+  <span class="brand-tag">Vi får AI att fungera i produktion</span>
+  <span class="brand-hoger">
+    <a class="pdf-knapp" href="kom-igang-med-claude-code.pdf" download>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+      Ladda ner som PDF
+    </a>
+  </span>
+</div>
+
+<h1>Kom igång med Claude Code</h1>
+<p class="lede">En guide för dig som inte är professionell utvecklare. Efter en timme har du en fungerande uppsättning och något du faktiskt använder igen.</p>
+<p class="byline"><strong>Pontus Granborg</strong> · Senior AI Architect · Cloudfox</p>
+
+<div class="key">
+  <p><strong>Det enda du behöver förstå från början:</strong> Claude Code jobbar i en <em>mapp på din dator</em>, inte i en chattruta. Du lägger dina filer i mappen, och Claude kan läsa dem, ändra dem och skapa nya. Det är hela idén — resten är detaljer.</p>
+</div>
+
+<h2>Innan du börjar</h2>
+<p>Två saker, och de tar tio minuter tillsammans:</p>
+<ul>
+  <li><strong>Teckna Claude Pro</strong> <span class="where">I webbläsaren</span><br>20 USD i månaden, uppsägbart när som helst. Claude Code ingår. Gratisplanen räcker inte.</li>
+  <li><strong>Ladda ner Claude-appen</strong> <span class="where">I webbläsaren</span><br>Gå till <code>claude.com/download</code> och installera den som vilket program som helst. Ingen terminal, inga programmeringsverktyg. Kräver macOS 13 eller senare, alternativt Windows 10 eller senare.</li>
+</ul>
+<p>Starta sedan appen och logga in med ditt Claude-konto. Sen är du igång.</p>
+
+<div class="callout">
+  <strong>Två ställen, hela vägen.</strong> Vissa steg gör du på datorn — i Finder eller Utforskaren, precis som vanligt. Andra gör du inne i Claude-appen. Varje steg nedan är märkt med vilket som gäller.
+</div>
+
+<h2>Sätt upp din första mapp</h2>
+
+<div class="step">
+  <div class="num">STEG 1</div> <span class="where">På datorn</span>
+  <h3>Skapa en mapp</h3>
+  <p>En helt vanlig mapp i Finder eller Utforskaren — inte inne i Claude. Ge den namn efter vad du ska jobba med, till exempel <code>offerter</code> eller <code>kundunderlag</code>.</p>
+  <p>Det finns ingen "skapa projekt"-knapp någonstans. Ett projekt <em>är</em> en mapp. Gör hellre en mapp per arbetsområde än en enda stor.</p>
+</div>
+
+<div class="step">
+  <div class="num">STEG 2</div> <span class="where">I Claude</span>
+  <h3>Lägg till mappen i Claude</h3>
+  <p>Öppna <strong>Claude-appen</strong> och gå till fliken <strong>Code</strong> uppe till vänster.</p>
+
+  <figure>
+    <svg viewBox="0 0 640 118" role="img" aria-label="Fliken Code högst upp till vänster i Claude-appen">
+      <rect x="24" y="20" width="118" height="34" rx="9" fill="var(--code-bg)" stroke="var(--border)"/>
+      <text x="83" y="42" text-anchor="middle" font-size="14" fill="var(--muted)">Home</text>
+      <rect x="150" y="20" width="118" height="34" rx="9" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+      <text x="209" y="42" text-anchor="middle" font-size="14" font-weight="600" fill="var(--accent)">Code</text>
+      <path d="M209 58 L204 68 L214 68 Z" fill="var(--accent)"/>
+      <path d="M209 68 L209 82" stroke="var(--accent)" stroke-width="2"/>
+      <text x="209" y="100" text-anchor="middle" font-size="13" fill="var(--accent)" font-weight="600">Börja här</text>
+    </svg>
+    <figcaption>Fliken finns högst upp till vänster i appen.</figcaption>
+  </figure>
+
+  <p>Längst ner i fönstret, precis <strong>ovanför skrivrutan</strong>, finns en rad med små knappar. Klicka på <strong>mappikonen med ett plus</strong> längst till höger i den raden, och peka ut mappen du nyss skapade.</p>
+
+  <figure>
+    <svg viewBox="0 0 640 172" role="img" aria-label="Mappikonen med plus sitter ovanför skrivrutan">
+      <text x="300" y="20" text-anchor="middle" font-size="13" font-weight="600" fill="var(--accent)">Mappikonen med ett plus</text>
+      <path d="M300 28 L300 44" stroke="var(--accent)" stroke-width="2"/>
+      <path d="M295 44 L305 44 L300 54 Z" fill="var(--accent)"/>
+
+      <rect x="24" y="60" width="82" height="32" rx="9" fill="var(--code-bg)" stroke="var(--border)"/>
+      <text x="65" y="81" text-anchor="middle" font-size="13" fill="var(--muted)">Local</text>
+      <rect x="116" y="60" width="112" height="32" rx="9" fill="var(--code-bg)" stroke="var(--border)"/>
+      <text x="172" y="81" text-anchor="middle" font-size="13" fill="var(--muted)">Din mapp</text>
+
+      <rect x="238" y="60" width="42" height="32" rx="9" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+      <path d="M249 82 L249 68 L256 68 L258 71 L266 71 L266 82 Z" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M262 73 L262 80 M258.5 76.5 L265.5 76.5" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round"/>
+
+      <rect x="24" y="104" width="592" height="46" rx="11" fill="var(--bg)" stroke="var(--border)"/>
+      <text x="44" y="132" font-size="14" fill="var(--muted)">Describe a task or ask a question</text>
+    </svg>
+    <figcaption>Knappraden sitter direkt ovanför rutan där du skriver.</figcaption>
+  </figure>
+  <p>Nu är den din arbetsyta, och Claude får läsa och skriva i just den mappen — ingenting annat på datorn.</p>
+  <p>Namnet syns som ett litet chip i nedre delen av fönstret. Klicka på det när du vill byta mapp. Lägger du till ytterligare en mapp läggs den <em>bredvid</em> den första, den ersätter den inte.</p>
+</div>
+
+<div class="step">
+  <div class="num">STEG 3</div> <span class="where">På datorn</span>
+  <h3>Lägg in dina riktiga filer</h3>
+  <p>Tillbaka i Finder eller Utforskaren: dra in filerna i mappen du skapade, precis som du flyttar filer annars. Rapporter, dokument, exporter, bilder — sådant du faktiskt jobbar med.</p>
+  <p>Du behöver inte ladda upp något i Claude. Ligger filen i mappen kan Claude läsa den.</p>
+  <p>Ta inte påhittade exempel. Med ditt eget material märker du direkt om något blir fel, och det är där du lär dig.</p>
+</div>
+
+<div class="step">
+  <div class="num">STEG 4</div> <span class="where">I Claude</span>
+  <h3>Ställ din första riktiga fråga</h3>
+  <p>Nu händer det. Skriv i rutan längst ner i Claude-appen. Välj något du faktiskt velat ha svar på men inte hunnit gräva i.</p>
+  <pre>Gå igenom filerna i mappen och bygg en sida där jag kan
+se det viktigaste samlat. Slutsats överst.</pre>
+  <p>Beskriv gärna målet och vem det är till för. Claude gissar annars, och gissar sämre än du tror.</p>
+</div>
+
+<div class="callout">
+  <strong>Du kan inte förstöra något.</strong> Claude Code sparar automatiskt hur allt såg ut före varje fråga du ställer. Skriv <code>/rewind</code>, eller tryck <code>Esc</code> två gånger, så kan du hoppa tillbaka. Experimentera fritt.
+</div>
+
+<h2>Lär Claude hur du vill ha det <span class="where">I Claude</span></h2>
+<p>Det här är det som gör störst skillnad, och nästan alla missar det i början.</p>
+<p>I mappen ska det ligga en fil som heter <code>CLAUDE.md</code>. Den läses varje gång du börjar jobba, så allt du slipper upprepa hamnar där: hur ni pratar, vad era begrepp betyder, vad du bryr dig om, hur du vill att svaren ska se ut.</p>
+<p><strong>Du skapar den inte själv på datorn.</strong> Du skriver i samma ruta som du ställer frågor i, och Claude skapar filen och lägger den på rätt plats.</p>
+<p>Skriv så här — instruktionen och innehållet i ett svep:</p>
+
+<pre><code>Skapa en CLAUDE.md i den här mappen med följande innehåll:
+
+## Om oss
+Vi gör [det här] för [den här målgruppen].
+Tonen är rak och konkret. Inga utropstecken, ingen hype.
+
+## Begrepp
+- Vi säger alltid "kund", aldrig "användare"
+
+## Underlaget
+Filerna i data/ är veckorapporter från [system].
+Det jag bryr mig om är [dessa nyckeltal]. Ignorera resten.
+
+## Hur jag vill ha svar
+Kort. Slutsats först, resonemang sen.
+Säg till när underlaget är för tunt för en slutsats.</code></pre>
+
+<p>Kopiera hela blocket och byt ut texten inom hakparenteser mot ditt eget. Vill du hellre bara berätta går det lika bra: <em>"skapa en CLAUDE.md — vi jobbar med det här, tonen ska vara sådan här, jag vill ha svar på det här sättet."</em> Claude strukturerar det åt dig.</p>
+<p>Den sista rubriken är den som brukar överraska. Två minuter på att skriva ner <em>hur</em> du vill ha svar märks i varje samtal därefter.</p>
+
+<div class="key">
+  <p><strong>Skriv den inte i förväg — låt den växa.</strong> Tumregeln: rättar du samma sak en andra gång hör den hemma i <code>CLAUDE.md</code>. Säg bara <em>"lägg till det där i CLAUDE.md"</em> så sköter Claude resten.</p>
+</div>
+
+<h2>Vanliga misstag</h2>
+<table>
+  <tr><th>Det här gör de flesta</th><th>Gör så här istället</th></tr>
+  <tr><td>Skriver som en Google-sökning</td><td>Beskriv målet, sammanhanget och vem det är till för</td></tr>
+  <tr><td>Accepterar första förslaget</td><td>Säg emot. "Nej, för formellt — gör om." Det är ett samtal, inte en beställning</td></tr>
+  <tr><td>Klistrar in innehåll i chatten</td><td>Lägg filen i mappen. Då kan Claude jobba med den på riktigt</td></tr>
+  <tr><td>Startar ny chatt för varje litet ärende</td><td>Fortsätt i samma tråd så länge det gäller samma sak</td></tr>
+  <tr><td>Ber om allt på en gång</td><td>Ett steg i taget. Titta på resultatet, justera, fortsätt</td></tr>
+</table>
+
+<h2>När du vill ha mer</h2>
+<p>Det här behöver du inte dag ett. Men när vanan sitter, ungefär efter ett par veckor, är det här som väntar.</p>
+
+<h3>Slipp hämta filerna manuellt</h3>
+<p>Fyra vägar, i stigande ordning av krångel. Börja högst upp och gå bara vidare om du behöver.</p>
+<table>
+  <tr><th>Väg</th><th>Så gör du</th><th>Vad det kräver</th></tr>
+  <tr>
+    <td>Exportera själv</td>
+    <td>Logga in där datan finns, klicka exportera, flytta den nedladdade filen till din mapp</td>
+    <td>Ingenting. Fungerar redan idag</td>
+  </tr>
+  <tr>
+    <td><strong>Låt rapporten mejlas automatiskt</strong></td>
+    <td>Ställ in en återkommande rapport där datan finns och låt den skickas till en egen mejladress. Koppla sedan den adressen till Claude på <code>claude.ai/customize/connectors</code> — välj <strong>Gmail</strong> om adressen är en Gmail, eller <strong>Microsoft 365</strong> om det är Outlook</td>
+    <td>Tio minuter. Bäst nytta för minst krångel</td>
+  </tr>
+  <tr>
+    <td>Koppla systemet direkt</td>
+    <td>Gå till <code>claude.ai/customize/connectors</code> i webbläsaren och klicka <strong>Add</strong> för att se om ditt system finns i katalogen</td>
+    <td>Några minuter, om det finns en färdig koppling</td>
+  </tr>
+  <tr>
+    <td>Bygga en egen koppling</td>
+    <td>Kräver en utvecklare</td>
+    <td>Bara när inget av ovanstående räcker</td>
+  </tr>
+</table>
+<p>Kopplingar läggs till på Claude via webben, inte i appen — men de blir tillgängliga i Claude Code direkt efteråt.</p>
+<p>Outlook har ingen egen connector — den ingår i <strong>Microsoft 365</strong>, som också täcker SharePoint, OneDrive och Teams. I en företagsmiljö behöver den oftast godkännas av en administratör först.</p>
+<p>Använd hellre en egen adress bara för rapporter än din vanliga inkorg. Kopplingen gäller hela kontot, så en separat adress håller det snävt — Claude ser då bara rapporterna och inget annat i din mejl.</p>
+
+<h3>Skills — spara det du gör om och om igen <span class="where">I Claude</span></h3>
+<p>Gör du samma sak varje vecka behöver du inte skriva om samma instruktion varje gång. Du kan spara den som ett eget kommando — det kallas en <strong>skill</strong>.</p>
+<p>Skapa den inte i förväg. Gör uppgiften ett par gånger först, tills du vet vad som faktiskt fungerar, och säg sedan:</p>
+<pre><code>Gör det vi just gjorde till en skill som heter veckorapport.</code></pre>
+<p>Vill du styra innehållet själv skriver du hela beskrivningen på en gång:</p>
+<pre><code>Skapa en skill som heter veckorapport.
+
+Beskrivning: Sammanställer veckans underlag. Använd när jag
+frågar om veckan, om utvecklingen, eller ber om en avstämning.
+
+Instruktioner: Läs den senaste filen i data/. Jämför mot
+föregående vecka. Ge mig tre saker som sticker ut, och en
+mening om vad de beror på. Slutsats först.</code></pre>
+<p>Därefter räcker det att skriva <code>/veckorapport</code> i rutan. Claude kan också plocka fram den av sig själv när du ställer en fråga som matchar beskrivningen.</p>
+<p>Så här funkar det i praktiken. Med beskrivningen ovan — <em>"använd när jag frågar om veckan, om utvecklingen, eller ber om en avstämning"</em> — räcker det att du skriver:</p>
+<pre><code>Hur gick förra veckan?</code></pre>
+<p>Claude känner igen att frågan handlar om just det skillen gör, och kör den utan att du behöver kommandot.</p>
+<p>Hade beskrivningen istället bara stått <em>"Analyserar data"</em> hade ingenting hänt, eftersom den inte säger något om <em>när</em> skillen ska användas. Då måste du skriva <code>/veckorapport</code> varje gång. Lägg alltså några sekunder extra på att beskriva vilka frågor den ska svara på.</p>
+<p>Filen hamnar i en dold undermapp som heter <code>.claude</code> inuti din mapp. Du behöver aldrig öppna den.</p>
+
+<h3>Schemalagda åtgärder — låt något köras av sig självt <span class="where">I Claude</span></h3>
+<p>Du kan låta en uppgift köras enligt schema, så att resultatet ligger och väntar när du sätter dig. Be Claude om det i vanlig text:</p>
+<pre><code>Sätt upp en schemalagd uppgift som varje måndag klockan 07
+läser senaste filen i data/ och skriver en sammanfattning
+till utkast/veckan.md.</code></pre>
+<p>Säg till att den ska köras <strong>på din egen dator</strong>. Det finns även en variant som körs i molnet, men den når inte dina lokala filer.</p>
+<p>Datorn behöver vara igång vid den tidpunkten. Claude-appen får däremot vara stängd.</p>
+
+<h2>Om du vill bygga ett eget verktyg</h2>
+<p>Den tanken brukar dyka upp ganska snabbt. Innan du gör något stort, ställ dig en fråga:</p>
+
+<div class="callout">
+  <strong>Om någon ändrar något i verktyget — måste det finnas kvar nästa gång de öppnar det?</strong> Blir svaret nej behöver du ingen databas, och inget som ska driftas. Reglage och filter som nollställs vid omladdning är inget problem.
+</div>
+
+<p>Nästan alltid räcker det Claude redan kan: en sida byggd ur dina filer, som du öppnar i webbläsaren och ber om en ny version av när underlaget uppdaterats. Ska den delas med andra kan Claude publicera den som en länk.</p>
+<p>Först när flera personer ska spara saker i verktyget, eller när det ska skriva tillbaka till ett annat system, blir det en riktig applikation — med databas, inloggning och någon som ansvarar för driften. Det är ett större beslut, och det är sällan där man ska börja.</p>
+
+<h2>Nästa steg</h2>
+<p>Kör på i en till två veckor med bara mapp, filer och <code>CLAUDE.md</code>. Notera vad du gör om och om igen — det är den listan som avgör vad som är värt att automatisera.</p>
+<p>Hör av dig när något strular eller när du vill ta nästa steg.</p>
+
+<footer>
+  <p style="margin:0 0 6px"><span class="brand-mark" style="font-size:18px">cloudfox<span class="dot">.</span></span></p>
+  <p style="margin:0 0 10px">Pontus Granborg, Senior AI Architect · <a href="https://cloudfox.se">cloudfox.se</a></p>
+  <p style="margin:0">Guiden bygger på Anthropics dokumentation för Claude Code. Priser och funktioner kan ändras.</p>
+</footer>
+
+</div>
+</body>
+</html>
