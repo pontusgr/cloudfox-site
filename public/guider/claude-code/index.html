@@ -305,7 +305,7 @@ Säg till när underlaget är för tunt för en slutsats.</code></pre>
 <p>Det här behöver du inte dag ett. Men när vanan sitter, ungefär efter ett par veckor, är det här som väntar.</p>
 
 <h3>Slipp hämta filerna manuellt</h3>
-<p>Fyra vägar, i stigande ordning av krångel. Börja högst upp och gå bara vidare om du behöver.</p>
+<p>Fem vägar, i stigande ordning av krångel. Börja högst upp och gå bara vidare om du behöver.</p>
 <table>
   <tr><th>Väg</th><th>Så gör du</th><th>Vad det kräver</th></tr>
   <tr>
@@ -324,6 +324,11 @@ Säg till när underlaget är för tunt för en slutsats.</code></pre>
     <td>Några minuter, om det finns en färdig koppling</td>
   </tr>
   <tr>
+    <td>Låt ett rapportverktyg hämta åt dig</td>
+    <td>Tjänster som Coupler.io, Supermetrics eller Funnel.io kopplar sig till dina system, hämtar de mätvärden du väljer och skriver dem till en fil enligt schema. Välj <strong>Google Sheets, Excel eller CSV</strong> som destination — inte en databas eller ett rapportverktyg som Looker Studio eller Power BI, för det är filer Claude läser</td>
+    <td>Kostar pengar, men löser flera källor på en gång</td>
+  </tr>
+  <tr>
     <td>Bygga en egen koppling</td>
     <td>Kräver en utvecklare</td>
     <td>Bara när inget av ovanstående räcker</td>
@@ -332,6 +337,13 @@ Säg till när underlaget är för tunt för en slutsats.</code></pre>
 <p>Kopplingar läggs till på Claude via webben, inte i appen — men de blir tillgängliga i Claude Code direkt efteråt.</p>
 <p>Outlook har ingen egen connector — den ingår i <strong>Microsoft 365</strong>, som också täcker SharePoint, OneDrive och Teams. I en företagsmiljö behöver den oftast godkännas av en administratör först.</p>
 <p>Använd hellre en egen adress bara för rapporter än din vanliga inkorg. Kopplingen gäller hela kontot, så en separat adress håller det snävt — Claude ser då bara rapporterna och inget annat i din mejl.</p>
+
+<div class="key">
+  <p><strong>Genvägen: låt filen landa i en synkad mapp.</strong> Har du OneDrive eller Google Drive installerat på datorn finns molnmapparna redan som helt vanliga mappar i Utforskaren eller Finder. Låter du rapportverktyget spara filen där — eller sätter ett mejlfilter som gör det — och lägger till just den mappen i Claude, så dyker ny data upp av sig själv varje gång.</p>
+  <p style="margin-bottom:0">Ingen koppling att godkänna, ingenting att klistra in, och Claude når bara den mappen. Det är både det enklaste och det snävaste sättet att få färsk data.</p>
+</div>
+
+<p>Rapportverktygen är värda pengarna först när du har flera källor, eller behöver data oftare än en gång i veckan. Har du en enda källa räcker den mejlade rapporten långt.</p>
 
 <h3>Skills — spara det du gör om och om igen <span class="where">I Claude</span></h3>
 <p>Gör du samma sak varje vecka behöver du inte skriva om samma instruktion varje gång. Du kan spara den som ett eget kommando — det kallas en <strong>skill</strong>.</p>
