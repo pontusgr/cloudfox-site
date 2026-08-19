@@ -6,7 +6,7 @@
 <title>Kom igång med Claude Code — guide för dig som inte är utvecklare | Cloudfox</title>
 <meta name="description" content="En guide för dig som inte är professionell utvecklare. Efter en timme har du en fungerande uppsättning av Claude Code och något du faktiskt använder igen.">
 <meta name="author" content="Pontus Granborg, Cloudfox">
-<link rel="canonical" href="https://cloudfox.se/guider/claude-code/">
+<link rel="canonical" href="https://www.cloudfox.se/guider/claude-code/">
 <link rel="icon" href="/favicon.svg">
 
 <meta property="og:type" content="article">
@@ -14,13 +14,13 @@
 <meta property="og:site_name" content="Cloudfox">
 <meta property="og:title" content="Kom igång med Claude Code">
 <meta property="og:description" content="En guide för dig som inte är professionell utvecklare. Efter en timme har du en fungerande uppsättning av Claude Code och något du faktiskt använder igen.">
-<meta property="og:url" content="https://cloudfox.se/guider/claude-code/">
-<meta property="og:image" content="https://cloudfox.se/og-image.png">
+<meta property="og:url" content="https://www.cloudfox.se/guider/claude-code/">
+<meta property="og:image" content="https://www.cloudfox.se/og-image.png">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Kom igång med Claude Code">
 <meta name="twitter:description" content="En guide för dig som inte är professionell utvecklare. Efter en timme har du en fungerande uppsättning av Claude Code och något du faktiskt använder igen.">
-<meta name="twitter:image" content="https://cloudfox.se/og-image.png">
+<meta name="twitter:image" content="https://www.cloudfox.se/og-image.png">
 <style>
   :root {
     --bg:#fbfbfa; --surface:#fff; --border:#e4e2dd; --text:#1f1e1c; --muted:#6b6862;
@@ -35,6 +35,11 @@
   .brand{display:flex;align-items:center;gap:12px;flex-wrap:wrap;
     padding-bottom:22px;border-bottom:1px solid var(--border);margin-bottom:34px}
   .brand-hoger{margin-left:auto}
+  .brand-lank{text-decoration:none;color:inherit;display:inline-flex;align-items:center;
+    border-radius:6px;transition:opacity .12s ease}
+  .brand-lank:hover{opacity:.72}
+  .slutlank{color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor}
+  .slutlank:hover{opacity:.75}
   .pdf-knapp{
     display:inline-flex;align-items:center;gap:8px;text-decoration:none;
     font-size:14px;font-weight:600;color:var(--accent);
@@ -108,7 +113,9 @@
 <div class="wrap">
 
 <div class="brand">
-  <span class="brand-mark">cloudfox<span class="dot">.</span></span>
+  <a class="brand-lank" href="https://www.cloudfox.se" title="Till cloudfox.se">
+    <span class="brand-mark">cloudfox<span class="dot">.</span></span>
+  </a>
   <span class="brand-tag">Vi får AI att fungera i produktion</span>
   <span class="brand-hoger">
     <a class="pdf-knapp" href="kom-igang-med-claude-code.pdf" download>
@@ -328,11 +335,13 @@ till utkast/veckan.md.</code></pre>
 
 <h2>Nästa steg</h2>
 <p>Kör på i en till två veckor med bara mapp, filer och <code>CLAUDE.md</code>. Notera vad du gör om och om igen — det är den listan som avgör vad som är värt att automatisera.</p>
-<p>Hör av dig när något strular eller när du vill ta nästa steg.</p>
+<p>Hör av dig när något strular eller när du vill ta nästa steg — vi bygger
+AI-flöden som körs i produktion hos medelstora industri- och grossistbolag.
+Mer om hur vi jobbar finns på <a class="slutlank" href="https://www.cloudfox.se">cloudfox.se</a>.</p>
 
 <footer>
   <p style="margin:0 0 6px"><span class="brand-mark" style="font-size:18px">cloudfox<span class="dot">.</span></span></p>
-  <p style="margin:0 0 10px">Pontus Granborg, Senior AI Architect · <a href="https://cloudfox.se">cloudfox.se</a></p>
+  <p style="margin:0 0 10px">Pontus Granborg, Senior AI Architect · <a href="https://www.cloudfox.se">cloudfox.se</a></p>
   <p style="margin:0">Guiden bygger på Anthropics dokumentation för Claude Code. Priser och funktioner kan ändras.</p>
 </footer>
 
