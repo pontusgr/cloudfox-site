@@ -26,12 +26,25 @@
     --bg:#fbfbfa; --surface:#fff; --border:#e4e2dd; --text:#1f1e1c; --muted:#6b6862;
     --accent:#2f5d8f; --accent-soft:#eaf1f8; --warn:#9a6216; --warn-soft:#fdf4e5;
     --code-bg:#f5f4f1; --radius:10px; --brand:#0e0e0c; --brand-dot:#c0491f;
+    --danger:#a32a1e; --danger-soft:#fdf2f0;
   }
   @media (prefers-color-scheme:dark){
     :root{ --bg:#1a1917; --surface:#232220; --border:#37352f; --text:#eeece7; --muted:#a39e94;
       --accent:#7dabdd; --accent-soft:#1e2b38; --warn:#e0b060; --warn-soft:#302819;
-      --code-bg:#1b1a18; --brand:#f2f0ec; --brand-dot:#e0703f; }
+      --code-bg:#1b1a18; --brand:#f2f0ec; --brand-dot:#e0703f;
+      --danger:#ef9184; --danger-soft:#2c1b18; }
   }
+  .danger-block{background:var(--danger-soft);border:1px solid var(--border);
+    border-left:4px solid var(--danger);border-radius:var(--radius);
+    padding:2px 26px 22px;margin:38px 0}
+  .danger-block h2{color:var(--danger);border-top:none;padding-top:24px;margin-top:22px}
+  .danger-block h3{color:var(--danger)}
+  .danger-block .callout{background:var(--bg);border-left-color:var(--danger)}
+  .danger-block .callout strong{color:var(--danger)}
+  .danger-note{background:var(--danger-soft);border:1px solid var(--border);
+    border-left:3px solid var(--danger);border-radius:6px;
+    padding:14px 18px;margin:20px 0;font-size:15.5px}
+  .danger-note strong{color:var(--danger)}
   .brand{display:flex;align-items:center;gap:12px;flex-wrap:wrap;
     padding-bottom:22px;border-bottom:1px solid var(--border);margin-bottom:34px}
   .brand-hoger{margin-left:auto}
@@ -57,7 +70,7 @@
     a{color:#000;text-decoration:none}
     a[href^="http"]::after{content:" (" attr(href) ")";font-size:.85em;color:#555}
     h1,h2,h3{break-after:avoid-page;page-break-after:avoid}
-    pre,.key,.note,figure,table{break-inside:avoid-page;page-break-inside:avoid}
+    pre,.key,.note,.step,.callout,.danger-note,.danger-block,figure,table{break-inside:avoid-page;page-break-inside:avoid}
     footer{break-before:avoid-page}
     @page{margin:18mm 16mm}
   }
@@ -149,6 +162,30 @@
   <strong>Två ställen, hela vägen.</strong> Vissa steg gör du på datorn — i Finder eller Utforskaren, precis som vanligt. Andra gör du inne i Claude-appen. Varje steg nedan är märkt med vilket som gäller.
 </div>
 
+<div class="danger-block">
+<h2>Innan du lägger in företagsdata</h2>
+<p>Guiden bygger på att du använder riktigt material, inte påhittade exempel. Då behöver du veta vad som händer med det.</p>
+
+<h3>Var hamnar filerna?</h3>
+<p>Filerna ligger kvar i din mapp, på din dator. De laddas inte upp någonstans. Men <em>innehållet i det du frågar om</em> skickas till Claude för att frågan ska kunna besvaras — precis som när du klistrar in text i en chatt. Skillnaden är bara att du slipper klistra.</p>
+<p>På betalplanerna används inte ditt innehåll för att träna modeller som standard. Vad som gäller i detalj står i Anthropics villkor, och det är dem du ska luta dig mot — inte mot den här guiden.</p>
+
+<h3>Fråga din organisation först</h3>
+<p>Har ditt företag en policy för AI-verktyg gäller den, oavsett vad som är tekniskt möjligt. Och en viktig skillnad: <strong>ett privat Pro-konto är inte samma sak som företagets avtal.</strong> Lägger du bolagets material i ditt personliga konto ligger det utanför bolagets kontroll — och följer med dig om du byter jobb.</p>
+<p>Ska det här bli något ni använder på riktigt, se till att kontot hör till företaget.</p>
+
+<h3>Personuppgifter</h3>
+<p>Kunduppgifter, anställdas uppgifter, hälsodata — där gäller GDPR precis som i alla andra system. Behöver du bara se hur datan <em>ser ut</em>, inte vem den handlar om, byt ut de identifierande värdena först. Behåll fältens form och längd, ändra namnen. Realismen sitter i strukturen, inte i att det står ett riktigt personnamn.</p>
+
+<div class="callout">
+  <strong>Tumregeln:</strong> lägg bara sådant i mappen som du hade kunnat mejla till en extern konsult utan att tveka. Känns det fel i magen, fråga någon innan — inte efter.
+</div>
+
+<h3>Kopplingar når mer än du tror</h3>
+<p>Kopplar du din mejl senare i guiden gäller kopplingen <em>hela</em> kontot, inte en enskild mapp — Claude kan då läsa allt i inkorgen, inte bara rapporterna. Därför rekommenderas en separat adress som bara tar emot rapporter.</p>
+<p>Detsamma gäller om du kopplar Google Drive, OneDrive eller SharePoint: kopplingen når allt ditt konto når där, även delade mappar med annat innehåll. Fundera på vad som faktiskt ligger inom räckhåll innan du kopplar — och koppla inte alls om kontot når mer än uppgiften kräver.</p>
+</div>
+
 <h2>Sätt upp din första mapp</h2>
 
 <div class="step">
@@ -207,7 +244,7 @@
   <h3>Lägg in dina riktiga filer</h3>
   <p>Tillbaka i Finder eller Utforskaren: dra in filerna i mappen du skapade, precis som du flyttar filer annars. Rapporter, dokument, exporter, bilder — sådant du faktiskt jobbar med.</p>
   <p>Du behöver inte ladda upp något i Claude. Ligger filen i mappen kan Claude läsa den.</p>
-  <p>Ta inte påhittade exempel. Med ditt eget material märker du direkt om något blir fel, och det är där du lär dig.</p>
+  <p>Ta inte påhittade exempel. Med ditt eget material märker du direkt om något blir fel, och det är där du lär dig — men håll dig till det avsnittet ovan säger att du får lägga in.</p>
 </div>
 
 <div class="step">
@@ -220,7 +257,7 @@ se det viktigaste samlat. Slutsats överst.</pre>
 </div>
 
 <div class="callout">
-  <strong>Du kan inte förstöra något.</strong> Claude Code sparar automatiskt hur allt såg ut före varje fråga du ställer. Skriv <code>/rewind</code>, eller tryck <code>Esc</code> två gånger, så kan du hoppa tillbaka. Experimentera fritt.
+  <strong>Du kan nästan alltid ångra.</strong> Claude Code sparar hur filerna såg ut före varje fråga du ställer. Skriv <code>/rewind</code>, eller tryck <code>Esc</code> två gånger, så kan du hoppa tillbaka. Det gäller det <em>Claude</em> ändrat — inte det du själv gör i mappen. Så experimentera fritt, men jobba på kopior av original som är viktiga.
 </div>
 
 <h2>Lär Claude hur du vill ha det <span class="where">I Claude</span></h2>
@@ -261,6 +298,7 @@ Säg till när underlaget är för tunt för en slutsats.</code></pre>
   <tr><td>Klistrar in innehåll i chatten</td><td>Lägg filen i mappen. Då kan Claude jobba med den på riktigt</td></tr>
   <tr><td>Startar ny chatt för varje litet ärende</td><td>Fortsätt i samma tråd så länge det gäller samma sak</td></tr>
   <tr><td>Ber om allt på en gång</td><td>Ett steg i taget. Titta på resultatet, justera, fortsätt</td></tr>
+  <tr><td>Lägger in känsligt material av gammal vana</td><td>Stanna upp vid kunduppgifter och personnummer. Den röda rutan ovan gäller varje gång, inte bara första</td></tr>
 </table>
 
 <h2>När du vill ha mer</h2>
@@ -324,14 +362,106 @@ till utkast/veckan.md.</code></pre>
 <p>Datorn behöver vara igång vid den tidpunkten. Claude-appen får däremot vara stängd.</p>
 
 <h2>Om du vill bygga ett eget verktyg</h2>
-<p>Den tanken brukar dyka upp ganska snabbt. Innan du gör något stort, ställ dig en fråga:</p>
+<p>Den tanken brukar dyka upp ganska snabbt. Ställ en fråga innan du gör något stort:</p>
 
 <div class="callout">
-  <strong>Om någon ändrar något i verktyget — måste det finnas kvar nästa gång de öppnar det?</strong> Blir svaret nej behöver du ingen databas, och inget som ska driftas. Reglage och filter som nollställs vid omladdning är inget problem.
+  <strong>Om någon ändrar något i verktyget — måste det finnas kvar nästa gång de öppnar det?</strong> Blir svaret nej behöver du ingen databas, och inget som någon måste sköta om löpande. Reglage och filter som nollställs när sidan laddas om är inget problem.
 </div>
 
-<p>Nästan alltid räcker det Claude redan kan: en sida byggd ur dina filer, som du öppnar i webbläsaren och ber om en ny version av när underlaget uppdaterats. Ska den delas med andra kan Claude publicera den som en länk.</p>
-<p>Först när flera personer ska spara saker i verktyget, eller när det ska skriva tillbaka till ett annat system, blir det en riktig applikation — med databas, inloggning och någon som ansvarar för driften. Det är ett större beslut, och det är sällan där man ska börja.</p>
+<p>Blev svaret nej är du i praktiken redan klar — då handlar det bara om att dela sidan, och det står härnäst. Blev det ja behöver du en databas, och då gäller avsnittet därefter.</p>
+
+<h3>Lägga ut sidan på nätet</h3>
+<p>När Claude bygger en sida åt dig hamnar den som en fil i din mapp — en fil vars namn slutar på <code>.html</code>. Du kan dubbelklicka på den och titta, men den finns bara på din egen dator. Ska någon annan kunna öppna den måste den ligga någonstans på internet. Det är det som menas med att <em>publicera</em>.</p>
+<div class="danger-note">
+  <strong>Publicerat är delbart.</strong> En sida på nätet skyddas bara av att länken är svår att gissa — den som har länken kan öppna den, och länkar vidarebefordras. Publicera aldrig en sida byggd på kundnamn, priser eller annat känsligt utan att först byta ut det, eller stämma av att det får delas. Samma tumregel som för mappen: hade du kunnat mejla sidan till en utomstående utan att tveka?
+</div>
+
+<p>Tre sätt, från enklast till krångligast. Börja med det första.</p>
+
+<div class="step">
+  <div class="num">SÄTT 1</div> <span class="where">I Claude</span>
+  <h3>Låt Claude publicera åt dig</h3>
+  <p>Skriv i rutan:</p>
+  <pre><code>Publicera den här sidan så jag kan dela den.</code></pre>
+  <p>Du får tillbaka en länk. Skicka den till vem du vill — de behöver varken konto eller något installerat, bara klicka. När du ändrat något ber du Claude publicera igen, så uppdateras samma länk.</p>
+  <p style="margin-bottom:0">Inga konton att skapa, ingenting att betala, ingenting som kan gå sönder. <strong>Det här räcker för nästan allt.</strong></p>
+</div>
+
+<div class="step">
+  <div class="num">SÄTT 2</div> <span class="where">I webbläsaren</span>
+  <h3>Netlify — om du vill ha en egen adress</h3>
+  <p>Netlify är en gratistjänst som förvarar sidor åt dig. Så här gör du:</p>
+  <ol>
+    <li>Skapa ett konto på <code>netlify.com</code></li>
+    <li>Öppna din mapp så du ser <code>.html</code>-filen</li>
+    <li>Dra filen med musen och släpp den i rutan på Netlifys sida</li>
+  </ol>
+  <p>Några sekunder senare har sidan en egen adress, ungefär <code>veckorapport.netlify.app</code>. Den fungerar för alla du skickar den till.</p>
+  <p style="margin-bottom:0">Vill du senare ha en riktig adress i stil med <code>rapporter.dittforetag.se</code> går det att köpa en och koppla på. Men du behöver inte förstå något av tekniken bakom — du drar in en fil.</p>
+</div>
+
+<div class="step">
+  <div class="num">SÄTT 3</div> <span class="where">I webbläsaren</span>
+  <h3>Vercel — när sidan ändras hela tiden</h3>
+  <p>Fungerar i grunden som Netlify, men kan ställas in så att sidan uppdaterar sig själv varje gång filen ändras. Du slipper alltså dra in den på nytt.</p>
+  <p>Haken är att Vercel inte kan titta i mappen på din dator. Filen måste ligga någonstans som Vercel når. Det vanliga är <strong>GitHub</strong> — en gratistjänst som förvarar filer åt dig och sparar varje version, så att man kan gå tillbaka till hur något såg ut tidigare. Vercel kopplas till din GitHub-mapp och håller koll på den: så fort något ändras där publiceras sidan om av sig själv.</p>
+  <p>Det du behöver göra är alltså tre saker: skapa ett GitHub-konto, lägga upp mappen där, och koppla ihop Vercel med den. Uppläggningen klarar Claude åt dig om du ber om det — du behöver aldrig skriva några kommandon själv. Det är kopplingen mellan tjänsterna som brukar strula första gången.</p>
+  <p style="margin-bottom:0">Ta hjälp med uppsättningen en gång. Sedan finns inget kvar att göra: du ber Claude ändra sidan, och den nya versionen ligger ute några sekunder senare.</p>
+</div>
+
+<p>Märker du inte att du saknar något med sätt 1, byt inte. Egen adress är trevligt, men det är sällan det som avgör om någon läser sidan.</p>
+
+<h3>Kan sidan lösenordsskyddas?</h3>
+<p>Frågan kommer alltid, och svaret är tyvärr: sällan gratis. Så här ser det ut i de tre alternativen.</p>
+<table>
+  <tr><th>Sätt</th><th>Lösenord?</th><th>Vad som faktiskt går</th></tr>
+  <tr>
+    <td>Claude-länk</td>
+    <td>Nej</td>
+    <td>Sidan är antingen privat för dig eller öppen för alla som får länken. På Team och Enterprise kan du istället dela <em>inom organisationen</em> — då måste mottagaren logga in med sitt jobbkonto för att se den. Det är ingen lösenordsruta, men det är riktig åtkomstkontroll, och oftast den bästa som finns att få</td>
+  </tr>
+  <tr>
+    <td>Netlify</td>
+    <td>Ja, mot betalning</td>
+    <td>Lösenordsskydd kräver Pro-plan eller högre. Gratisplanen har det inte. Du kan välja mellan ett gemensamt lösenord för alla besökare, eller att bara medlemmar i ditt Netlify-team släpps in</td>
+  </tr>
+  <tr>
+    <td>Vercel</td>
+    <td>Ja, men dyrt</td>
+    <td>Inte alls på gratisplanen. På Pro är lösenordsskydd ett tillägg som kostar 150 USD i månaden. Däremot kan du utan extra kostnad kräva att besökaren är medlem i din Vercel-grupp — samma princip som Claudes organisationsdelning</td>
+  </tr>
+</table>
+
+<div class="danger-note">
+  <strong>Är lösenord ett krav — publicera inte.</strong> Behöver sidan lösenord är det oftast ett tecken på att innehållet inte hör hemma på en öppen adress alls. Skicka <code>.html</code>-filen som en vanlig bilaga i mejl eller Teams istället, eller lägg den i en mapp där behörigheterna redan är rätt. Mottagaren dubbelklickar och sidan öppnas i webbläsaren — precis lika interaktiv, men den har aldrig legat ute.
+</div>
+
+<p>Ett gemensamt lösenord är dessutom svagare skydd än det låter: det delas vidare, det byts sällan, och du ser aldrig vem som varit inne. Kräver innehållet verklig kontroll över vem som läser vad, är du inne på en riktig applikation — och då gäller nästa avsnitt.</p>
+
+<h3>Lägga till en databas <span class="where">I webbläsaren + I Claude</span></h3>
+<p>Det här behövs bara om något ska <strong>sparas</strong> i verktyget — en kommentar, en status, ett godkännande — och finnas kvar nästa gång sidan öppnas. Ska ingenting sparas kan du hoppa över resten av avsnittet.</p>
+<p>Ett vanligt val är <strong>Supabase</strong>, som ger dig databas och inloggning i ett.</p>
+<ol>
+  <li>Skapa ett gratiskonto på <code>supabase.com</code></li>
+  <li>Skapa ett projekt. Det <em>är</em> din databas — du behöver inte konfigurera något mer</li>
+  <li>Under projektets inställningar finns en adress och två nycklar. Kopiera dem</li>
+  <li>Gå tillbaka till Claude och beskriv vad som ska sparas</li>
+</ol>
+<pre><code>Vi använder Supabase. Här är projektets adress och publika nyckel:
+[klistra in]
+
+Bygg så att man kan spara en kommentar och en status på varje
+post i listan, och att det finns kvar nästa gång sidan öppnas.
+Skapa tabellerna som behövs och sätt upp behörighetsregler så
+att bara inloggade kan skriva.</code></pre>
+<p>Claude skapar tabellerna och kopplingen åt dig. Du behöver inte lära dig Supabase — men du behöver skapa kontot, för nycklarna är dina.</p>
+
+<div class="callout">
+  <strong>Nycklarna är känsliga.</strong> Supabase ger dig två: en publik och en hemlig. Den hemliga får aldrig hamna i en sida som ligger ute på nätet — då kan vem som helst läsa och ändra allt i databasen. Den publika är byggd för att synas, men bara om du satt upp behörighetsregler. Be alltid Claude göra det, och be den förklara vem som kan läsa respektive skriva innan du lägger in riktiga uppgifter.
+</div>
+
+<p>Kom också ihåg att databasen ligger hos Supabase, ett amerikanskt bolag — det som sparas där lämnar din dator på riktigt. Lägger du in företagsdata gäller samma fråga som i den röda rutan i början, fast skarpare, för nu ligger datan kvar tills någon tar bort den.</p>
+<p>Vid det här laget bygger du en produkt, inte ett hjälpmedel. Det går utmärkt att göra själv med Claude — men ta in någon som kan granska säkerheten innan riktiga personuppgifter hamnar där.</p>
 
 <h2>Nästa steg</h2>
 <p>Kör på i en till två veckor med bara mapp, filer och <code>CLAUDE.md</code>. Notera vad du gör om och om igen — det är den listan som avgör vad som är värt att automatisera.</p>
