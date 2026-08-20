@@ -71,9 +71,9 @@ export default function Cloudfox() {
       .cfx *{box-sizing:border-box;margin:0}
       .cfx a{color:inherit;text-decoration:none}
       .cfx-display{font-family:'Fraunces',Georgia,serif;font-weight:400;letter-spacing:-.025em}
-      .cfx-btn{display:inline-flex;align-items:center;gap:10px;font-family:'Inter',sans-serif;font-weight:500;cursor:pointer;border:none;transition:all .3s ease}
+      .cfx-btn{display:inline-flex;align-items:center;gap:10px;font-family:'Inter',sans-serif;font-weight:500;cursor:pointer;border:none;transition:background .2s ease, color .2s ease}
       .cfx-btn-primary{background:var(--ink);color:var(--bg);padding:16px 28px;font-size:15px}
-      .cfx-btn-primary:hover{background:var(--accent)}
+      .cfx-btn-primary:hover{background:var(--accent);color:var(--bg)}
       .cfx-btn-ghost{background:transparent;color:var(--ink);padding:14px 0;font-size:14px;border-bottom:1px solid var(--ink)}
       .cfx-btn-ghost:hover{color:var(--accent);border-color:var(--accent)}
       .cfx-eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
@@ -93,6 +93,12 @@ export default function Cloudfox() {
       .cfx-uc-text{color:var(--muted);transition:color .25s}
       .cfx-lang button{cursor:pointer;border:none;background:none;font-family:'Inter',sans-serif;padding:6px 0;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
       .cfx-fade-line{height:1px;background:linear-gradient(90deg,transparent 0%,var(--line) 20%,var(--line) 80%,transparent 100%)}
+      .cfx-spectrum-endpoints{display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:24px}
+      .cfx-spectrum-track{position:relative;height:1px;background:var(--line);margin:0 0 56px 0}
+      .cfx-spectrum-dot{position:absolute;top:-7px;width:14px;height:14px;border-radius:50%;background:var(--ink)}
+      .cfx-spectrum-grid{display:grid;grid-template-columns:1fr;gap:48px}
+      @media(min-width:900px){.cfx-spectrum-grid{grid-template-columns:repeat(3,1fr);gap:clamp(2rem,4vw,4rem)}}
+      .cfx-spectrum-const{margin-top:80px;padding:48px clamp(1.5rem,4vw,3rem);border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
     `;
     document.head.appendChild(s);
   }, []);
@@ -103,125 +109,105 @@ export default function Cloudfox() {
     ? [
         {
           num: "01",
-          title: "Contract Compliance & Obligation Enforcement",
-          text: "Komplexa avtal med indexering, SLA-tröskelvärden och bonusklausuler hanteras manuellt — eller inte alls. Typisk läckage: 8–9% av kontraktvärdet. AI som kontinuerligt övervakar villkor och flaggar avvikelser.",
-          competition: "Låg–medel",
+          title: "Avtalskontroll — avtal vs fakturerat",
+          text: "Rabattstegar, bonusar och prislistor bor i avtalen — men ingen kontrollerar att det som faktureras stämmer mot villkoren. Agenten läser era avtal, diffar mot fakturaraderna och listar avvikelserna i kronor. Diagnosen betalar ofta sig själv.",
         },
         {
           num: "02",
-          title: "Intelligent Time Tracking & Billable Hours",
-          text: "Manuell timrapportering i konsultbolag = 5–15% ofakturerade timmar. AI kategoriserar arbete automatiskt från kalender, mejl och dokument. Direkt återhämtning av förlorad fakturering.",
-          competition: "Låg",
+          title: "Leverantörs- & kunddokumentation",
+          text: "Certifikat, intyg och specifikationer jagas via mail — och dokumentationspaket till kund byggs för hand. Agenten tar emot, läser, validerar i flera lager och sammanställer kompletta dossierer. Längst kommen av alla — pilot kan starta direkt.",
         },
         {
           num: "03",
-          title: "Predictive Maintenance & Asset Optimization",
-          text: "ERP är reaktivt — fel uppstår, någon rapporterar, någon åtgärdar i efterhand. Prediktiv AI varnar innan haveri. 30–50% mindre driftstopp, mätbart inom ett kvartal.",
-          competition: "Medel",
+          title: "Ofakturerat-detektorn",
+          text: "Material hämtat, timmar arbetade, tillägg utförda — men aldrig fakturerade. Agenten korsar inköp och tid mot order och flaggar det som saknas på fakturan. Rent marginalläckage, mätbart från dag ett.",
         },
         {
           num: "04",
-          title: "Revenue Leakage Detection",
-          text: "Mellan ert säljsystem och ekonomisystem läcker typiskt 0,3–1,5% av omsättningen — underbetalningar, missade fakturarader, prisavvikelser. AI som flaggar gapen i realtid.",
-          competition: "Medel",
+          title: "Garantier, skador & reklamationer",
+          text: "Garantianspråk, godsskador och reklamationer drivs i mail — och avslås på formalia. Agenten skapar ärendet, bygger komplett underlag och bevakar tills ersättningen kommit.",
         },
         {
           num: "05",
-          title: "Inventory & Supply Chain Anomaly Detection",
-          text: "Överlager binder kapital. Slut-i-lager dödar försäljning. Slow-movers äter lagerplats. AI flaggar mönstren ERP missar — innan de blir dyra.",
-          competition: "Medel–låg",
+          title: "Offert ur mailkorgen",
+          text: "Förfrågningar med ritningar och specar tar dagar att bereda — snabbast med rätt pris vinner. Agenten tolkar förfrågan, bygger kalkylunderlag och föreslår pris ur er historik.",
         },
         {
           num: "06",
-          title: "Automated Invoice Processing & 3-Way Matching",
-          text: "Inkomna fakturor matchas manuellt mot order och leverans. AI gör det på sekunder, fångar avvikelser automatiskt, frigör cash flow snabbare.",
-          competition: "Medel",
+          title: "Indexering & prishöjningar",
+          text: "Indexklausuler utnyttjas inte, och leverantörernas prisbrev når aldrig era kalkyler — marginalen eroderar tyst åt båda håll. Agenten läser klausuler och prisbrev, räknar och skapar justeringsunderlag.",
         },
         {
           num: "07",
-          title: "Demand Forecasting & S&OP Optimization",
-          text: "Statiska Excel-prognoser i volatil marknad = systematisk over- eller under-stock. AI som lär sig av faktisk efterfrågan i realtid och justerar löpande.",
-          competition: "Medel",
+          title: "Löneunderlag → lönesystem",
+          text: "Tidrapporter kommer som Excel, foton och sms — och knappas in för hand varje månad. Agenten tolkar alla format, skapar lönerader för kontroll och rimlighetstestar körningen före lönedagen.",
         },
         {
           num: "08",
-          title: "Supplier Risk & Performance Monitoring",
-          text: "Leverantörsrisker upptäcks oftast när det redan är ett problem. AI bevakar finansiell hälsa, leveransprestanda och geopolitik — proaktivt, automatiskt.",
-          competition: "Låg–medel",
+          title: "Frist- & certifikatbevakning",
+          text: "Behörigheter, garantitider, besiktningar och certifikat bor i Excel — och upptäcks utgångna när det kostar. Agenten bygger register ur era dokument, bevakar frister och samlar revisionsbevis.",
         },
         {
           num: "09",
-          title: "Pricing Optimization & Dynamic Pricing",
-          text: "Statiska priser missar både uppsida (premium-segment) och nedsida (priskänsliga kunder). AI optimerar per kundsegment, säsong och konkurrenssituation.",
-          competition: "Medel",
+          title: "Beredskap & spårbarhet (CER/NIS2)",
+          text: "Nya lagkrav kräver löpande riskbedömningar, leverantörskartläggning och spårbarhet. Agenten bygger flödet i er Microsoft-miljö — rapporteringsklart mot myndighet och kundkrav, istället för konsultrapporter och Excel.",
         },
         {
           num: "10",
-          title: "Compliance Monitoring (GDPR, AI Act, branschspecifikt)",
-          text: "GDPR, EU AI Act, branschspecifika regelverk — kraven växer fortare än compliance-team. AI som kontinuerligt övervakar policy-efterlevnad och flaggar risker.",
-          competition: "Låg",
+          title: "Restorder- & leveransbevakning",
+          text: "Försenade leveranser upptäcks av kunden — eller när produktionen står. Agenten läser orderbekräftelser, korsar mot behovsdatum och öppna kundordrar, och driver proaktiv åtgärd.",
         },
       ]
     : [
         {
           num: "01",
-          title: "Contract Compliance & Obligation Enforcement",
-          text: "Complex contracts with indexation, SLA thresholds, and bonus clauses are managed manually — or not at all. Typical leakage: 8–9% of contract value. AI that continuously monitors terms and flags deviations.",
-          competition: "Low–medium",
+          title: "Contract check — agreed vs invoiced",
+          text: "Rebate ladders, bonuses, and price lists live in contracts — but no one checks that what is invoiced matches the terms. The agent reads your contracts, diffs against invoice lines, and lists the deviations in money. The Diagnose often pays for itself.",
         },
         {
           num: "02",
-          title: "Intelligent Time Tracking & Billable Hours",
-          text: "Manual time entry in consultancies = 5–15% unbilled hours. AI categorizes work automatically from calendar, email, and documents. Direct recovery of lost billing.",
-          competition: "Low",
+          title: "Supplier & customer documentation",
+          text: "Certificates, declarations, and specifications are chased by email — and customer documentation packages are built by hand. The agent receives, reads, validates in multiple layers, and assembles complete dossiers. This is where we've come furthest — a pilot can start immediately.",
         },
         {
           num: "03",
-          title: "Predictive Maintenance & Asset Optimization",
-          text: "ERP is reactive — failures occur, someone reports, someone responds after the fact. Predictive AI warns before failure. 30–50% less downtime, measurable within a quarter.",
-          competition: "Medium",
+          title: "The unbilled detector",
+          text: "Materials picked, hours worked, extras performed — but never invoiced. The agent cross-checks purchases and time against orders and flags what is missing from the invoice. Pure margin leakage, measurable from day one.",
         },
         {
           num: "04",
-          title: "Revenue Leakage Detection",
-          text: "Between your sales system and finance system, typically 0.3–1.5% of revenue leaks — underpayments, missed line items, pricing discrepancies. AI that flags gaps in real time.",
-          competition: "Medium",
+          title: "Warranties, damages & claims",
+          text: "Warranty claims, transport damages, and complaints are run in email — and rejected on formalities. The agent creates the case, builds a complete file, and follows it until the money arrives.",
         },
         {
           num: "05",
-          title: "Inventory & Supply Chain Anomaly Detection",
-          text: "Overstock ties up capital. Stockouts kill sales. Slow-movers eat shelf space. AI flags the patterns ERP misses — before they get expensive.",
-          competition: "Medium–low",
+          title: "Quotes from the inbox",
+          text: "Inquiries with drawings and specs take days to prepare — fastest with the right price wins. The agent interprets the request, builds the costing basis, and suggests a price from your history.",
         },
         {
           num: "06",
-          title: "Automated Invoice Processing & 3-Way Matching",
-          text: "Incoming invoices matched manually against orders and deliveries. AI does it in seconds, catches discrepancies automatically, frees cash flow faster.",
-          competition: "Medium",
+          title: "Indexation & price increases",
+          text: "Index clauses go unused, and supplier price letters never reach your costing — margin erodes silently in both directions. The agent reads clauses and price letters, calculates, and prepares adjustment material.",
         },
         {
           num: "07",
-          title: "Demand Forecasting & S&OP Optimization",
-          text: "Static Excel forecasts in volatile markets = systematic over- or under-stock. AI that learns from actual demand in real time and adjusts continuously.",
-          competition: "Medium",
+          title: "Payroll input → payroll system",
+          text: "Time sheets arrive as Excel, photos, and texts — and are keyed in by hand every month. The agent interprets every format, creates payroll rows for review, and sanity-checks the run before payday.",
         },
         {
           num: "08",
-          title: "Supplier Risk & Performance Monitoring",
-          text: "Supplier risks usually detected when they're already a problem. AI monitors financial health, delivery performance, and geopolitics — proactively, automatically.",
-          competition: "Low–medium",
+          title: "Deadline & certificate monitoring",
+          text: "Licenses, warranty periods, inspections, and certificates live in Excel — discovered expired when it hurts. The agent builds a register from your documents, monitors deadlines, and collects audit evidence.",
         },
         {
           num: "09",
-          title: "Pricing Optimization & Dynamic Pricing",
-          text: "Static prices miss both upside (premium segments) and downside (price-sensitive customers). AI optimizes per customer segment, season, and competitive position.",
-          competition: "Medium",
+          title: "Preparedness & traceability (CER/NIS2)",
+          text: "New regulation requires continuous risk assessments, supplier mapping, and traceability. The agent builds the flow in your Microsoft environment — report-ready for authorities and customer demands, instead of consultant reports and Excel.",
         },
         {
           num: "10",
-          title: "Compliance Monitoring (GDPR, AI Act, industry-specific)",
-          text: "GDPR, EU AI Act, industry-specific regulations — requirements grow faster than compliance teams. AI that continuously monitors policy adherence and flags risks.",
-          competition: "Low",
+          title: "Backorder & delivery monitoring",
+          text: "Late deliveries are discovered by the customer — or when production stops. The agent reads order confirmations, cross-checks against need dates and open customer orders, and drives proactive action.",
         },
       ];
 
@@ -268,7 +254,7 @@ export default function Cloudfox() {
       <section style={{ padding: `clamp(5rem,10vw,9rem) ${pad} clamp(4rem,7vw,7rem)`, position: "relative" }}>
         <R>
           <div className="cfx-eyebrow" style={{ marginBottom: 56 }}>
-            {L("Acceleration through AI", "Acceleration genom AI")}
+            {L("Your AI partner for mid-sized manufacturers and distributors", "Er AI-partner för medelstora industri- och grossistbolag")}
           </div>
         </R>
         <R delay={0.08}>
@@ -283,8 +269,8 @@ export default function Cloudfox() {
             }}
           >
             {L(
-              <>Your systems become intelligent. Your processes learn. Your team gets leverage.</>,
-              <>Era system blir intelligenta. Era processer lär sig. Ert team får hävstång.</>
+              <>We make AI work in production<span style={{ color: "var(--accent)" }}>.</span></>,
+              <>Vi får AI att fungera i produktion<span style={{ color: "var(--accent)" }}>.</span></>
             )}
           </h1>
         </R>
@@ -299,18 +285,35 @@ export default function Cloudfox() {
             }}
           >
             {L(
-              "Cloudfox builds the AI that accelerates the value you've already built — in your systems, your processes, your team. Acceleration, not revolution.",
-              "Cloudfox bygger AI:n som accelererar värdet ni redan byggt — i era system, era processer, ert team. Acceleration, inte revolution."
+              <><strong style={{ color: "var(--ink)", fontWeight: 600 }}>Our ready-to-run flows</strong> — 80 percent pre-built, the rest is your process — and hands-on work in your reality: your APIs, your systems, your people. Built with Claude Code in your Microsoft environment — <strong style={{ color: "var(--ink)", fontWeight: 600 }}>with application responsibility for the whole.</strong></>,
+              <><strong style={{ color: "var(--ink)", fontWeight: 600 }}>Våra startklara flöden</strong> — 80 procent färdigbyggda, resten är er process — och hands-on-arbete i er verklighet: era API:er, era system, era människor. Byggt med Claude Code i er Microsoft-miljö — <strong style={{ color: "var(--ink)", fontWeight: 600 }}>med applikationsansvar för helheten.</strong></>
             )}
           </p>
         </R>
         <R delay={0.24}>
           <div style={{ marginTop: 64, display: "flex", gap: 32, alignItems: "center", flexWrap: "wrap" }}>
-            <a href="#contact" className="cfx-btn cfx-btn-primary">
-              {L("Schedule a conversation", "Boka samtal")} <span style={{ fontSize: 18 }}>→</span>
+            <a
+              href="#contact"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 10,
+                background: "#0E0E0C",
+                color: "#F2EDE3",
+                padding: "16px 28px",
+                fontSize: 15,
+                fontFamily: "'Inter',sans-serif",
+                fontWeight: 500,
+                textDecoration: "none",
+                transition: "background .2s ease",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.background = "#A04A2A")}
+              onMouseLeave={(e) => (e.currentTarget.style.background = "#0E0E0C")}
+            >
+              {L("Book 30 min", "Boka 30 min")} <span style={{ fontSize: 18, marginLeft: 4 }}>→</span>
             </a>
-            <a href="#thesis" className="cfx-btn cfx-btn-ghost">
-              {L("Read our thesis", "Läs vår tes")}
+            <a href="#floden" className="cfx-btn cfx-btn-ghost">
+              {L("See the ten flows", "Se de tio flödena")}
             </a>
           </div>
         </R>
@@ -318,56 +321,69 @@ export default function Cloudfox() {
 
       <div className="cfx-fade-line" style={{ margin: `0 ${pad}` }} />
 
-      {/* THESIS / MANIFESTO */}
-      <section id="thesis" style={{ padding: `clamp(5rem,9vw,8rem) ${pad}` }}>
-        <R>
-          <div className="cfx-eyebrow" style={{ marginBottom: 48 }}>
-            {L("Our thesis", "Vår tes")}
-          </div>
-        </R>
-        <R delay={0.05}>
-          <div style={{ maxWidth: "44em" }}>
-            <h2
-              className="cfx-display"
-              style={{
-                fontSize: "clamp(2rem, 4.5vw, 3.6rem)",
-                lineHeight: 1.08,
-                marginBottom: 40,
-              }}
-            >
+      {/* USE CASES */}
+      <section id="floden" style={{ padding: `clamp(5rem,9vw,8rem) 0 0 0` }}>
+        <div style={{ padding: `0 ${pad}`, marginBottom: 64 }}>
+          <R>
+            <div className="cfx-eyebrow" style={{ marginBottom: 32 }}>
+              {L("What we build", "Vad vi bygger")}
+            </div>
+          </R>
+          <R delay={0.05}>
+            <h2 className="cfx-display" style={{ fontSize: "clamp(2rem, 4.2vw, 3.4rem)", lineHeight: 1.06, maxWidth: "20em", marginBottom: 24 }}>
               {L(
-                <>You've built the value. We accelerate it.</>,
-                <>Ni har byggt värdet. Vi accelererar det.</>
+                <>Ten ready-to-run AI flows — your version in production in 2–4 weeks.</>,
+                <>Tio startklara AI-flöden — er version i produktion på 2–4 veckor.</>
               )}
             </h2>
+          </R>
+          <R delay={0.1}>
+            <p style={{ fontSize: "clamp(1rem, 1.3vw, 1.15rem)", lineHeight: 1.7, color: "var(--ink-2)", maxWidth: "44em" }}>
+              {L(
+                <>Not finished products — but not a blank canvas either. <strong style={{ color: "var(--ink)" }}>The anatomy is already built</strong>: the API connections to your ERP, the reading of contracts and documents, the matching logic. That's why your version costs a fraction — <strong style={{ color: "var(--ink)" }}>fixed scope, fixed price</strong> — and the Diagnose adapts it to your contracts, your systems, and your rules.</>,
+                <>Inga färdiga produkter — men ingen tom rityta heller. <strong style={{ color: "var(--ink)" }}>Anatomin är redan byggd</strong>: API-kopplingarna mot affärssystemet, läsningen av avtal och dokument, kontrollogiken. Därför kostar er version en bråkdel — <strong style={{ color: "var(--ink)" }}>fast omfattning, fast pris</strong> — och Diagnosen anpassar den till era avtal, era system och era regler.</>
+              )}
+            </p>
+          </R>
+        </div>
+        <div style={{ borderRight: "1px solid var(--line)", borderBottom: "1px solid var(--line)", margin: `0 ${pad}` }}>
+          <div className="cfx-g2">
+            {useCases.map((uc, i) => (
+              <R key={uc.num} delay={Math.min(i * 0.03, 0.3)}>
+                <div className="cfx-usecase">
+                  <div style={{ marginBottom: 24 }}>
+                    <div className="cfx-uc-num">{uc.num}</div>
+                  </div>
+                  <h3
+                    className="cfx-display"
+                    style={{ fontSize: "clamp(1.3rem, 1.9vw, 1.7rem)", fontWeight: 500, lineHeight: 1.2, marginBottom: 16 }}
+                  >
+                    {uc.title}
+                  </h3>
+                  <p className="cfx-uc-text" style={{ fontSize: 15, lineHeight: 1.65 }}>{uc.text}</p>
+                </div>
+              </R>
+            ))}
           </div>
-        </R>
+        </div>
         <R delay={0.1}>
-          <div
-            style={{
-              maxWidth: "40em",
-              fontSize: "clamp(1.05rem, 1.4vw, 1.2rem)",
-              lineHeight: 1.7,
-              color: "var(--ink-2)",
-              fontFamily: "'Inter',sans-serif",
-            }}
-          >
-            <p style={{ marginBottom: 24 }}>
+          <div style={{ padding: `56px ${pad} 0`, textAlign: "center" }}>
+            <a
+              href="#contact"
+              className="cfx-display"
+              style={{ display: "inline-block", fontSize: "clamp(1.15rem, 1.8vw, 1.5rem)", lineHeight: 1.4, color: "var(--accent)", borderBottom: "1px solid var(--accent)", paddingBottom: 2, transition: "color .2s ease, border-color .2s ease" }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = "var(--ink)"; e.currentTarget.style.borderColor = "var(--ink)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = "var(--accent)"; e.currentTarget.style.borderColor = "var(--accent)"; }}
+            >
               {L(
-                "You've invested in your ERP. You've refined your processes over years. You've built a team that knows your business. That's value — real, accumulated, hard to replicate.",
-                "Ni har investerat i ert ERP. Ni har förfinat era processer i flera år. Ni har byggt ett team som kan er affär. Det är värde — verkligt, ackumulerat, svårt att kopiera."
+                "Pick the flow that hurts most — book 30 minutes and we'll show you what your version would look like.",
+                "Välj flödet som skaver mest — boka 30 min, så visar vi hur er version skulle se ut."
               )}
-            </p>
-            <p style={{ marginBottom: 24 }}>
+            </a>
+            <p style={{ marginTop: 20, fontSize: "clamp(.95rem, 1.2vw, 1.05rem)", lineHeight: 1.65, color: "var(--ink-2)", maxWidth: "44em", marginLeft: "auto", marginRight: "auto" }}>
               {L(
-                "Most AI consultants want to tear it down and start over. Rip-and-replace. Workshops to redesign everything. Strategy decks that propose transformation.",
-                "De flesta AI-konsulter vill riva ner och börja om. Rip-and-replace. Workshops som ritar om allt. Strategi-decks som föreslår transformation."
-              )}
-            </p>
-            <p>
-              {L(
-                "We don't. We engineer AI that compounds the value you've built — in your systems, your processes, your team. Acceleration, not revolution.",
-                "Det gör inte vi. Vi bygger AI som förstärker värdet ni byggt — i era system, era processer, ert team. Acceleration, inte revolution."
+                <>Flow not on the list? The ten are starting points, not the limit — <strong style={{ color: "var(--ink)" }}>we also build fully unique flows to your process</strong>, with the same pre-built components underneath.</>,
+                <>Saknas ert flöde i listan? De tio är startpunkter, inte gränsen — <strong style={{ color: "var(--ink)" }}>vi bygger även helt unika flöden efter er process</strong>, med samma färdigbyggda komponenter i botten.</>
               )}
             </p>
           </div>
@@ -376,80 +392,231 @@ export default function Cloudfox() {
 
       <div className="cfx-fade-line" style={{ margin: `0 ${pad}` }} />
 
-      {/* THREE PILLARS */}
-      <section style={{ padding: `clamp(5rem,9vw,8rem) ${pad}`, background: "var(--surface)" }}>
+      {/* WHY NOW — FDE model, four hands-on parts */}
+      <section style={{ padding: `clamp(5rem,9vw,8rem) ${pad}` }}>
         <R>
           <div className="cfx-eyebrow" style={{ marginBottom: 48 }}>
-            {L("Three dimensions of accumulated value", "Tre dimensioner av ackumulerat värde")}
+            {L("Why now", "Varför nu")}
           </div>
         </R>
-        <R delay={0.05}>
-          <h2 className="cfx-display" style={{ fontSize: "clamp(2rem, 4.2vw, 3.4rem)", lineHeight: 1.06, maxWidth: "20em", marginBottom: 56 }}>
-            {L(
-              <>Where the value lives — and how we accelerate it.</>,
-              <>Var värdet bor — och hur vi accelererar det.</>
-            )}
-          </h2>
-        </R>
-        <div className="grid-3" style={{ gap: "clamp(2rem, 3vw, 3.5rem)" }}>
+        <div className="cfx-g2" style={{ gap: "clamp(2rem, 4vw, 4rem)", alignItems: "start" }}>
           <R delay={0.05}>
-            <div>
-              <h3 className="cfx-display" style={{ fontSize: "clamp(1.4rem, 2.2vw, 1.8rem)", lineHeight: 1.2, marginBottom: 20 }}>
-                {L(<>Systems</>, <>System</>)}
-              </h3>
-              <p style={{ fontSize: 15, lineHeight: 1.7, color: 'var(--ink-2)', marginBottom: 16 }}>
+            <h2 className="cfx-display" style={{ fontSize: "clamp(2rem, 4.2vw, 3.4rem)", lineHeight: 1.06 }}>
+              {L(
+                <>AI isn't rolled out through licenses. It's built on site — inside the business.</>,
+                <>AI rullas inte ut via licenser. Det byggs på plats — inne i verksamheten.</>
+              )}
+            </h2>
+          </R>
+          <R delay={0.12}>
+            <div style={{ fontSize: "clamp(1rem, 1.3vw, 1.15rem)", lineHeight: 1.75, color: "var(--ink-2)" }}>
+              <p style={{ marginBottom: 20 }}>
                 {L(
-                  <>Your ERP, CRM, finance, integrations. Decades of investment. <strong style={{ color: 'var(--ink)' }}>We don't rip them out. We make them intelligent.</strong></>,
-                  <>Era ERP, CRM, ekonomi-system, integrationer. Decennier av investering. <strong style={{ color: 'var(--ink)' }}>Vi river dem inte. Vi gör dem intelligenta.</strong></>
+                  <>Mid-sized manufacturers and distributors are <strong style={{ color: "var(--ink)" }}>stuck in the middle</strong>. The enterprise resources aren't there — no AI team, no transformation budget. Yet operations are too complex for the prototype-only approach that works for smaller companies. Succeeding with AI here takes structure: real integrations, real governance, real production.</>,
+                  <>Medelstora industri- och grossistbolag sitter <strong style={{ color: "var(--ink)" }}>fast i mitten</strong>. Enterprise-resurserna finns inte — inget AI-team, ingen transformationsbudget. Samtidigt är verksamheten för komplex för den rena prototyp-vägen som fungerar för mindre bolag. Att lyckas med AI här kräver struktur: riktiga integrationer, riktig governance, riktig produktion.</>
                 )}
               </p>
-              <p style={{ fontSize: 13, lineHeight: 1.6, color: 'var(--muted)', fontStyle: 'italic' }}>
+              <p style={{ color: "var(--ink)", fontWeight: 500 }}>
                 {L(
-                  "AI that lives on top of your Visma, reads your SharePoint, understands your Dynamics.",
-                  "AI som lever ovanpå er Visma, läser er SharePoint, förstår er Dynamics."
+                  <><strong style={{ color: "var(--ink)" }}>We bring the model to you</strong> — hands-on in four parts, until AI works in your production.</>,
+                  <><strong style={{ color: "var(--ink)" }}>Vi tar modellen till er</strong> — hands-on i fyra delar, tills AI fungerar i er produktion.</>
                 )}
               </p>
             </div>
           </R>
+        </div>
+
+        {/* FOUR HANDS-ON PARTS */}
+        <div className="cfx-g2" style={{ marginTop: "clamp(4rem, 6vw, 5rem)", gap: "clamp(2.5rem, 4vw, 4rem)" }}>
           <R delay={0.1}>
             <div>
-              <h3 className="cfx-display" style={{ fontSize: "clamp(1.4rem, 2.2vw, 1.8rem)", lineHeight: 1.2, marginBottom: 20 }}>
-                {L(<>Processes</>, <>Processer</>)}
+              <div style={{ fontFamily: "'Fraunces',serif", fontSize: 14, color: "var(--accent)", letterSpacing: ".05em", marginBottom: 16 }}>01 / {L("HANDS-ON STRATEGY", "HANDS-ON-STRATEGI")}</div>
+              <h3 className="cfx-display" style={{ fontSize: "clamp(1.3rem, 1.9vw, 1.7rem)", lineHeight: 1.2, marginBottom: 20 }}>
+                {L("In your leadership team — not in a report.", "I er ledningsgrupp — inte i en rapport.")}
               </h3>
-              <p style={{ fontSize: 15, lineHeight: 1.7, color: 'var(--ink-2)', marginBottom: 16 }}>
+              <p style={{ fontSize: 15, lineHeight: 1.7, color: "var(--ink-2)" }}>
                 {L(
-                  <>Your SOPs, workflows, decision rules. Industry wisdom baked in. <strong style={{ color: 'var(--ink)' }}>We don't redesign them. We make them learn.</strong></>,
-                  <>Era SOP:er, workflows, beslutsregler. Branschvisdom inbakad. <strong style={{ color: 'var(--ink)' }}>Vi designar inte om dem. Vi får dem att lära sig.</strong></>
-                )}
-              </p>
-              <p style={{ fontSize: 13, lineHeight: 1.6, color: 'var(--muted)', fontStyle: 'italic' }}>
-                {L(
-                  "AI that follows your process but optimizes every run and flags exceptions before they become problems.",
-                  "AI som följer er process men optimerar varje körning och flaggar undantag innan de blir problem."
+                  "We prioritize the flows, set the KPIs before anything is built, and read the numbers every month. As your part-time Head of AI.",
+                  "Vi prioriterar flödena, sätter KPI:erna innan något byggs och läser talen varje månad. Som er Head of AI på deltid."
                 )}
               </p>
             </div>
           </R>
           <R delay={0.15}>
             <div>
-              <h3 className="cfx-display" style={{ fontSize: "clamp(1.4rem, 2.2vw, 1.8rem)", lineHeight: 1.2, marginBottom: 20 }}>
-                {L(<>Culture</>, <>Kultur</>)}
+              <div style={{ fontFamily: "'Fraunces',serif", fontSize: 14, color: "var(--accent)", letterSpacing: ".05em", marginBottom: 16 }}>02 / {L("DEVELOPMENT", "UTVECKLING")}</div>
+              <h3 className="cfx-display" style={{ fontSize: "clamp(1.3rem, 1.9vw, 1.7rem)", lineHeight: 1.2, marginBottom: 20 }}>
+                {L("Built with Claude Code — side by side with you.", "Byggt med Claude Code — sida vid sida med er.")}
               </h3>
-              <p style={{ fontSize: 15, lineHeight: 1.7, color: 'var(--ink-2)', marginBottom: 16 }}>
+              <p style={{ fontSize: 15, lineHeight: 1.7, color: "var(--ink-2)" }}>
                 {L(
-                  <>Your people, their tacit knowledge, your customer relationships, your brand. <strong style={{ color: 'var(--ink)' }}>We don't replace them. We give them AI leverage.</strong></>,
-                  <>Era anställda, deras tysta kunskap, era kundrelationer, varumärket. <strong style={{ color: 'var(--ink)' }}>Vi ersätter dem inte. Vi ger dem AI-leverage.</strong></>
+                  "We start from our ready-to-run flows — 80 percent pre-built — or build fully unique to your process, on your data. Prototype in days, production in weeks. Your people co-build and can keep iterating themselves.",
+                  "Vi utgår från de startklara flödena — 80 procent färdigbyggda — eller bygger helt unikt efter er process, på er data. Prototyp inom dagar, produktion inom veckor. Era medarbetare bygger med och kan iterera vidare själva."
                 )}
               </p>
-              <p style={{ fontSize: 13, lineHeight: 1.6, color: 'var(--muted)', fontStyle: 'italic' }}>
+            </div>
+          </R>
+          <R delay={0.2}>
+            <div>
+              <div style={{ fontFamily: "'Fraunces',serif", fontSize: 14, color: "var(--accent)", letterSpacing: ".05em", marginBottom: 16 }}>03 / {L("PRODUCTION", "PRODUKTION")}</div>
+              <h3 className="cfx-display" style={{ fontSize: "clamp(1.3rem, 1.9vw, 1.7rem)", lineHeight: 1.2, marginBottom: 20 }}>
+                {L("Live operations — with application responsibility.", "Skarp drift — med applikationsansvar.")}
+              </h3>
+              <p style={{ fontSize: 15, lineHeight: 1.7, color: "var(--ink-2)" }}>
                 {L(
-                  "Sales gets AI that finds leads. CFO gets AI that finds leakage. Humans win — with AI as leverage.",
-                  "Säljaren får AI som hittar leads. CFO får AI som hittar läckage. Människan vinner — med AI som hävstång."
+                  "Monitoring, logging, cost caps, and continuous improvement in your Microsoft environment. Cloudfox Managed AI — one monthly subscription.",
+                  "Övervakning, loggning, kostnadstak och löpande förbättringar i er Microsoft-miljö. Cloudfox Managed AI — ett månadsabonnemang."
+                )}
+              </p>
+            </div>
+          </R>
+          <R delay={0.25}>
+            <div>
+              <div style={{ fontFamily: "'Fraunces',serif", fontSize: 14, color: "var(--accent)", letterSpacing: ".05em", marginBottom: 16 }}>04 / {L("TRAINING", "UTBILDNING")}</div>
+              <h3 className="cfx-display" style={{ fontSize: "clamp(1.3rem, 1.9vw, 1.7rem)", lineHeight: 1.2, marginBottom: 20 }}>
+                {L("The capability stays with you.", "Förmågan stannar hos er.")}
+              </h3>
+              <p style={{ fontSize: 15, lineHeight: 1.7, color: "var(--ink-2)" }}>
+                {L(
+                  "Leadership, process owners, and superusers develop around every flow — you know more after every build, not less.",
+                  "Ledning, processägare och superusers utvecklas runt varje flöde — ni kan mer efter varje bygge, inte mindre."
                 )}
               </p>
             </div>
           </R>
         </div>
+      </section>
+
+      <div className="cfx-fade-line" style={{ margin: `0 ${pad}` }} />
+
+      {/* HOW WE WORK — Meet you where you are */}
+      <section style={{ padding: `clamp(5rem,9vw,8rem) ${pad}`, background: "var(--surface)" }}>
+        <R>
+          <div className="cfx-eyebrow" style={{ marginBottom: 48 }}>
+            {L("How we work", "Hur vi arbetar")}
+          </div>
+        </R>
+        <R delay={0.05}>
+          <h2 className="cfx-display" style={{ fontSize: "clamp(2rem, 4.5vw, 3.6rem)", lineHeight: 1.06, maxWidth: "22em", marginBottom: 40 }}>
+            {L(
+              <>Three customer realities. One delivery model<span style={{ color: 'var(--accent)' }}>.</span></>,
+              <>Tre kundverkligheter. En leveransmodell<span style={{ color: 'var(--accent)' }}>.</span></>
+            )}
+          </h2>
+        </R>
+        <R delay={0.1}>
+          <p style={{ fontSize: "clamp(1.05rem, 1.4vw, 1.2rem)", lineHeight: 1.7, color: "var(--ink-2)", maxWidth: "48em", marginBottom: 64 }}>
+            {L(
+              <>Some clients want us to handle everything — design, build, operations. Others have already started themselves with Power Apps, Claude Code, or Lovable and need us for the last mile — security, integration, production. <strong style={{ color: "var(--ink)" }}>We adapt to where you are.</strong> What we always ensure: that the solution holds up in reality.</>,
+              <>Vissa kunder vill att vi sköter allt — design, byggande, drift. Andra har redan börjat själva med Power Apps, Claude Code eller Lovable och behöver oss för sista milen — säkerhet, integration, produktion. <strong style={{ color: "var(--ink)" }}>Vi anpassar oss efter var ni är.</strong> Det vi alltid säkerställer: att lösningen håller i verkligheten.</>
+            )}
+          </p>
+        </R>
+
+        {/* Endpoint labels */}
+        <R delay={0.15}>
+          <div className="cfx-spectrum-endpoints">
+            <span>{L("← Cloudfox builds most", "← Cloudfox bygger mest")}</span>
+            <span>{L("You build most →", "Ni bygger mest →")}</span>
+          </div>
+        </R>
+
+        {/* Spectrum line with 3 anchor markers */}
+        <R delay={0.18}>
+          <div className="cfx-spectrum-track">
+            <div className="cfx-spectrum-dot" style={{ left: "16%" }} />
+            <div className="cfx-spectrum-dot" style={{ left: "50%", transform: "translateX(-50%)" }} />
+            <div className="cfx-spectrum-dot" style={{ right: "16%" }} />
+          </div>
+        </R>
+
+        {/* Three anchor points beneath spectrum line */}
+        <div className="cfx-spectrum-grid">
+          <R delay={0.2}>
+            <div>
+              <h3 className="cfx-display" style={{ fontSize: "clamp(1.3rem, 1.9vw, 1.7rem)", lineHeight: 1.15, marginBottom: 10 }}>
+                {L(<>Excel team. No code.</>, <>Excel-team. Ingen kod.</>)}
+              </h3>
+              <p style={{ fontSize: 14, lineHeight: 1.6, color: 'var(--muted)', fontStyle: 'italic', marginBottom: 20 }}>
+                {L(
+                  "Spreadsheets, manual workflows, tribal knowledge in PDFs.",
+                  "Kalkylblad, manuella flöden, tyst kunskap i PDF:er."
+                )}
+              </p>
+              <div style={{ height: 1, width: 32, background: 'var(--accent)', marginBottom: 12 }} />
+              <p style={{ fontSize: 14, lineHeight: 1.65, color: 'var(--ink)', fontWeight: 500 }}>
+                {L(
+                  "We build the full solution — design, code, production.",
+                  "Vi bygger hela lösningen — design, kod, driftsättning."
+                )}
+              </p>
+            </div>
+          </R>
+          <R delay={0.24}>
+            <div>
+              <h3 className="cfx-display" style={{ fontSize: "clamp(1.3rem, 1.9vw, 1.7rem)", lineHeight: 1.15, marginBottom: 10 }}>
+                {L(<>Vibe coders. Prototypes.</>, <>Vibe-kodare. Prototyper.</>)}
+              </h3>
+              <p style={{ fontSize: 14, lineHeight: 1.6, color: 'var(--muted)', fontStyle: 'italic', marginBottom: 20 }}>
+                {L(
+                  "Power Apps Vibe, Lovable, Claude.ai, v0.",
+                  "Power Apps Vibe, Lovable, Claude.ai, v0."
+                )}
+              </p>
+              <div style={{ height: 1, width: 32, background: 'var(--accent)', marginBottom: 12 }} />
+              <p style={{ fontSize: 14, lineHeight: 1.65, color: 'var(--ink)', fontWeight: 500 }}>
+                {L(
+                  "We take your prototype to secure production.",
+                  "Vi tar er prototyp till säker produktion."
+                )}
+              </p>
+            </div>
+          </R>
+          <R delay={0.28}>
+            <div>
+              <h3 className="cfx-display" style={{ fontSize: "clamp(1.3rem, 1.9vw, 1.7rem)", lineHeight: 1.15, marginBottom: 10 }}>
+                {L(<>Dev team. AI-assisted.</>, <>Utvecklarteam. AI-assisterade.</>)}
+              </h3>
+              <p style={{ fontSize: 14, lineHeight: 1.6, color: 'var(--muted)', fontStyle: 'italic', marginBottom: 20 }}>
+                {L(
+                  "In-house engineers with Copilot, Claude Code, Cursor.",
+                  "Egna ingenjörer med Copilot, Claude Code, Cursor."
+                )}
+              </p>
+              <div style={{ height: 1, width: 32, background: 'var(--accent)', marginBottom: 12 }} />
+              <p style={{ fontSize: 14, lineHeight: 1.65, color: 'var(--ink)', fontWeight: 500 }}>
+                {L(
+                  "We take on the hard problems with you — and run production.",
+                  "Vi tar de hårda problemen tillsammans med er — och driftar produktionen."
+                )}
+              </p>
+            </div>
+          </R>
+        </div>
+
+        {/* ALWAYS FROM CLOUDFOX zone */}
+        <R delay={0.32}>
+          <div className="cfx-spectrum-const">
+            <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '.24em', color: 'var(--accent)', textTransform: 'uppercase', marginBottom: 20 }}>
+              {L("Always from Cloudfox", "Alltid från Cloudfox")}
+            </div>
+            <div className="cfx-display" style={{ fontSize: "clamp(1.6rem, 2.8vw, 2.4rem)", lineHeight: 1.2, color: 'var(--ink)', marginBottom: 16 }}>
+              Cloudfox Managed AI<span style={{ color: 'var(--accent)' }}>.</span>
+            </div>
+            <div className="cfx-display" style={{ fontSize: "clamp(1.05rem, 1.6vw, 1.3rem)", lineHeight: 1.4, color: 'var(--ink-2)', marginBottom: 16 }}>
+              {L(
+                <>Security <span style={{ color: 'var(--accent)' }}>·</span> Integration <span style={{ color: 'var(--accent)' }}>·</span> Production <span style={{ color: 'var(--accent)' }}>·</span> Operations</>,
+                <>Säkerhet <span style={{ color: 'var(--accent)' }}>·</span> Integration <span style={{ color: 'var(--accent)' }}>·</span> Produktion <span style={{ color: 'var(--accent)' }}>·</span> Drift</>
+              )}
+            </div>
+            <p style={{ fontSize: 15, lineHeight: 1.6, color: 'var(--muted)', maxWidth: '36em', margin: '0 auto' }}>
+              {L(
+                "Continuous improvement, not one-off delivery — ongoing optimization of model choice and AI cost, with built-in budget caps and alerts. Every agent gets its own identity in your Entra and is governed like a co-worker, in line with Microsoft's Agent 365 model. One monthly subscription — we carry full application responsibility so you never need to build your own AI team.",
+                "Kontinuerlig förbättring, inte engångsleverans — löpande optimering av modellval och AI-kostnad, med inbyggda kostnadstak och larm. Varje agent får egen identitet i er Entra och styrs som en medarbetare, i linje med Microsofts Agent 365-modell. Ett månadsabonnemang — vi bär hela applikationsansvaret så ni aldrig behöver bygga ett eget AI-team."
+              )}
+            </p>
+          </div>
+        </R>
       </section>
 
       <div className="cfx-fade-line" style={{ margin: `0 ${pad}` }} />
@@ -464,186 +631,152 @@ export default function Cloudfox() {
         <div className="cfx-g2" style={{ gap: "clamp(2rem, 4vw, 4rem)", alignItems: "start" }}>
           <R delay={0.05}>
             <h2 className="cfx-display" style={{ fontSize: "clamp(2rem, 4.2vw, 3.4rem)", lineHeight: 1.06 }}>
-              {L(<>We sit beside you. Not above you.</>, <>Vi sitter bredvid er. Inte över er.</>)}
+              {L(<>Three steps. Built together with you.</>, <>Tre steg. Byggda tillsammans med er.</>)}
             </h2>
           </R>
           <R delay={0.12}>
             <div style={{ fontSize: "clamp(1rem, 1.3vw, 1.15rem)", lineHeight: 1.75, color: "var(--ink-2)" }}>
               <p style={{ marginBottom: 20 }}>
                 {L(
-                  "Not report consultants. Not demo builders. Engineers embedded in your operation, working alongside your process owners, building iteratively.",
-                  "Inte rapport-konsulter. Inte demo-byggare. Ingenjörer som sitter med i er verksamhet, jobbar bredvid era processägare, bygger iterativt."
+                  "Not report consultants. Not demo builders. Forward-deployed engineers who move in and build side by side with your people. You work directly with the engineer who builds — no juniors, no middlemen.",
+                  "Inte rapport-konsulter. Inte demo-byggare. Forward deployed-ingenjörer som flyttar in och bygger sida vid sida med er personal. Ni arbetar direkt med ingenjören som bygger — inga juniorer, inga mellanhänder."
                 )}
               </p>
               <p>
                 {L(
-                  "Bi-weekly checkpoints. Continuous deployment. You see working software in week one, not month four.",
-                  "Avstämning varannan vecka. Kontinuerlig produktion. Ni ser fungerande mjukvara vecka ett, inte månad fyra."
+                  "Prototype in days. Production in weeks. No PowerPoint phase.",
+                  "Prototyp inom dagar. Produktion inom veckor. Ingen PowerPoint-fas."
                 )}
               </p>
             </div>
           </R>
         </div>
-      </section>
 
-      <div className="cfx-fade-line" style={{ margin: `0 ${pad}` }} />
-
-      {/* STACK */}
-      <section style={{ padding: `clamp(5rem,9vw,8rem) ${pad}` }}>
-        <R>
-          <div className="cfx-eyebrow" style={{ marginBottom: 48 }}>
-            {L("What we build with", "Vad vi bygger med")}
-          </div>
-        </R>
-        <div className="cfx-g2" style={{ gap: "clamp(2rem, 4vw, 4rem)", alignItems: "start" }}>
+        {/* THREE-STEP MODEL */}
+        <div style={{ marginTop: "clamp(4rem, 7vw, 6rem)" }}>
           <R delay={0.05}>
-            <h2 className="cfx-display" style={{ fontSize: "clamp(2rem, 4.2vw, 3.4rem)", lineHeight: 1.06 }}>
-              {L(<>We don't build our own platform.</>, <>Vi bygger inte egen plattform.</>)}
-            </h2>
-          </R>
-          <R delay={0.12}>
-            <div style={{ fontSize: "clamp(1rem, 1.3vw, 1.15rem)", lineHeight: 1.75, color: "var(--ink-2)" }}>
-              <p style={{ marginBottom: 20 }}>
-                {L(
-                  <>We use <strong style={{ color: "var(--ink)" }}>Anthropic Claude</strong> — the most capable AI model for business-critical reasoning — and inherit Anthropic's R&D instead of building our own. <strong style={{ color: "var(--ink)" }}>Microsoft Copilot</strong> as a complement where it fits.</>,
-                  <>Vi använder <strong style={{ color: "var(--ink)" }}>Anthropic Claude</strong> — den mest kapabla AI-modellen för affärskritiska resonemang — och ärver Anthropics R&D istället för att bygga egen. <strong style={{ color: "var(--ink)" }}>Microsoft Copilot</strong> som komplement där det passar.</>
-                )}
-              </p>
-              <p>
-                {L(
-                  "We choose the right tool per problem, not the right vendor per sale.",
-                  "Vi väljer rätt verktyg per problem, inte rätt vendor per försäljning."
-                )}
-              </p>
-            </div>
-          </R>
-        </div>
-      </section>
-
-      <div className="cfx-fade-line" style={{ margin: `0 ${pad}` }} />
-
-      {/* USE CASES */}
-      <section style={{ padding: `clamp(5rem,9vw,8rem) 0 0 0` }}>
-        <div style={{ padding: `0 ${pad}`, marginBottom: 64 }}>
-          <R>
-            <div className="cfx-eyebrow" style={{ marginBottom: 32 }}>
-              {L("What we build", "Vad vi bygger")}
-            </div>
-          </R>
-          <R delay={0.05}>
-            <h2 className="cfx-display" style={{ fontSize: "clamp(2rem, 4.2vw, 3.4rem)", lineHeight: 1.06, maxWidth: "20em", marginBottom: 24 }}>
-              {L(
-                <>Ten cases where ERP stops and AI takes over.</>,
-                <>Tio cases där ERP tar slut och AI tar vid.</>
-              )}
-            </h2>
-          </R>
-          <R delay={0.1}>
-            <p style={{ fontSize: "clamp(1rem, 1.3vw, 1.15rem)", lineHeight: 1.7, color: "var(--ink-2)", maxWidth: "44em" }}>
-              {L(
-                "Each is a category we build production AI for — ranked by potential ROI, ERP gap depth, and competitive defensibility. We don't push any single case as flagship. We find which one delivers the most for your specific business — and start there.",
-                "Var och en är en kategori vi bygger produktions-AI för — rangordnade efter potentiell ROI, ERP-brist och konkurrenssituation. Vi pushar inte något enskilt case som flaggskepp. Vi hittar vilken som ger mest värde för just er affär — och börjar där."
-              )}
+            <p style={{ fontSize: "clamp(1.1rem, 1.5vw, 1.3rem)", fontFamily: "'Fraunces',Georgia,serif", letterSpacing: "-.01em", color: "var(--ink)", marginBottom: 48, maxWidth: "30em" }}>
+              {L("Four parts — delivered in three steps, from first conversation to portfolio.", "Fyra delar — levererade i tre steg, från första samtal till portfölj.")}
             </p>
           </R>
-        </div>
-        <div style={{ borderRight: "1px solid var(--line)", borderBottom: "1px solid var(--line)", margin: `0 ${pad}` }}>
-          <div className="cfx-g2">
-            {useCases.map((uc, i) => (
-              <R key={uc.num} delay={Math.min(i * 0.03, 0.3)}>
-                <div className="cfx-usecase">
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 24 }}>
-                    <div className="cfx-uc-num">{uc.num}</div>
-                    <div style={{ fontSize: 10, letterSpacing: ".15em", textTransform: "uppercase", color: "var(--muted)", fontWeight: 500 }}>
-                      {L("Competition:", "Konkurrens:")} <span style={{ color: "var(--ink-2)", fontWeight: 600 }}>{uc.competition}</span>
-                    </div>
-                  </div>
-                  <h3
-                    className="cfx-display"
-                    style={{ fontSize: "clamp(1.3rem, 1.9vw, 1.7rem)", fontWeight: 500, lineHeight: 1.2, marginBottom: 16 }}
-                  >
-                    {uc.title}
-                  </h3>
-                  <p className="cfx-uc-text" style={{ fontSize: 15, lineHeight: 1.65 }}>{uc.text}</p>
-                </div>
-              </R>
-            ))}
+          <div className="cfx-g3" style={{ gap: "clamp(2.5rem, 4vw, 4rem)" }}>
+            <R delay={0.1}>
+              <div>
+                <div style={{ fontFamily: "'Fraunces',serif", fontSize: 14, color: "var(--accent)", letterSpacing: ".05em", marginBottom: 16 }}>01 / {L("DIAGNOSIS", "DIAGNOS")}</div>
+                <h3 className="cfx-display" style={{ fontSize: "clamp(1.3rem, 1.9vw, 1.7rem)", lineHeight: 1.2, marginBottom: 20 }}>
+                  {L("We find where the leverage is greatest.", "Vi hittar var hävstången är störst.")}
+                </h3>
+                <p style={{ fontSize: 15, lineHeight: 1.7, color: "var(--ink-2)" }}>
+                  {L(
+                    "1-2 weeks on site with you — your process owners and system owners at the table, in every decision. We map where AI delivers fastest value in your specific business. From ambition to measurable numbers: the step ends in a concrete first build with a measurable goal — hours saved, leakage stopped, lead times cut. Fixed scope, fixed price — you know exactly what you're saying yes to.",
+                    "1-2 veckor på plats hos er — era processägare och systemägare vid bordet, med i varje beslut. Vi kartlägger var AI ger snabbast värde i just er affär. Från ambition till mätbara tal: steget slutar i ett konkret första bygge med ett mätbart mål — timmar sparade, läckage stoppat, kortare ledtider. Fast omfattning, fast pris — ni vet exakt vad ni säger ja till."
+                  )}
+                </p>
+              </div>
+            </R>
+            <R delay={0.15}>
+              <div>
+                <div style={{ fontFamily: "'Fraunces',serif", fontSize: 14, color: "var(--accent)", letterSpacing: ".05em", marginBottom: 16 }}>02 / {L("BUILD", "BYGG")}</div>
+                <h3 className="cfx-display" style={{ fontSize: "clamp(1.3rem, 1.9vw, 1.7rem)", lineHeight: 1.2, marginBottom: 20 }}>
+                  {L("We build side by side — so you can iterate yourselves.", "Vi bygger sida vid sida — så ni kan iterera själva.")}
+                </h3>
+                <p style={{ fontSize: 15, lineHeight: 1.7, color: "var(--ink-2)" }}>
+                  {L(
+                    <>First flow in production in your Microsoft environment in 2-4 weeks. <strong style={{ color: "var(--ink)" }}>AI-agent-driven development</strong> makes the build visual and iterative — <strong style={{ color: "var(--ink)" }}>your process owners sit in and steer every week</strong>, not at handover. Your own developers can keep iterating with the same tools. And after delivery, we measure the outcome against the goal from the diagnosis.</>,
+                    <>Första flödet i produktion i er Microsoft-miljö på 2-4 veckor. Med <strong style={{ color: "var(--ink)" }}>AI-agentdriven utveckling</strong> blir bygget visuellt och iterativt — <strong style={{ color: "var(--ink)" }}>era processägare sitter med och styr varje vecka</strong>, inte vid slutleverans. Era egna utvecklare kan dessutom fortsätta iterera själva med samma verktyg. Och efter leverans mäter vi utfallet mot målet från diagnosen.</>
+                  )}
+                </p>
+              </div>
+            </R>
+            <R delay={0.2}>
+              <div>
+                <div style={{ fontFamily: "'Fraunces',serif", fontSize: 14, color: "var(--accent)", letterSpacing: ".05em", marginBottom: 16 }}>03 / {L("SCALE", "SKALA")}</div>
+                <h3 className="cfx-display" style={{ fontSize: "clamp(1.3rem, 1.9vw, 1.7rem)", lineHeight: 1.2, marginBottom: 20 }}>
+                  {L("The portfolio grows — at your pace.", "Portföljen växer — i er takt.")}
+                </h3>
+                <p style={{ fontSize: 15, lineHeight: 1.7, color: "var(--ink-2)" }}>
+                  {L(
+                    "One flow at a time. Each one focused. You set the priority — we build where value is next greatest. And after every flow you choose: take over operations yourselves, or let Cloudfox Managed AI carry the application responsibility. No lock-in.",
+                    "Ett flöde i taget. Varje flöde fokuserat. Ni styr prioriteringen — vi bygger där värdet är näst störst. Och efter varje flöde väljer ni: ta över driften själva, eller låt Cloudfox Managed AI bära applikationsansvaret. Ingen inlåsning."
+                  )}
+                </p>
+              </div>
+            </R>
           </div>
         </div>
+
       </section>
 
-      {/* WHO WE WORK WITH */}
-      <section style={{ padding: `clamp(5rem,9vw,8rem) ${pad}`, background: "var(--ink)", color: "var(--bg)" }}>
-        <R>
-          <div className="cfx-eyebrow" style={{ marginBottom: 48, color: "#D89E7A" }}>
-            <span style={{ color: "#D89E7A" }}>{L("Who we work with", "Vilka vi jobbar med")}</span>
-          </div>
-        </R>
-        <R delay={0.05}>
-          <h2
-            className="cfx-display"
-            style={{ fontSize: "clamp(2rem, 5vw, 4rem)", lineHeight: 1.05, maxWidth: "16em", marginBottom: 40 }}
-          >
-            {L(
-              <>CEO-led companies, 150–500 employees, that want acceleration — not slides.</>,
-              <>VD-ledda bolag, 150–500 anställda, som vill accelerera — inte få slides.</>
-            )}
-          </h2>
-        </R>
-        <R delay={0.12}>
-          <p
-            style={{
-              fontSize: "clamp(1.05rem, 1.4vw, 1.25rem)",
-              lineHeight: 1.7,
-              color: "rgba(242,237,227,.7)",
-              maxWidth: "44em",
-            }}
-          >
-            {L(
-              "Established businesses. Real operations. Complex enough that AI creates leverage. Small enough that the CEO is reachable. Big enough that it matters.",
-              "Etablerade bolag. Verklig affär. Komplexa nog att AI ger hävstång. Små nog att VD är nåbar. Stora nog att det spelar roll."
-            )}
-          </p>
-        </R>
-      </section>
+      <div className="cfx-fade-line" style={{ margin: `0 ${pad}` }} />
 
-      {/* WHO WE'RE HIRING */}
+      {/* HOW WE BUILD */}
       <section style={{ padding: `clamp(5rem,9vw,8rem) ${pad}` }}>
         <R>
           <div className="cfx-eyebrow" style={{ marginBottom: 48 }}>
-            {L("Who we're looking for", "Vilka vi söker")}
+            {L("Technology & ownership", "Teknik & ägande")}
           </div>
         </R>
         <div className="cfx-g2" style={{ gap: "clamp(2rem, 4vw, 4rem)", alignItems: "start" }}>
           <R delay={0.05}>
             <h2 className="cfx-display" style={{ fontSize: "clamp(2rem, 4.2vw, 3.4rem)", lineHeight: 1.06 }}>
-              {L(
-                <>The sharpest consultants in the Nordics.</>,
-                <>De vassaste konsulterna i Norden.</>
-              )}
+              {L(<>The technology — and the ownership.</>, <>Tekniken — och ägandet.</>)}
             </h2>
           </R>
           <R delay={0.12}>
             <div style={{ fontSize: "clamp(1rem, 1.3vw, 1.15rem)", lineHeight: 1.75, color: "var(--ink-2)" }}>
               <p style={{ marginBottom: 20 }}>
                 {L(
-                  "We hire people who understand that the difference between strategy and delivery is everything. Engineers who sit beside customers. People who actually understand what AI is and isn't.",
-                  "Vi hyr människor som förstår att skillnaden mellan strategi och leverans är allt. Ingenjörer som sitter med kunden. Människor som faktiskt fattar vad AI är — och inte är."
+                  <><strong style={{ color: "var(--ink)" }}>What we deliver is ordinary code that you own</strong> — it doesn't need the build tool to run.</>,
+                  <><strong style={{ color: "var(--ink)" }}>Det vi levererar är vanlig kod som ni äger</strong> — den behöver inte byggverktyget för att köra.</>
                 )}
               </p>
-              <p style={{ marginBottom: 32 }}>
+              <p style={{ marginBottom: 20 }}>
                 {L(
-                  "We hire for curiosity, depth, and the impatience to actually build.",
-                  "Vi hyr för nyfikenhet, djup, och otåligheten att faktiskt bygga."
+                  <><strong style={{ color: "var(--ink)" }}>Everything runs in your Microsoft environment</strong> — the agent works in your Azure, you meet it in Teams, reports land in Power BI. The licenses you already pay for, finally put to work. Your security perimeter, your governance, your data. Nothing leaves your control. And your data and IP never train anyone else's models — guaranteed in writing in every delivery, in line with Microsoft's own data commitments.</>,
+                  <><strong style={{ color: "var(--ink)" }}>Allt körs i er Microsoft-miljö</strong> — agenten arbetar i er Azure, ni möter den i Teams, rapporterna landar i Power BI. Licenserna ni redan betalar för — äntligen till full nytta. Er säkerhetsperimeter, er governance, er data. Inget lämnar er kontroll. Och er data och er IP tränar aldrig någon annans modeller — avtalsfäst i varje leverans, i linje med Microsofts egna dataåtaganden.</>
                 )}
               </p>
-              <a href="mailto:pontus.granborg@cloudfox.se?subject=Application" className="cfx-btn cfx-btn-ghost">
-                {L("Apply →", "Sök →")}
-              </a>
+              <p style={{ marginBottom: 20 }}>
+                {L(
+                  <><strong style={{ color: "var(--ink)" }}>The model is swappable.</strong> Microsoft Foundry gives us every leading frontier model directly in your environment, under your governance. We pick the model to fit the task and re-evaluate continuously — models evolve monthly, and your cost and quality should keep up. Steps that touch personal data always run on models in EU regions.</>,
+                  <><strong style={{ color: "var(--ink)" }}>Modellen är utbytbar.</strong> Microsoft Foundry ger oss alla ledande frontiermodeller direkt i er miljö, under er governance. Vi väljer modell efter uppgiften och omprövar valet löpande — modellerna utvecklas i månadstakt, och er kostnad och kvalitet ska följa med. Persondatakänsliga steg körs alltid på modeller i EU-region.</>
+                )}
+              </p>
             </div>
           </R>
         </div>
+
+        <R delay={0.2}>
+          <div style={{ marginTop: 64, paddingTop: 40, borderTop: "1px solid var(--line)" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "40px 80px", alignItems: "start" }}>
+              <div>
+                <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".22em", textTransform: "uppercase", color: "var(--accent)", marginBottom: 24 }}>
+                  {L("The build engine", "Byggmotorn")}
+                </div>
+                <span className="cfx-display" style={{ fontSize: "clamp(1.05rem, 1.5vw, 1.25rem)", color: "var(--ink-2)" }}>Claude Code</span>
+              </div>
+              <div>
+                <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".22em", textTransform: "uppercase", color: "var(--accent)", marginBottom: 24 }}>
+                  {L("The platforms we deliver on", "Plattformarna vi levererar på")}
+                </div>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "16px 40px", alignItems: "baseline" }}>
+                  {["Microsoft Foundry", "Copilot Studio", "Agent 365", "Power BI", "Microsoft 365"].map((p) => (
+                    <span key={p} className="cfx-display" style={{ fontSize: "clamp(1.05rem, 1.5vw, 1.25rem)", color: "var(--ink-2)" }}>{p}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <p style={{ marginTop: 24, fontSize: 14, lineHeight: 1.6, color: "var(--muted)" }}>
+              {L(
+                "Integrates with the ERP you already run — Business Central, Dynamics 365 F&O, Monitor, SAP, and more.",
+                "Integrerar med affärssystemet ni redan kör — Business Central, Dynamics 365 F&O, Monitor, SAP med flera."
+              )}
+            </p>
+          </div>
+        </R>
       </section>
+
+      <div className="cfx-fade-line" style={{ margin: `0 ${pad}` }} />
 
       {/* CONTACT */}
       <section id="contact" style={{ padding: `clamp(5rem,9vw,8rem) ${pad}`, background: "var(--surface)" }}>
@@ -656,12 +789,12 @@ export default function Cloudfox() {
           <R delay={0.05}>
             <div>
               <h2 className="cfx-display" style={{ fontSize: "clamp(2rem, 4.2vw, 3.4rem)", lineHeight: 1.06, marginBottom: 32 }}>
-                {L(<>Let's find the highest-ROI case in your business.</>, <>Låt oss hitta ert case med högst ROI.</>)}
+                {L(<>Let's find your first flow.</>, <>Låt oss hitta ert första flöde.</>)}
               </h2>
               <p style={{ fontSize: "clamp(1rem, 1.3vw, 1.15rem)", lineHeight: 1.7, color: "var(--ink-2)", maxWidth: "32em" }}>
                 {L(
-                  "Schedule 30 minutes. We'll walk through which cases would create the most acceleration for you — and what a collaboration would look like.",
-                  "Boka 30 min. Vi går igenom vilka cases som ger störst acceleration hos er — och hur ett samarbete skulle se ut."
+                  "Schedule 30 minutes. We'll walk through which flows fit your business — and the path to production: a fixed-price Diagnose.",
+                  "Boka 30 min. Vi går igenom vilka flöden som passar er verksamhet — och vägen till produktion: en Diagnos till fast pris."
                 )}
               </p>
               <div style={{ marginTop: 48, fontSize: 14, lineHeight: 1.8, color: "var(--muted)" }}>
